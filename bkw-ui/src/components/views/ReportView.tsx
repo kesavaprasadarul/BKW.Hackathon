@@ -1,7 +1,6 @@
 'use client';
 
 import { ProgressStepper, defaultSteps } from '@/components/ProgressStepper';
-import { MetricCard } from '@/components/MetricCard';
 import { ComparisonCards } from '@/components/ComparisonCards';
 import { CombinedCostSavingsChart } from '@/components/CombinedCostSavingsChart';
 import { SavingsBreakdownChart } from '@/components/SavingsBreakdownChart';
@@ -93,51 +92,65 @@ export function ReportView() {
         <div className="grid md:grid-cols-2 gap-4 mb-4">
           {/* Metrics - Left Container (50%) */}
           <FadeIn delay={200} duration={400}>
-            <div className="bg-white rounded-lg p-6 border border-gray-100 h-full flex items-center">
-              <div className="grid grid-cols-2 gap-6 w-full">
-                <div className="flex items-start gap-3">
-                  <div className="p-3 bg-blue-100 rounded-lg flex-shrink-0">
-                    <Zap className="w-6 h-6 text-primary-blue" />
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-sm font-medium text-text-secondary mb-1.5">Energieeinsparung</p>
-                    <p className="text-2xl font-bold text-text-primary">18%</p>
-                    <p className="text-sm text-success-green mt-1">↓ 10.8 kWh/m²</p>
-                  </div>
+            <div className="bg-white rounded-lg border border-gray-100 h-full overflow-hidden">
+              <div className="bg-primary-blue/30 px-4 py-2.5 border-b border-primary-blue/50">
+                <div className="flex items-center gap-2">
+                  <TrendingDown className="w-4 h-4 text-primary-blue" />
+                  <h3 className="text-sm font-semibold text-text-primary">Kernergebnisse</h3>
                 </div>
+              </div>
+              <div className="p-4">
+                <div className="flex flex-col gap-4  pt-7">
+                  {/* Row 1 */}
+                  <div className="grid grid-cols-2 gap-x-4 w-full">
+                    <div className="flex items-start gap-2.5">
+                      <div className="p-2.5 bg-blue-100 rounded-lg flex-shrink-0">
+                        <Zap className="w-5 h-5 text-primary-blue" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-xs font-medium text-text-secondary mb-1">Energieeinsparung</p>
+                        <p className="text-xl font-bold text-text-primary">18%</p>
+                        <p className="text-xs text-success-green mt-0.5">↓ 10.8 kWh/m²</p>
+                      </div>
+                    </div>
 
-                <div className="flex items-start gap-3">
-                  <div className="p-3 bg-green-100 rounded-lg flex-shrink-0">
-                    <Euro className="w-6 h-6 text-success-green" />
+                    <div className="flex items-start gap-2.5">
+                      <div className="p-2.5 bg-green-100 rounded-lg flex-shrink-0">
+                        <Euro className="w-5 h-5 text-success-green" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-xs font-medium text-text-secondary mb-1">Kosteneinsparung</p>
+                        <p className="text-xl font-bold text-text-primary">
+                          €{totalSavings.toLocaleString('de-DE')}
+                        </p>
+                        <p className="text-xs text-success-green mt-0.5">pro Jahr</p>
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex-1">
-                    <p className="text-sm font-medium text-text-secondary mb-1.5">Kosteneinsparung</p>
-                    <p className="text-2xl font-bold text-text-primary">
-                      €{totalSavings.toLocaleString('de-DE')}
-                    </p>
-                    <p className="text-sm text-success-green mt-1">pro Jahr</p>
-                  </div>
-                </div>
 
-                <div className="flex items-start gap-3">
-                  <div className="p-3 bg-orange-100 rounded-lg flex-shrink-0">
-                    <TrendingDown className="w-6 h-6 text-warning-amber" />
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-sm font-medium text-text-secondary mb-1.5">Heizleistung</p>
-                    <p className="text-2xl font-bold text-text-primary">57 kW</p>
-                    <p className="text-sm text-success-green mt-1">↓ 12 kW optimiert</p>
-                  </div>
-                </div>
+                  {/* Row 2 */}
+                  <div className="grid grid-cols-2 gap-x-4 gap-y-5 pt-7 w-full">
+                    <div className="flex items-start gap-2.5">
+                      <div className="p-2.5 bg-orange-100 rounded-lg flex-shrink-0">
+                        <TrendingDown className="w-5 h-5 text-warning-amber" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-xs font-medium text-text-secondary">Heizleistung</p>
+                        <p className="text-xl font-bold text-text-primary">57 kW</p>
+                        <p className="text-xs text-success-green mt-0.5">↓ 12 kW optimiert</p>
+                      </div>
+                    </div>
 
-                <div className="flex items-start gap-3">
-                  <div className="p-3 bg-green-100 rounded-lg flex-shrink-0">
-                    <Leaf className="w-6 h-6 text-success-green" />
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-sm font-medium text-text-secondary mb-1.5">CO₂-Reduktion</p>
-                    <p className="text-2xl font-bold text-text-primary">4.8 t</p>
-                    <p className="text-sm text-success-green mt-1">pro Jahr</p>
+                    <div className="flex items-start gap-2.5">
+                      <div className="p-2.5 bg-green-100 rounded-lg flex-shrink-0">
+                        <Leaf className="w-5 h-5 text-success-green" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-xs font-medium text-text-secondary">CO₂-Reduktion</p>
+                        <p className="text-xl font-bold text-text-primary">4.8 t</p>
+                        <p className="text-xs text-success-green mt-0.5">pro Jahr</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -279,123 +292,7 @@ export function ReportView() {
             </table>
           </div>
         </div>
-          </FadeIn>
-
-        {/* Tabs for Additional Information */}
-        <FadeIn delay={1500} duration={500}>
-          <div className="bg-white rounded-lg border border-gray-100 overflow-hidden">
-          {/* Tab Headers */}
-          <div className="flex border-b border-gray-200">
-            <button
-              onClick={() => setActiveTab('overview')}
-              className={`flex-1 py-2 px-4 text-xs font-semibold transition-colors ${
-                activeTab === 'overview'
-                  ? 'bg-primary-blue text-white'
-                  : 'text-text-secondary hover:bg-gray-50'
-              }`}
-            >
-              Übersicht
-            </button>
-            <button
-              onClick={() => setActiveTab('details')}
-              className={`flex-1 py-2 px-4 text-xs font-semibold transition-colors ${
-                activeTab === 'details'
-                  ? 'bg-primary-blue text-white'
-                  : 'text-text-secondary hover:bg-gray-50'
-              }`}
-            >
-              Details
-            </button>
-            <button
-              onClick={() => setActiveTab('recommendations')}
-              className={`flex-1 py-2 px-4 text-xs font-semibold transition-colors ${
-                activeTab === 'recommendations'
-                  ? 'bg-primary-blue text-white'
-                  : 'text-text-secondary hover:bg-gray-50'
-              }`}
-            >
-              Empfehlungen
-            </button>
-          </div>
-
-          {/* Tab Content */}
-          <div className="p-4">
-            {activeTab === 'overview' && (
-              <div className="space-y-2">
-                <p className="text-xs text-text-secondary">
-                  Die KI-gestützte Analyse hat erhebliches Optimierungspotenzial identifiziert.
-                  Jährlich bis zu €7,800 Einsparung durch intelligente Raumtyp-Anpassungen und
-                  Energieverbrauchsprognosen. 47 Raumtypen (von 52) mit Ø 45 W/m² (-18%).
-                </p>
-              </div>
-            )}
-
-            {activeTab === 'details' && (
-              <div className="grid md:grid-cols-2 gap-4">
-                <div>
-                  <h4 className="text-xs font-semibold text-text-primary mb-1.5">Gebäudedaten</h4>
-                  <ul className="space-y-1 text-xs text-text-secondary">
-                    <li>• Fläche: 1,274 m²</li>
-                    <li>• Räume: 47</li>
-                    <li>• Ø Größe: 24.5 m²</li>
-                    <li>• Baujahr: 2010</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="text-xs font-semibold text-text-primary mb-1.5">Heizsystem</h4>
-                  <ul className="space-y-1 text-xs text-text-secondary">
-                    <li>• Typ: Niedertemperatur</li>
-                    <li>• Vorlauf: 55°C</li>
-                    <li>• Heizkreise: 6</li>
-                    <li>• Regelung: Zeit + Nutzung</li>
-                  </ul>
-                </div>
-              </div>
-            )}
-
-            {activeTab === 'recommendations' && (
-              <div className="space-y-2.5">
-                <div className="flex gap-2.5">
-                  <div className="w-6 h-6 bg-primary-blue rounded-lg flex items-center justify-center flex-shrink-0">
-                    <span className="text-white font-bold text-xs">1</span>
-                  </div>
-                  <div>
-                    <h4 className="text-xs font-semibold text-text-primary">Raumtypen aktualisieren</h4>
-                    <p className="text-xs text-text-secondary">Implementieren Sie die Raumtyp-Änderungen</p>
-                  </div>
-                </div>
-                <div className="flex gap-2.5">
-                  <div className="w-6 h-6 bg-primary-blue rounded-lg flex items-center justify-center flex-shrink-0">
-                    <span className="text-white font-bold text-xs">2</span>
-                  </div>
-                  <div>
-                    <h4 className="text-xs font-semibold text-text-primary">Heizkreise neu gruppieren</h4>
-                    <p className="text-xs text-text-secondary">Optimierte Konfiguration reduziert Wärmeverluste</p>
-                  </div>
-                </div>
-                <div className="flex gap-2.5">
-                  <div className="w-6 h-6 bg-primary-blue rounded-lg flex items-center justify-center flex-shrink-0">
-                    <span className="text-white font-bold text-xs">3</span>
-                  </div>
-                  <div>
-                    <h4 className="text-xs font-semibold text-text-primary">Intelligente Steuerung</h4>
-                    <p className="text-xs text-text-secondary">Nutzungsbasierte Regelungstechnik installieren</p>
-                  </div>
-                </div>
-                <div className="flex gap-2.5">
-                  <div className="w-6 h-6 bg-primary-blue rounded-lg flex items-center justify-center flex-shrink-0">
-                    <span className="text-white font-bold text-xs">4</span>
-                  </div>
-                  <div>
-                    <h4 className="text-xs font-semibold text-text-primary">Monitoring einrichten</h4>
-                    <p className="text-xs text-text-secondary">Kontinuierliches Energiemonitoring etablieren</p>
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
-          </FadeIn>
+      </FadeIn>
       </div>
     </main>
   );

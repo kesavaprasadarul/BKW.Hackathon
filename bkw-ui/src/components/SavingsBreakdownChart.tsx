@@ -39,22 +39,27 @@ export function SavingsBreakdownChart({ totalSavings }: SavingsBreakdownChartPro
   };
 
   return (
-    <div className="bg-white rounded-lg p-6 border border-gray-100 h-full">
-      <h3 className="text-base font-semibold text-text-primary mb-4">
-        Einsparungen nach Kategorie
-      </h3>
-      <div className="flex items-center gap-6">
+    <div className="bg-white rounded-lg border border-gray-100 h-full overflow-hidden">
+      <div className="bg-primary-blue/30 px-4 py-2.5 border-b border-primary-blue/50">
+        <div className="flex items-center gap-2">
+          <div className="w-4 h-4 flex items-center justify-center">
+            <div className="w-3 h-3 rounded-full border-2 border-primary-blue" />
+          </div>
+          <h3 className="text-sm font-semibold text-text-primary">Einsparungen nach Kategorie</h3>
+        </div>
+      </div>
+      <div className="p-4 flex items-center gap-4">
         {/* Custom Legend - Left Side */}
-        <div className="flex-shrink-0 space-y-3">
+        <div className="flex-shrink-0 space-y-2">
           {data.map((entry, index) => (
-            <div key={entry.name} className="flex items-center gap-3">
+            <div key={entry.name} className="flex items-center gap-2">
               <div
-                className="w-4 h-4 rounded-sm flex-shrink-0"
+                className="w-3 h-3 rounded-sm flex-shrink-0"
                 style={{ backgroundColor: COLORS[index] }}
               />
               <div className="flex flex-col">
-                <span className="text-sm text-text-secondary whitespace-nowrap">{entry.name}</span>
-                <span className="text-sm font-semibold text-text-primary">{entry.value}%</span>
+                <span className="text-xs text-text-secondary whitespace-nowrap">{entry.name}</span>
+                <span className="text-xs font-semibold text-text-primary">{entry.value}%</span>
               </div>
             </div>
           ))}
@@ -62,14 +67,14 @@ export function SavingsBreakdownChart({ totalSavings }: SavingsBreakdownChartPro
 
         {/* Pie Chart - Right Side */}
         <div className="flex-1">
-          <ResponsiveContainer width="100%" height={280}>
+          <ResponsiveContainer width="100%" height={220}>
             <PieChart>
               <Pie
                 data={data}
                 cx="50%"
                 cy="50%"
-                innerRadius={75}
-                outerRadius={105}
+                innerRadius={65}
+                outerRadius={90}
                 paddingAngle={3}
                 dataKey="value"
               >
