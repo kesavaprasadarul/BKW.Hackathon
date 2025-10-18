@@ -5,20 +5,27 @@ import { MetricCard } from '@/components/MetricCard';
 import { FadeIn } from '@/components/FadeIn';
 import { Zap, Flame, TrendingDown } from 'lucide-react';
 import { useAnalysis } from '@/contexts/AnalysisContext';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 export function Step2View() {
-  const { state, setCurrentStep, markReportComplete } = useAnalysis();
+  const { state, setCurrentStep, markReportComplete, markStep2Visited } = useAnalysis();
 
-  // Auto-advance to report after 2.0 seconds
+  // Auto-advance to report only on first visit
   useEffect(() => {
-    const timer = setTimeout(() => {
-      markReportComplete();
-      setCurrentStep('report');
-    }, 2000);
+    if (!state.step2Visited) {
+      // Mark as visited immediately
+      markStep2Visited();
 
-    return () => clearTimeout(timer);
-  }, [setCurrentStep, markReportComplete]);
+      // Auto-advance after 2 seconds
+      const timer = setTimeout(() => {
+        markReportComplete();
+        setCurrentStep('report');
+      }, 2000);
+
+      return () => clearTimeout(timer);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const steps = defaultSteps.map((step, index) => ({
     ...step,

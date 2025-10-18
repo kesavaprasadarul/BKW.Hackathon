@@ -5,19 +5,26 @@ import { MetricCard } from '@/components/MetricCard';
 import { FadeIn } from '@/components/FadeIn';
 import { Building, CheckCircle2, TrendingUp } from 'lucide-react';
 import { useAnalysis } from '@/contexts/AnalysisContext';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 export function Step1View() {
-  const { state, setCurrentStep } = useAnalysis();
+  const { state, setCurrentStep, markStep1Visited } = useAnalysis();
 
-  // Auto-advance to step 2 processing after 2.0 seconds
+  // Auto-advance to step 2 processing only on first visit
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setCurrentStep('step2-processing');
-    }, 2000);
+    if (!state.step1Visited) {
+      // Mark as visited immediately
+      markStep1Visited();
 
-    return () => clearTimeout(timer);
-  }, [setCurrentStep]);
+      // Auto-advance after 2 seconds
+      const timer = setTimeout(() => {
+        setCurrentStep('step2-processing');
+      }, 2000);
+
+      return () => clearTimeout(timer);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // Steps - all clickable if completed
   const steps = defaultSteps.map((step, index) => ({

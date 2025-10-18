@@ -10,6 +10,9 @@ interface AnalysisState {
   step1Completed: boolean;
   step2Completed: boolean;
   reportCompleted: boolean;
+  step1Visited: boolean;
+  step2Visited: boolean;
+  isProcessing: boolean;
 }
 
 interface AnalysisContextType {
@@ -19,6 +22,9 @@ interface AnalysisContextType {
   markStep1Complete: () => void;
   markStep2Complete: () => void;
   markReportComplete: () => void;
+  markStep1Visited: () => void;
+  markStep2Visited: () => void;
+  setProcessing: (isProcessing: boolean) => void;
   resetAnalysis: () => void;
 }
 
@@ -30,6 +36,9 @@ const initialState: AnalysisState = {
   step1Completed: false,
   step2Completed: false,
   reportCompleted: false,
+  step1Visited: false,
+  step2Visited: false,
+  isProcessing: false,
 };
 
 export function AnalysisProvider({ children }: { children: ReactNode }) {
@@ -55,6 +64,18 @@ export function AnalysisProvider({ children }: { children: ReactNode }) {
     setState(prev => ({ ...prev, reportCompleted: true }));
   };
 
+  const markStep1Visited = () => {
+    setState(prev => ({ ...prev, step1Visited: true }));
+  };
+
+  const markStep2Visited = () => {
+    setState(prev => ({ ...prev, step2Visited: true }));
+  };
+
+  const setProcessing = (isProcessing: boolean) => {
+    setState(prev => ({ ...prev, isProcessing }));
+  };
+
   const resetAnalysis = () => {
     setState(initialState);
   };
@@ -68,6 +89,9 @@ export function AnalysisProvider({ children }: { children: ReactNode }) {
         markStep1Complete,
         markStep2Complete,
         markReportComplete,
+        markStep1Visited,
+        markStep2Visited,
+        setProcessing,
         resetAnalysis,
       }}
     >

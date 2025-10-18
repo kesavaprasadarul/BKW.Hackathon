@@ -18,9 +18,14 @@ interface ProgressStepperProps {
 }
 
 export function ProgressStepper({ steps }: ProgressStepperProps) {
-  const { setCurrentStep } = useAnalysis();
+  const { state, setCurrentStep } = useAnalysis();
 
   const handleStepClick = (step: Step) => {
+    // Block navigation if currently processing
+    if (state.isProcessing) {
+      return;
+    }
+
     // Allow navigation if step has a path (completed, active, or accessible)
     if (step.path) {
       setCurrentStep(step.path);
@@ -41,7 +46,7 @@ export function ProgressStepper({ steps }: ProgressStepperProps) {
                 <div className="flex flex-col items-center">
                   <button
                     onClick={() => handleStepClick(step)}
-                    disabled={!isClickable}
+                    disabled={!isClickable || state.isProcessing}
                     className={`
                       w-9 h-9 rounded-full flex items-center justify-center transition-all duration-200
                       ${
@@ -53,7 +58,7 @@ export function ProgressStepper({ steps }: ProgressStepperProps) {
                           ? 'border-2 border-primary-blue bg-white'
                           : 'border-2 border-gray-300 bg-white'
                       }
-                      ${isClickable ? 'cursor-pointer hover:scale-110' : 'cursor-not-allowed opacity-60'}
+                      ${isClickable && !state.isProcessing ? 'cursor-pointer hover:scale-110' : 'cursor-not-allowed opacity-60'}
                     `}
                     aria-label={`Go to ${step.name}`}
                   >

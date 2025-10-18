@@ -7,18 +7,35 @@ import { useAnalysis } from '@/contexts/AnalysisContext';
 import { useEffect } from 'react';
 
 export function Step2ProcessingView() {
-  const { state, setCurrentStep, markStep2Complete } = useAnalysis();
+  const { state, setCurrentStep, markStep2Complete, setProcessing } = useAnalysis();
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setCurrentStep('step2');
-      markStep2Complete();
-    }, 2000);
+    let isMounted = true;
+
+    // Simulated API call for step 2
+    const apiCall = async () => {
+      setProcessing(true);
+
+      // Simulate POST API call (1 second)
+      await new Promise(resolve => setTimeout(resolve, 1000));
+
+      if (isMounted) {
+        // Mark step 2 as complete
+        markStep2Complete();
+
+        // Navigate to step 2 results
+        setCurrentStep('step2');
+        setProcessing(false);
+      }
+    };
+
+    apiCall();
 
     return () => {
-      clearTimeout(timer);
+      isMounted = false;
     };
-  }, [setCurrentStep, markStep2Complete]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const steps = defaultSteps.map((step, index) => ({
     ...step,
