@@ -4,12 +4,18 @@ from pathlib import Path
 from typing import Dict, List
 import pandas as pd
 
+from src.roomtypes.io import (
+    load_wb,
+    save_wb,
+    detect_header_xlsx,
+    ensure_nr_column,
+    iter_data_rows,
+)
 from src.roomtypes.models import Cfg
 from src.roomtypes.matching import (
     load_mapping,
     norm_text,
     best_match_fulltext,
-    detect_header,
 )
 from src.roomtypes.cache import load_cache, save_cache
 from src.ai import AIService
@@ -54,52 +60,42 @@ def _validate_against_catalog(res: dict, catalog: List[Dict[str, str]]) -> dict:
 def process(
     mapping_csv: Path, target_xlsx: Path, output_xlsx: Path, report_csv: Path, cfg: Cfg
 ):
-    """Process roomtypes"""
+    """
+    Reads the Excel file with openpyxl and writes ONLY the target cells (Nummer Raumtyp column),
+    preserving all original formatting and formulas in other cells/sheets.
+    """
     ai = AIService()
-
     mapping = load_mapping(mapping_csv)
     catalog = [
         {"nr": r["Nr"], "roomtype": r["Roomtype"]} for _, r in mapping.iterrows()
     ]
     cache = load_cache(cfg.cache_path)
 
-    from src.roomtypes.io import read_sheets, write_output, write_report
+    report_rows: List[dict] = []
 
-    report_rows, out_sheets = [], []
+    wb = load_wb(target_xlsx)
 
-    for sheet, raw in read_sheets(target_xlsx):
-        header_row, bez_idx, nr_idx = detect_header(raw, cfg.max_scan_rows)
-        if header_row is None or bez_idx is None:
-            out_sheets.append((sheet, raw))
+    for ws in wb.worksheets:
+        header_row, bez_col, nr_col = detect_header_xlsx(ws, cfg.max_scan_rows)
+        if header_row is None or bez_col is None:
             continue
 
-        headers = raw.iloc[header_row].tolist()
-        data = raw.iloc[header_row + 1 :].copy()
-        data.columns = [
-            str(h) if pd.notna(h) else f"Unnamed_{i}" for i, h in enumerate(headers)
-        ]
+        nr_col = ensure_nr_column(ws, header_row, nr_col)
 
-        bez_name = data.columns[bez_idx]
-        nr_name = (
-            data.columns[nr_idx]
-            if nr_idx is not None and nr_idx < len(data.columns)
-            else "Nummer Raumtyp"
-        )
-        if nr_name not in data.columns:
-            data[nr_name] = ""
-
-        unresolved_idx, unresolved_queries = [], []
-        key_for_idx: Dict[int, str] = {}
+        unresolved_row_idxs: List[int] = []
+        unresolved_queries: List[str] = []
+        key_for_row: Dict[int, str] = {}
         fts_cache_updates: Dict[str, dict] = {}
 
-        # Pass 1: cache / FTS
-        for idx, rb in data[bez_name].items():
-            if pd.isna(rb) or not str(rb).strip():
+        for r in iter_data_rows(ws, header_row):
+            rb_cell = ws.cell(row=r, column=bez_col)
+            rb_val = rb_cell.value
+            if rb_val is None or not str(rb_val).strip():
                 continue
 
-            q = str(rb)
+            q = str(rb_val)
             qkey = norm_text(q)
-            key_for_idx[int(idx)] = qkey
+            key_for_row[r] = qkey
 
             hit = cache.get(qkey)
             if (
@@ -107,11 +103,11 @@ def process(
                 and float(hit.get("confidence", 0.0)) >= cfg.ai_threshold
                 and hit.get("nr")
             ):
-                data.at[idx, nr_name] = hit["nr"]
+                ws.cell(row=r, column=nr_col).value = hit["nr"]
                 report_rows.append(
                     {
-                        "Sheet": sheet,
-                        "RowIndex": int(idx),
+                        "Sheet": ws.title,
+                        "RowIndex": r,
                         "Raum-Bezeichnung": q,
                         "MatchedRoomtype": hit.get("roomtype", ""),
                         "Nr": hit.get("nr", ""),
@@ -126,11 +122,11 @@ def process(
 
             nr, rt, score, _, _ = best_match_fulltext(q, mapping, cfg.top_k)
             if score >= cfg.fts_threshold and nr:
-                data.at[idx, nr_name] = nr
+                ws.cell(row=r, column=nr_col).value = nr
                 report_rows.append(
                     {
-                        "Sheet": sheet,
-                        "RowIndex": int(idx),
+                        "Sheet": ws.title,
+                        "RowIndex": r,
                         "Raum-Bezeichnung": q,
                         "MatchedRoomtype": rt,
                         "Nr": nr,
@@ -148,12 +144,12 @@ def process(
                     "rationale": "fts",
                 }
             else:
-                unresolved_idx.append(int(idx))
+                unresolved_row_idxs.append(r)
                 unresolved_queries.append(q)
                 report_rows.append(
                     {
-                        "Sheet": sheet,
-                        "RowIndex": int(idx),
+                        "Sheet": ws.title,
+                        "RowIndex": r,
                         "Raum-Bezeichnung": q,
                         "MatchedRoomtype": "",
                         "Nr": "",
@@ -165,14 +161,12 @@ def process(
                     }
                 )
 
-        # Pass 2: AI for unresolved
         if unresolved_queries:
             ai_results = ai.choose_roomtypes(
                 queries=unresolved_queries,
                 catalog=catalog,
                 batch_size=cfg.batch_size,
             )
-            # validate, merge into cache
             validated: Dict[str, dict] = {}
             for q in unresolved_queries:
                 key = norm_text(q)
@@ -185,21 +179,23 @@ def process(
             cache.update(validated)
             save_cache(cfg.cache_path, cache)
 
-            for i in unresolved_idx:
+            for r in unresolved_row_idxs:
                 res = cache.get(
-                    key_for_idx[i],
+                    key_for_row[r],
                     {"nr": "", "roomtype": "", "confidence": 0.0, "rationale": ""},
                 )
                 conf = float(res.get("confidence", 0.0))
                 nr_val = res.get("nr", "")
                 rt_val = res.get("roomtype", "")
                 accepted = bool(nr_val and conf >= cfg.ai_threshold)
-                if nr_val:
-                    data.at[i, nr_name] = nr_val
 
-                # update the last row we appended for that (sheet, index)
+                if nr_val:
+                    ws.cell(row=r, column=nr_col).value = (
+                        nr_val  # only touch the target cell
+                    )
+
                 for rr in reversed(report_rows):
-                    if rr["Sheet"] == sheet and rr["RowIndex"] == i:
+                    if rr["Sheet"] == ws.title and rr["RowIndex"] == r:
                         rr.update(
                             {
                                 "MatchedRoomtype": rt_val,
@@ -225,9 +221,5 @@ def process(
                 cache.update(fts_cache_updates)
                 save_cache(cfg.cache_path, cache)
 
-        out_sheets.append((sheet, data))
-
-    from src.roomtypes.io import write_output, write_report
-
-    write_output(out_sheets, output_xlsx)
-    write_report(report_rows, report_csv)
+    save_wb(wb, output_xlsx)
+    pd.DataFrame(report_rows).to_csv(report_csv, index=False, encoding="utf-8-sig")

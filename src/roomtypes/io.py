@@ -1,24 +1,74 @@
 """IO"""
 
+from __future__ import annotations
 from pathlib import Path
-import pandas as pd
+from typing import Dict, Optional, Tuple, Iterable
+from openpyxl import load_workbook
+from openpyxl.worksheet.worksheet import Worksheet
+
+from src.roomtypes.matching import norm_key
+
+HeaderInfo = Tuple[int, Optional[int], Optional[int]]
 
 
-def read_sheets(xlsx_path: Path):
-    """Read sheets from Excel file"""
-    xls = pd.ExcelFile(xlsx_path)
-    for sheet in xls.sheet_names:
-        raw = pd.read_excel(xlsx_path, sheet_name=sheet, header=None)
-        yield sheet, raw
+def load_wb(path: Path):
+    """
+    data_only=False preserves formulas; keep_vba is False by default.
+    """
+    return load_workbook(filename=path, data_only=False)
 
 
-def write_output(out_sheets: list[tuple[str, pd.DataFrame]], output_xlsx: Path) -> None:
-    """Write output to Excel file"""
-    with pd.ExcelWriter(output_xlsx, engine="openpyxl") as w:
-        for sheet, df in out_sheets:
-            df.to_excel(w, sheet_name=sheet, index=False)
+def save_wb(wb, out_path: Path):
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    wb.save(out_path)
 
 
-def write_report(rows: list[dict], report_csv: Path) -> None:
-    """Write report to CSV file"""
-    pd.DataFrame(rows).to_csv(report_csv, index=False, encoding="utf-8-sig")
+def detect_header_xlsx(ws: Worksheet, max_scan_rows: int) -> HeaderInfo:
+    """
+    Find the header row (1-based), and the columns for:
+      - Raum-Bezeichnung (bez_col)
+      - Nummer Raumtyp (nr_col)
+    """
+    for r in range(1, min(max_scan_rows, ws.max_row) + 1):
+        row_vals = [ws.cell(row=r, column=c).value for c in range(1, ws.max_column + 1)]
+        m: Dict[str, int] = {}
+        for c_idx, v in enumerate(row_vals, start=1):
+            nk = norm_key(v)
+            if nk:
+                m[nk] = c_idx
+
+        bez_aliases = {
+            "raumbezeichnung",
+            "raumbezeich",
+            "raumbez",
+            "raumbezeichng",
+            "raumbezchung",
+            "raum-bezeichnung",
+        }
+        nr_aliases = {"nummerraumtyp", "nummer raumtyp"}
+
+        bez_col = next((m[k] for k in bez_aliases if k in m), None)
+        nr_col = next((m[k] for k in nr_aliases if k in m), None)
+        if bez_col is not None or nr_col is not None:
+            return r, bez_col, nr_col
+
+    return None, None, None
+
+
+def ensure_nr_column(ws: Worksheet, header_row: int, nr_col: Optional[int]) -> int:
+    """
+    If "Nummer Raumtyp" column is missing, create it as the last column
+    """
+    if nr_col is not None:
+        return nr_col
+    new_col = ws.max_column + 1
+    ws.cell(row=header_row, column=new_col).value = "Nummer Raumtyp"
+    return new_col
+
+
+def iter_data_rows(ws: Worksheet, header_row: int) -> Iterable[int]:
+    """
+    Yield row indices (1-based) of data rows: header_row+1 .. max_row.
+    """
+    for r in range(header_row + 1, ws.max_row + 1):
+        yield r
