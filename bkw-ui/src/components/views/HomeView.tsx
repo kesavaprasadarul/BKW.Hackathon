@@ -5,10 +5,10 @@ import { UploadArea } from '@/components/UploadArea';
 import { useAnalysis } from '@/contexts/AnalysisContext';
 
 export function HomeView() {
-  const { setUploadedFile, setCurrentStep } = useAnalysis();
+  const { setUploadedFiles, setCurrentStep } = useAnalysis();
 
-  const handleFileSelect = (file: File) => {
-    setUploadedFile(file);
+  const handleFileSelect = (file1: File, file2: File) => {
+    setUploadedFiles(file1, file2);
     // Start automatic analysis flow
     setTimeout(() => {
       setCurrentStep('processing');
@@ -33,7 +33,7 @@ export function HomeView() {
 
         {/* Subtitle */}
         <p className="text-base text-text-secondary mb-6 max-w-2xl mx-auto">
-          Laden Sie Ihre Leistungsermittlung hoch für KI-gestützte Prognosen zu
+          Laden Sie Ihre Dateien hoch für KI-gestützte Prognosen zu
           Heizleistung, Energieverbrauch und Kostenoptimierung
         </p>
 

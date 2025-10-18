@@ -18,8 +18,8 @@ export function ProcessingView() {
       setProcessing(true);
 
       try {
-        // Call API with uploaded file
-        const data = await fetchStep1Analysis(state.uploadedFile!);
+        // Call API with both uploaded files
+        const data = await fetchStep1Analysis(state.uploadedFiles.file1!, state.uploadedFiles.file2!);
 
         if (isMounted) {
           // Store the data globally

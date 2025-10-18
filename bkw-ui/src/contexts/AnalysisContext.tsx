@@ -19,7 +19,10 @@ export interface Step2Data {
 
 interface AnalysisState {
   currentStep: AnalysisStep;
-  uploadedFile: File | null;
+  uploadedFiles: {
+    file1: File | null;
+    file2: File | null;
+  };
   step1Completed: boolean;
   step2Completed: boolean;
   reportCompleted: boolean;
@@ -33,7 +36,7 @@ interface AnalysisState {
 interface AnalysisContextType {
   state: AnalysisState;
   setCurrentStep: (step: AnalysisStep) => void;
-  setUploadedFile: (file: File) => void;
+  setUploadedFiles: (file1: File, file2: File) => void;
   markStep1Complete: () => void;
   markStep2Complete: () => void;
   markReportComplete: () => void;
@@ -49,7 +52,10 @@ const AnalysisContext = createContext<AnalysisContextType | undefined>(undefined
 
 const initialState: AnalysisState = {
   currentStep: 'home',
-  uploadedFile: null,
+  uploadedFiles: {
+    file1: null,
+    file2: null,
+  },
   step1Completed: false,
   step2Completed: false,
   reportCompleted: false,
@@ -67,8 +73,8 @@ export function AnalysisProvider({ children }: { children: ReactNode }) {
     setState(prev => ({ ...prev, currentStep: step }));
   };
 
-  const setUploadedFile = (file: File) => {
-    setState(prev => ({ ...prev, uploadedFile: file }));
+  const setUploadedFiles = (file1: File, file2: File) => {
+    setState(prev => ({ ...prev, uploadedFiles: { file1, file2 } }));
   };
 
   const markStep1Complete = () => {
@@ -112,7 +118,7 @@ export function AnalysisProvider({ children }: { children: ReactNode }) {
       value={{
         state,
         setCurrentStep,
-        setUploadedFile,
+        setUploadedFiles,
         markStep1Complete,
         markStep2Complete,
         markReportComplete,
