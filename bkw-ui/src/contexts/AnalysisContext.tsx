@@ -4,6 +4,19 @@ import { createContext, useContext, useState, ReactNode } from 'react';
 
 export type AnalysisStep = 'home' | 'processing' | 'step1' | 'step2-processing' | 'step2' | 'report';
 
+export interface Step1Data {
+  optimizedRooms: number;
+  totalRooms: number;
+  improvementRate: number;
+  confidence: number;
+}
+
+export interface Step2Data {
+  energyConsumption: number;
+  reductionPercentage: number;
+  annualSavings: number;
+}
+
 interface AnalysisState {
   currentStep: AnalysisStep;
   uploadedFile: File | null;
@@ -13,6 +26,8 @@ interface AnalysisState {
   step1Visited: boolean;
   step2Visited: boolean;
   isProcessing: boolean;
+  step1Data: Step1Data | null;
+  step2Data: Step2Data | null;
 }
 
 interface AnalysisContextType {
@@ -25,6 +40,8 @@ interface AnalysisContextType {
   markStep1Visited: () => void;
   markStep2Visited: () => void;
   setProcessing: (isProcessing: boolean) => void;
+  setStep1Data: (data: Step1Data) => void;
+  setStep2Data: (data: Step2Data) => void;
   resetAnalysis: () => void;
 }
 
@@ -39,6 +56,8 @@ const initialState: AnalysisState = {
   step1Visited: false,
   step2Visited: false,
   isProcessing: false,
+  step1Data: null,
+  step2Data: null,
 };
 
 export function AnalysisProvider({ children }: { children: ReactNode }) {
@@ -76,6 +95,14 @@ export function AnalysisProvider({ children }: { children: ReactNode }) {
     setState(prev => ({ ...prev, isProcessing }));
   };
 
+  const setStep1Data = (data: Step1Data) => {
+    setState(prev => ({ ...prev, step1Data: data }));
+  };
+
+  const setStep2Data = (data: Step2Data) => {
+    setState(prev => ({ ...prev, step2Data: data }));
+  };
+
   const resetAnalysis = () => {
     setState(initialState);
   };
@@ -92,6 +119,8 @@ export function AnalysisProvider({ children }: { children: ReactNode }) {
         markStep1Visited,
         markStep2Visited,
         setProcessing,
+        setStep1Data,
+        setStep2Data,
         resetAnalysis,
       }}
     >

@@ -4,28 +4,39 @@ import { ProgressStepper, defaultSteps } from '@/components/ProgressStepper';
 import { LoadingState } from '@/components/LoadingState';
 import { Brain } from 'lucide-react';
 import { useAnalysis } from '@/contexts/AnalysisContext';
+import { fetchStep1Analysis } from '@/services/api';
 import { useEffect } from 'react';
 
 export function ProcessingView() {
-  const { setCurrentStep, markStep1Complete, setProcessing } = useAnalysis();
+  const { state, setCurrentStep, markStep1Complete, setProcessing, setStep1Data } = useAnalysis();
 
   useEffect(() => {
     let isMounted = true;
 
-    // Simulated API call for step 1
+    // API call for step 1
     const apiCall = async () => {
       setProcessing(true);
 
-      // Simulate POST API call (1 second)
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      try {
+        // Call API with uploaded file
+        const data = await fetchStep1Analysis(state.uploadedFile!);
 
-      if (isMounted) {
-        // Mark step 1 as complete
-        markStep1Complete();
+        if (isMounted) {
+          // Store the data globally
+          setStep1Data(data);
 
-        // Navigate to step 1 results
-        setCurrentStep('step1');
-        setProcessing(false);
+          // Mark step 1 as complete
+          markStep1Complete();
+
+          // Navigate to step 1 results
+          setCurrentStep('step1');
+        }
+      } catch (error) {
+        console.error('Step 1 API error:', error);
+      } finally {
+        if (isMounted) {
+          setProcessing(false);
+        }
       }
     };
 
