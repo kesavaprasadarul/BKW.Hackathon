@@ -1,3 +1,5 @@
+"""Matching"""
+
 import re
 import unicodedata
 from typing import List, Tuple
@@ -19,12 +21,14 @@ _NR_ALIASES = {"nummerraumtyp", "nummer raumtyp"}
 
 
 def fold(s: str) -> str:
+    """Fold string by removing punctuation and whitespace"""
     s = s.strip().lower()
     s = unicodedata.normalize("NFKD", s)
     return s.replace("ä", "ae").replace("ö", "oe").replace("ü", "ue").replace("ß", "ss")
 
 
 def norm_text(x) -> str:
+    """Normalize text by removing punctuation and whitespace"""
     if x is None:
         return ""
     s = fold(str(x))
@@ -33,12 +37,14 @@ def norm_text(x) -> str:
 
 
 def norm_key(x) -> str:
+    """Normalize key by removing punctuation and whitespace"""
     if x is None:
         return ""
     return _HEADER_JUNK.sub("", fold(str(x)))
 
 
 def load_mapping(mapping_csv) -> pd.DataFrame:
+    """Load mapping from CSV file"""
     m = pd.read_csv(mapping_csv, dtype=str).fillna("")
     col_map = {c.lower(): c for c in m.columns}
     nr_col = col_map.get("nr") or "Nr"
@@ -52,6 +58,7 @@ def load_mapping(mapping_csv) -> pd.DataFrame:
 
 
 def fulltext_score(q: str, c: str) -> float:
+    """Calculate fulltext score"""
     if not q or not c:
         return 0.0
     if q == c:
@@ -71,6 +78,7 @@ def fulltext_score(q: str, c: str) -> float:
 
 
 def best_match_fulltext(query: str, mapping_df: pd.DataFrame, k: int):
+    """Find best match fulltext"""
     qn = norm_text(query)
     if not qn:
         return "", "", 0.0, [], []
@@ -92,6 +100,7 @@ def best_match_fulltext(query: str, mapping_df: pd.DataFrame, k: int):
 
 
 def detect_header(df: pd.DataFrame, max_scan_rows: int) -> Tuple[int, int, int]:
+    """Detect header positions by looking for "nr" and "bezeichnung" in the header"""
     for r in range(min(max_scan_rows, len(df))):
         row = df.iloc[r, :]
         m = {norm_key(v): i for i, v in enumerate(row)}

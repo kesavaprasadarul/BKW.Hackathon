@@ -1,3 +1,5 @@
+"""Service"""
+
 from pathlib import Path
 from typing import Dict, List
 import pandas as pd
@@ -14,16 +16,20 @@ from src.ai import AIService
 
 
 def _validate_against_catalog(res: dict, catalog: List[Dict[str, str]]) -> dict:
+    """Validate against catalog"""
     nr = (res.get("nr") or "").strip()
     rt = (res.get("roomtype") or "").strip()
 
     def _c_nr(c: Dict[str, str]) -> str:
+        """Get NR from catalog"""
         return str(c.get("nr", c.get("Nr", ""))).strip()
 
     def _c_rt(c: Dict[str, str]) -> str:
+        """Get Roomtype from catalog"""
         return str(c.get("roomtype", c.get("Roomtype", ""))).strip()
 
     if nr and any(_c_nr(c) == nr for c in catalog):
+        """If NR is in catalog, return result"""
         return res
 
     nrt = norm_text(rt)
@@ -48,6 +54,7 @@ def _validate_against_catalog(res: dict, catalog: List[Dict[str, str]]) -> dict:
 def process(
     mapping_csv: Path, target_xlsx: Path, output_xlsx: Path, report_csv: Path, cfg: Cfg
 ):
+    """Process roomtypes"""
     ai = AIService()
 
     mapping = load_mapping(mapping_csv)

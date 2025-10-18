@@ -1,9 +1,13 @@
+"""Models"""
+
 from dataclasses import dataclass
 from pathlib import Path
 
 
 @dataclass(frozen=True)
 class Cfg:
+    """Configuration"""
+
     fts_threshold: float = 0.05
     ai_threshold: float = 0.75
     max_scan_rows: int = 30
