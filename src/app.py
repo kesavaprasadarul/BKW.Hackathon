@@ -31,6 +31,7 @@ def main():
     print("Generiere Erläuterungsbericht...")
     print("="*50)
     content = ai.generate_report_chunked(project_data)
+    # content = "test"
     if not content:
         return
     
@@ -41,9 +42,7 @@ def main():
         print(f"{k}. {v[0]}")
     
     choice = input("Auswahl (1-4): ").strip()
-    
-    # Export
-    print()
+
     if choice == '1':
         print(f"Gespeichert: {designer.pdf(content, 'Erläuterungsbericht')}")
     elif choice == '2':

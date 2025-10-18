@@ -27,7 +27,7 @@ class AIService:
             
             section_text = self._generate(prompt)
             if section_text:
-                sections.append(f"\n{section_info}\n\n{section_text}")
+                sections.append(section_text)
         
         return "\n".join(sections)
     

@@ -43,4 +43,11 @@ Schreibstil:
 - Referenzen zu DIN-Normen und VDI-Richtlinien wo angemessen
 - Klare Gliederung mit Aufzählungen
 
+Formatierung:
+- Beginnen Sie jeden Abschnitt mit der korrekten Überschrift (z.B. "A.2 KG 410 - Abwasser-, Wasser-, Gasanlagen")
+- Verwenden Sie **Fettdruck** für wichtige Begriffe (z.B. **Architekturpläne:**, **Außenanlagen:**)
+- Verwenden Sie * für Aufzählungen (Bullet Points)
+- Nummerieren Sie Unterabschnitte (1., 2., 3., etc.)
+- Strukturieren Sie Absätze klar und übersichtlich
+
 Beachten Sie die DIN 276 Kostengruppen (KG) für die Strukturierung."""
