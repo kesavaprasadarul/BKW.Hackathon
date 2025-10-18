@@ -1,6 +1,6 @@
 """AI Service"""
 import google.generativeai as genai
-git from config import GEMINI_API_KEY, GEMINI_MODEL, SYSTEM_PROMPT, REPORT_STRUCTURE
+from config import GEMINI_API_KEY, GEMINI_MODEL, SYSTEM_PROMPT, REPORT_STRUCTURE
 
 
 class AIService:
