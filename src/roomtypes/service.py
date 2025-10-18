@@ -57,6 +57,14 @@ def _validate_against_catalog(res: dict, catalog: List[Dict[str, str]]) -> dict:
     }
 
 
+def convert_to_int(value: str) -> int:
+    """Convert to integer"""
+    val = str(value).strip()
+    if val.replace(".", "", 1).isdigit():
+        return int(float(val))
+    return val
+
+
 def process(
     mapping_csv: Path, target_xlsx: Path, output_xlsx: Path, report_csv: Path, cfg: Cfg
 ):
@@ -103,7 +111,8 @@ def process(
                 and float(hit.get("confidence", 0.0)) >= cfg.ai_threshold
                 and hit.get("nr")
             ):
-                ws.cell(row=r, column=nr_col).value = int(float(hit["nr"]))
+                val = convert_to_int(hit["nr"])
+                ws.cell(row=r, column=nr_col).value = val
                 report_rows.append(
                     {
                         "Sheet": ws.title,
@@ -122,7 +131,8 @@ def process(
 
             nr, rt, score, _, _ = best_match_fulltext(q, mapping, cfg.top_k)
             if score >= cfg.fts_threshold and nr:
-                ws.cell(row=r, column=nr_col).value = int(float(nr))
+                val = convert_to_int(nr)
+                ws.cell(row=r, column=nr_col).value = val
                 report_rows.append(
                     {
                         "Sheet": ws.title,
@@ -190,9 +200,10 @@ def process(
                 accepted = bool(nr_val and conf >= cfg.ai_threshold)
 
                 if nr_val:
-                    ws.cell(row=r, column=nr_col).value = int(
-                        float(nr_val)
-                    )  # only touch the target cell
+                    val = convert_to_int(nr_val)
+                    ws.cell(row=r, column=nr_col).value = (
+                        val  # only touch the target cell
+                    )
 
                 for rr in reversed(report_rows):
                     if rr["Sheet"] == ws.title and rr["RowIndex"] == r:
