@@ -103,7 +103,7 @@ def process(
                 and float(hit.get("confidence", 0.0)) >= cfg.ai_threshold
                 and hit.get("nr")
             ):
-                ws.cell(row=r, column=nr_col).value = hit["nr"]
+                ws.cell(row=r, column=nr_col).value = int(float(hit["nr"]))
                 report_rows.append(
                     {
                         "Sheet": ws.title,
@@ -122,7 +122,7 @@ def process(
 
             nr, rt, score, _, _ = best_match_fulltext(q, mapping, cfg.top_k)
             if score >= cfg.fts_threshold and nr:
-                ws.cell(row=r, column=nr_col).value = nr
+                ws.cell(row=r, column=nr_col).value = int(float(nr))
                 report_rows.append(
                     {
                         "Sheet": ws.title,
@@ -190,9 +190,9 @@ def process(
                 accepted = bool(nr_val and conf >= cfg.ai_threshold)
 
                 if nr_val:
-                    ws.cell(row=r, column=nr_col).value = (
-                        nr_val  # only touch the target cell
-                    )
+                    ws.cell(row=r, column=nr_col).value = int(
+                        float(nr_val)
+                    )  # only touch the target cell
 
                 for rr in reversed(report_rows):
                     if rr["Sheet"] == ws.title and rr["RowIndex"] == r:
