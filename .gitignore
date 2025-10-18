@@ -210,6 +210,7 @@ __marimo__/
 data/
 .env.local
 README.md
+cache/
 
 
 # Reports directory
