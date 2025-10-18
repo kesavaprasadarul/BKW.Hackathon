@@ -4,24 +4,12 @@ import { ProgressStepper, defaultSteps } from '@/components/ProgressStepper';
 import { LoadingState } from '@/components/LoadingState';
 import { Brain } from 'lucide-react';
 import { useAnalysis } from '@/contexts/AnalysisContext';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 export function ProcessingView() {
   const { setCurrentStep, markStep1Complete } = useAnalysis();
-  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    // Simulate processing with progress
-    const interval = setInterval(() => {
-      setProgress((prev) => {
-        if (prev >= 100) {
-          clearInterval(interval);
-          return 100;
-        }
-        return prev + 10;
-      });
-    }, 150);
-
     // Auto-advance to step 1 after processing
     const timer = setTimeout(() => {
       setCurrentStep('step1');
@@ -29,7 +17,6 @@ export function ProcessingView() {
     }, 2000);
 
     return () => {
-      clearInterval(interval);
       clearTimeout(timer);
     };
   }, [setCurrentStep, markStep1Complete]);
@@ -52,7 +39,6 @@ export function ProcessingView() {
             icon={Brain}
             title="Analyse läuft..."
             message="Optimiere Raumtypen..."
-            progress={progress}
           />
         </div>
       </div>

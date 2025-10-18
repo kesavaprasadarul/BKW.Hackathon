@@ -36,7 +36,7 @@ export function ProgressStepper({ steps }: ProgressStepperProps) {
             const isClickable = !!step.path; // Clickable if it has a path
 
             return (
-              <div key={step.id} className="flex items-center flex-1">
+              <div key={step.id} className={`flex items-center ${step.id === 3 ? '' : 'flex-1'}`}>
                 {/* Step Circle */}
                 <div className="flex flex-col items-center">
                   <button

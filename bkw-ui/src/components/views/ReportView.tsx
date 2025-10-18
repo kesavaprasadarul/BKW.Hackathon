@@ -3,7 +3,8 @@
 import { ProgressStepper, defaultSteps } from '@/components/ProgressStepper';
 import { MetricCard } from '@/components/MetricCard';
 import { ComparisonCards } from '@/components/ComparisonCards';
-import { CostChart } from '@/components/CostChart';
+import { CombinedCostSavingsChart } from '@/components/CombinedCostSavingsChart';
+import { SavingsBreakdownChart } from '@/components/SavingsBreakdownChart';
 import { FadeIn } from '@/components/FadeIn';
 import {
   Download,
@@ -88,43 +89,64 @@ export function ReportView() {
         </div>
         </FadeIn>
 
-        {/* Key Metrics Grid */}
-        <div className="grid md:grid-cols-4 gap-3 mb-4">
+        {/* Key Metrics and Breakdown */}
+        <div className="grid md:grid-cols-2 gap-4 mb-4">
+          {/* Metrics - Left Container (50%) */}
           <FadeIn delay={200} duration={400}>
-            <MetricCard
-              icon={Zap}
-              title="Energieeinsparung"
-              value="18%"
-              delta="25,680 kWh/Jahr"
-              deltaType="positive"
-            />
+            <div className="bg-white rounded-lg p-4 border border-gray-100 h-full">
+              <div className="grid grid-cols-2 gap-3">
+                <div className="flex items-start gap-2">
+                  <div className="p-2 bg-blue-100 rounded-lg">
+                    <Zap className="w-4 h-4 text-primary-blue" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-xs font-medium text-text-secondary mb-1">Energieeinsparung</p>
+                    <p className="text-xl font-bold text-text-primary">18%</p>
+                    <p className="text-xs text-success-green mt-0.5">↓ 10.8 kWh/m²</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-2">
+                  <div className="p-2 bg-green-100 rounded-lg">
+                    <Euro className="w-4 h-4 text-success-green" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-xs font-medium text-text-secondary mb-1">Kosteneinsparung</p>
+                    <p className="text-xl font-bold text-text-primary">
+                      €{totalSavings.toLocaleString('de-DE')}
+                    </p>
+                    <p className="text-xs text-success-green mt-0.5">pro Jahr</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-2">
+                  <div className="p-2 bg-orange-100 rounded-lg">
+                    <TrendingDown className="w-4 h-4 text-warning-amber" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-xs font-medium text-text-secondary mb-1">Heizleistung</p>
+                    <p className="text-xl font-bold text-text-primary">57 kW</p>
+                    <p className="text-xs text-success-green mt-0.5">↓ 12 kW optimiert</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-2">
+                  <div className="p-2 bg-green-100 rounded-lg">
+                    <Leaf className="w-4 h-4 text-success-green" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-xs font-medium text-text-secondary mb-1">CO₂-Reduktion</p>
+                    <p className="text-xl font-bold text-text-primary">4.8 t</p>
+                    <p className="text-xs text-success-green mt-0.5">pro Jahr</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </FadeIn>
-          <FadeIn delay={300} duration={400}>
-            <MetricCard
-              icon={Euro}
-              title="Kosteneinsparung"
-              value={`€${totalSavings.toLocaleString('de-DE')}`}
-              delta={`${savingsPercentage}% pro Jahr`}
-              deltaType="positive"
-            />
-          </FadeIn>
+
+          {/* Pie Chart - Right Container (50%) */}
           <FadeIn delay={400} duration={400}>
-            <MetricCard
-              icon={TrendingDown}
-              title="Heizleistung"
-              value="57 kW"
-              delta="↓ 12% optimiert"
-              deltaType="positive"
-            />
-          </FadeIn>
-          <FadeIn delay={500} duration={400}>
-            <MetricCard
-              icon={Leaf}
-              title="CO₂-Reduktion"
-              value="4.8 t"
-              delta="pro Jahr"
-              deltaType="positive"
-            />
+            <SavingsBreakdownChart totalSavings={totalSavings} />
           </FadeIn>
         </div>
 
@@ -165,10 +187,10 @@ export function ReportView() {
         </div>
           </FadeIn>
 
-        {/* Cost Projection Chart - Full Width */}
+        {/* Combined Cost and Cumulative Savings Chart */}
         <FadeIn delay={900} duration={500}>
           <div className="mb-4">
-            <CostChart data={costData} title="Monatliche Kosteneinsparungen im Jahresverlauf" />
+            <CombinedCostSavingsChart data={costData} title="Monatliche Kosten und Kumulierte Einsparungen" />
           </div>
         </FadeIn>
 
