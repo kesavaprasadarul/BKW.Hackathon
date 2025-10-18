@@ -93,51 +93,51 @@ export function ReportView() {
         <div className="grid md:grid-cols-2 gap-4 mb-4">
           {/* Metrics - Left Container (50%) */}
           <FadeIn delay={200} duration={400}>
-            <div className="bg-white rounded-lg p-4 border border-gray-100 h-full">
-              <div className="grid grid-cols-2 gap-3">
-                <div className="flex items-start gap-2">
-                  <div className="p-2 bg-blue-100 rounded-lg">
-                    <Zap className="w-4 h-4 text-primary-blue" />
+            <div className="bg-white rounded-lg p-6 border border-gray-100 h-full flex items-center">
+              <div className="grid grid-cols-2 gap-6 w-full">
+                <div className="flex items-start gap-3">
+                  <div className="p-3 bg-blue-100 rounded-lg flex-shrink-0">
+                    <Zap className="w-6 h-6 text-primary-blue" />
                   </div>
                   <div className="flex-1">
-                    <p className="text-xs font-medium text-text-secondary mb-1">Energieeinsparung</p>
-                    <p className="text-xl font-bold text-text-primary">18%</p>
-                    <p className="text-xs text-success-green mt-0.5">↓ 10.8 kWh/m²</p>
+                    <p className="text-sm font-medium text-text-secondary mb-1.5">Energieeinsparung</p>
+                    <p className="text-2xl font-bold text-text-primary">18%</p>
+                    <p className="text-sm text-success-green mt-1">↓ 10.8 kWh/m²</p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-2">
-                  <div className="p-2 bg-green-100 rounded-lg">
-                    <Euro className="w-4 h-4 text-success-green" />
+                <div className="flex items-start gap-3">
+                  <div className="p-3 bg-green-100 rounded-lg flex-shrink-0">
+                    <Euro className="w-6 h-6 text-success-green" />
                   </div>
                   <div className="flex-1">
-                    <p className="text-xs font-medium text-text-secondary mb-1">Kosteneinsparung</p>
-                    <p className="text-xl font-bold text-text-primary">
+                    <p className="text-sm font-medium text-text-secondary mb-1.5">Kosteneinsparung</p>
+                    <p className="text-2xl font-bold text-text-primary">
                       €{totalSavings.toLocaleString('de-DE')}
                     </p>
-                    <p className="text-xs text-success-green mt-0.5">pro Jahr</p>
+                    <p className="text-sm text-success-green mt-1">pro Jahr</p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-2">
-                  <div className="p-2 bg-orange-100 rounded-lg">
-                    <TrendingDown className="w-4 h-4 text-warning-amber" />
+                <div className="flex items-start gap-3">
+                  <div className="p-3 bg-orange-100 rounded-lg flex-shrink-0">
+                    <TrendingDown className="w-6 h-6 text-warning-amber" />
                   </div>
                   <div className="flex-1">
-                    <p className="text-xs font-medium text-text-secondary mb-1">Heizleistung</p>
-                    <p className="text-xl font-bold text-text-primary">57 kW</p>
-                    <p className="text-xs text-success-green mt-0.5">↓ 12 kW optimiert</p>
+                    <p className="text-sm font-medium text-text-secondary mb-1.5">Heizleistung</p>
+                    <p className="text-2xl font-bold text-text-primary">57 kW</p>
+                    <p className="text-sm text-success-green mt-1">↓ 12 kW optimiert</p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-2">
-                  <div className="p-2 bg-green-100 rounded-lg">
-                    <Leaf className="w-4 h-4 text-success-green" />
+                <div className="flex items-start gap-3">
+                  <div className="p-3 bg-green-100 rounded-lg flex-shrink-0">
+                    <Leaf className="w-6 h-6 text-success-green" />
                   </div>
                   <div className="flex-1">
-                    <p className="text-xs font-medium text-text-secondary mb-1">CO₂-Reduktion</p>
-                    <p className="text-xl font-bold text-text-primary">4.8 t</p>
-                    <p className="text-xs text-success-green mt-0.5">pro Jahr</p>
+                    <p className="text-sm font-medium text-text-secondary mb-1.5">CO₂-Reduktion</p>
+                    <p className="text-2xl font-bold text-text-primary">4.8 t</p>
+                    <p className="text-sm text-success-green mt-1">pro Jahr</p>
                   </div>
                 </div>
               </div>

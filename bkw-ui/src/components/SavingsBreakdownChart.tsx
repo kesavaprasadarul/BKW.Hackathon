@@ -39,22 +39,22 @@ export function SavingsBreakdownChart({ totalSavings }: SavingsBreakdownChartPro
   };
 
   return (
-    <div className="bg-white rounded-lg p-4 border border-gray-100 h-full">
-      <h3 className="text-sm font-semibold text-text-primary mb-3">
+    <div className="bg-white rounded-lg p-6 border border-gray-100 h-full">
+      <h3 className="text-base font-semibold text-text-primary mb-4">
         Einsparungen nach Kategorie
       </h3>
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-6">
         {/* Custom Legend - Left Side */}
-        <div className="flex-shrink-0 space-y-2">
+        <div className="flex-shrink-0 space-y-3">
           {data.map((entry, index) => (
-            <div key={entry.name} className="flex items-center gap-2 text-xs">
+            <div key={entry.name} className="flex items-center gap-3">
               <div
-                className="w-3 h-3 rounded-sm flex-shrink-0"
+                className="w-4 h-4 rounded-sm flex-shrink-0"
                 style={{ backgroundColor: COLORS[index] }}
               />
               <div className="flex flex-col">
-                <span className="text-text-secondary whitespace-nowrap">{entry.name}</span>
-                <span className="font-medium text-text-primary">{entry.value}%</span>
+                <span className="text-sm text-text-secondary whitespace-nowrap">{entry.name}</span>
+                <span className="text-sm font-semibold text-text-primary">{entry.value}%</span>
               </div>
             </div>
           ))}
@@ -62,15 +62,15 @@ export function SavingsBreakdownChart({ totalSavings }: SavingsBreakdownChartPro
 
         {/* Pie Chart - Right Side */}
         <div className="flex-1">
-          <ResponsiveContainer width="100%" height={220}>
+          <ResponsiveContainer width="100%" height={280}>
             <PieChart>
               <Pie
                 data={data}
                 cx="50%"
                 cy="50%"
-                innerRadius={60}
-                outerRadius={80}
-                paddingAngle={2}
+                innerRadius={75}
+                outerRadius={105}
+                paddingAngle={3}
                 dataKey="value"
               >
                 {data.map((entry, index) => (
