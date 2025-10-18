@@ -17,7 +17,7 @@ import re
 class Designer:
     def __init__(self):
         REPORTS_DIR.mkdir(exist_ok=True)
-        self.logo_path = Path(__file__).parent.parent / "BKW_Energie_logo.png"
+        self.logo_path = Path(__file__).parent.parent / "bkw_eng_logo.png"
     
     def _filename(self, ext):
         return f"report_{datetime.now().strftime('%Y%m%d_%H%M%S')}{ext}"
@@ -117,7 +117,7 @@ class Designer:
     def _add_header(self, story, doc_title, styles):
         """Add header with logo and title"""
         if self.logo_path.exists():
-            logo = Image(str(self.logo_path), width=20*mm, height=7*mm)
+            logo = Image(str(self.logo_path), width=20*mm, height=20*mm)
             
             title_para = Paragraph(doc_title, styles['CustomTitle'])
             
