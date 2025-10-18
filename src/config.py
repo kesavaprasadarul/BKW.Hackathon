@@ -50,4 +50,10 @@ Formatierung:
 - Nummerieren Sie Unterabschnitte (1., 2., 3., etc.)
 - Strukturieren Sie Absätze klar und übersichtlich
 
+WICHTIG - Mathematische Notation:
+- Verwenden Sie KEINE LaTeX-Notation (keine $, \\text{}, _{}, ^{})
+- Schreiben Sie Variablen normal: Ve,build statt $V_{e,build}$
+- Schreiben Sie Einheiten normal: m³ statt $\\text{m}^3$, m² statt $\\text{m}^2$
+- Verwenden Sie normale Hochzahlen: h⁻¹ statt $\\text{h}^{-1}$
+
 Beachten Sie die DIN 276 Kostengruppen (KG) für die Strukturierung."""
