@@ -97,15 +97,3 @@ def best_match_fulltext(query: str, mapping_df: pd.DataFrame, k: int):
     )
     cand_scores = [float(scores[i]) for i in idxs]
     return bnr, brt, bscore, cands, cand_scores
-
-
-def detect_header(df: pd.DataFrame, max_scan_rows: int) -> Tuple[int, int, int]:
-    """Detect header positions by looking for "nr" and "bezeichnung" in the header"""
-    for r in range(min(max_scan_rows, len(df))):
-        row = df.iloc[r, :]
-        m = {norm_key(v): i for i, v in enumerate(row)}
-        bez_idx = next((m[k] for k in _BEZ_ALIASES if k in m), None)
-        nr_idx = next((m[k] for k in _NR_ALIASES if k in m), None)
-        if bez_idx is not None or nr_idx is not None:
-            return r, bez_idx, nr_idx
-    return None, None, None
