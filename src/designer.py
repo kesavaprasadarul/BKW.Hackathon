@@ -17,7 +17,7 @@ class Designer:
     def _filename(self, ext):
         return f"report_{datetime.now().strftime('%Y%m%d_%H%M%S')}{ext}"
     
-    def pdf(self, content):
+    def pdf(self, content, doc_title="AI Generated Report"):
         path = REPORTS_DIR / self._filename('.pdf')
         doc = SimpleDocTemplate(str(path), pagesize=A4)
         styles = getSampleStyleSheet()
@@ -29,9 +29,9 @@ class Designer:
         body = ParagraphStyle('Body', parent=styles['Normal'], fontSize=10, spaceAfter=8)
         
         story = [
-            Paragraph("AI Generated Report", title),
+            Paragraph(doc_title, title),
             Spacer(1, 0.2*inch),
-            Paragraph(f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}", styles['Normal']),
+            Paragraph(f"Erstellt: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}", styles['Normal']),
             Spacer(1, 0.3*inch)
         ]
         
@@ -49,11 +49,11 @@ class Designer:
         doc.build(story)
         return str(path)
     
-    def docx(self, content):
+    def docx(self, content, doc_title="AI Generated Report"):
         path = REPORTS_DIR / self._filename('.docx')
         doc = Document()
-        doc.add_heading('AI Generated Report', 0)
-        doc.add_paragraph(f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+        doc.add_heading(doc_title, 0)
+        doc.add_paragraph(f"Erstellt: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
         doc.add_paragraph()
         
         for line in content.split('\n'):
