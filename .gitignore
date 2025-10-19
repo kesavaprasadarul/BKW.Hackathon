@@ -218,3 +218,4 @@ reports/
 
 # Virtual environment
 venv/
+src/costestimator/bki_data_enriched_regex.json

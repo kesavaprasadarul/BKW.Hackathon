@@ -11,7 +11,7 @@ def load_performance_data(file_path: str) -> pd.DataFrame:
     """
     try:
         # Load the specific sheet, skip initial non-data rows
-        df = pd.read_excel(file_path, sheet_name='Leistungsermittlung KLT_HZG', skiprows=4, header=1)
+        df = pd.read_excel(file_path, skiprows=4, header=1)
 
         required_columns = ['Gesamt Kühllast', 'Gesamt Heizlast', 'Fläche', "Raum-Nr."]
         

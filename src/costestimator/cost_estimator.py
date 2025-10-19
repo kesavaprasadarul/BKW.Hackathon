@@ -128,7 +128,8 @@ def estimate_cost_from_assembly(project_metrics: dict, bki_data: list, assembly_
             "component_template": component_template,
             "quantity": quantity,
             "material_unit_price": material_unit_price,
-            "total_material_price": quantity * material_unit_price
+            "total_material_price": quantity * material_unit_price,
+            "bki_component_title": found_component['title'] if found_component else "N/A"
         })
 
     # Second pass: Calculate percentage-based items
@@ -165,7 +166,8 @@ def estimate_cost_from_assembly(project_metrics: dict, bki_data: list, assembly_
                 **component_template,
                 "quantity": quantity,
                 "material_unit_price": material_unit_price,
-                "total_material_price": material_unit_price
+                "total_material_price": material_unit_price,
+                "bki_component_title": "N/A (Percentage Based)"
             })
 
     # Final calculation of total costs and applying factors

@@ -32,8 +32,8 @@ def main():
     print("Starting the cost estimation process...")
 
     # Define file paths
-    performance_file_path = 'ABP_Leistungsermittlung KLT_HZG - mit Raumtypen_20231.xlsm'
-    bki_file_path = 'bki_data.json'
+    performance_file_path = r'C:\Repos\BKW.Hackathon\data\Daten TUM.AI x BEN\Projekt 5\LP2\Technisches Raumbuch\ABP_Leistungsermittlung KLT_HZG - mit Raumtypen_20231.xlsm'
+    bki_file_path = r'C:\Repos\BKW.Hackathon\static\bki\products_output_2024.json'
     assembly_template_path = 'assembly_templates.json'
     cache_suffix = 'llm' if USE_LLM_ENRICHMENT else 'regex'
     enriched_bki_file_path = f'bki_data_enriched_{cache_suffix}.json'
@@ -96,6 +96,16 @@ def main():
                 print("\n" + "="*105)
                 print(f"{'GRAND TOTAL KG 420:':>88} {detailed_estimate['total_final_cost']:>15.2f}")
                 print("="*105)
+
+                # --- Step 4: Export to JSON ---
+                export_file_path = 'cost_estimate_export.json'
+                try:
+                    with open(export_file_path, 'w', encoding='utf-8') as f:
+                        json.dump(detailed_estimate, f, ensure_ascii=False, indent=4)
+                    print(f"\nSuccessfully exported detailed estimate to {export_file_path}")
+                except Exception as e:
+                    print(f"\nError exporting to JSON: {e}")
+
     else:
         print("Could not proceed due to data loading errors.")
 
