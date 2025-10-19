@@ -1,7 +1,7 @@
 """AI Service"""
 
 import google.generativeai as genai
-from src.config import GEMINI_API_KEY, GEMINI_MODEL, SYSTEM_PROMPT, REPORT_STRUCTURE
+from src.reporting.config import GEMINI_API_KEY, GEMINI_MODEL, SYSTEM_PROMPT, REPORT_STRUCTURE
 import json
 import time
 from typing import List, Dict, Any

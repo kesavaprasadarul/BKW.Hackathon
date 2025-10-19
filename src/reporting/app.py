@@ -1,5 +1,5 @@
 """Main Application"""
-from ai import AIService
+from src.ai import AIService
 from designer import Designer
 from config import FORMATS
 from extractor import extract_project_data
