@@ -59,7 +59,13 @@ export function ReportView() {
   const savingsPercentage = ((totalSavings / totalStandard) * 100).toFixed(1);
 
   const handleExport = () => {
-    alert('Export-Funktion würde hier den Bericht als PDF exportieren');
+    // Create a link element to download the PDF
+    const link = document.createElement('a');
+    link.href = '/report_10.pdf';
+    link.download = 'BKW_Energieanalyse_Bericht.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
