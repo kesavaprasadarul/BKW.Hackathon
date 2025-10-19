@@ -274,7 +274,21 @@ if __name__ == "__main__":
         )
         
         # Analyze the merged DataFrame (skip structure analysis since merge already has proper columns)
-        await test_cost_analysis(merged_df, skip_structure_analysis=True, types=types)
-    
+        power_generated_results = await test_cost_analysis(merged_df, skip_structure_analysis=True, types=types)
+        
+
+        # Add the power estimates back into the Excel file under the appropriate columns
+        for room_nr, estimates in power_generated_results.items():
+            room_mask = merged_df['Raum-Nr.'] == room_nr
+            if not room_mask.any():
+                continue  # Skip if room number not found
+            
+            merged_df.loc[room_mask, 'Heizlast (W/m²)'] = estimates['heating_W_per_m2']
+            merged_df.loc[room_mask, 'Kälteleistung (W/m²)'] = estimates['cooling_W_per_m2']
+            merged_df.loc[room_mask, 'Luftvolumenstrom (m³/h)'] = estimates['ventilation_m3_per_h']
+
+        # Save the updated DataFrame back to Excel
+        merged_df.to_excel('data/p5-lp2-output-heizung.xlsm', index=False)
+
     # Run the async main function
     asyncio.run(main())
