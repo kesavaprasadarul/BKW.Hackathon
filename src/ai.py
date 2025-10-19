@@ -1,6 +1,10 @@
 """AI Service"""
+
 import google.generativeai as genai
-from config import GEMINI_API_KEY, GEMINI_MODEL, SYSTEM_PROMPT, REPORT_STRUCTURE
+from src.config import GEMINI_API_KEY, GEMINI_MODEL, SYSTEM_PROMPT, REPORT_STRUCTURE
+import json
+import time
+from typing import List, Dict, Any
 
 
 class AIService:
@@ -33,7 +37,7 @@ class AIService:
             section_text = self._generate(prompt)
             if section_text:
                 sections.append(section_text)
-        
+
         return "\n".join(sections)
     
     def _get_relevant_data(self, project_data, section_info, is_first):
@@ -102,3 +106,99 @@ class AIService:
         except Exception as e:
             print(f"Fehler: {e}")
             return None
+
+    def choose_roomtypes(
+        self,
+        queries: List[str],
+        catalog: List[Dict[str, str]],
+        batch_size: int = 25,
+        min_confidence_if_unsure: float = 0.0,
+        max_retries: int = 3,
+        retry_backoff_sec: float = 1.5,
+    ) -> Dict[str, Dict[str, Any]]:
+        """
+        Given raw query strings and a catalog [{"nr": "...", "roomtype": "..."}],
+        returns a dict keyed by normalized query -> {nr, roomtype, confidence, rationale}.
+        Uses the already-configured Gemini model in this service.
+        """
+
+        def _norm(s: str) -> str:
+            import re, unicodedata
+
+            s = (s or "").strip().lower()
+            s = unicodedata.normalize("NFKD", s)
+            s = (
+                s.replace("ä", "ae")
+                .replace("ö", "oe")
+                .replace("ü", "ue")
+                .replace("ß", "ss")
+            )
+            s = re.sub(r"[^a-z0-9\s]", " ", s)
+            s = re.sub(r"\s+", " ", s).strip()
+            return s
+
+        seen, uniq = set(), []
+        for q in queries:
+            k = _norm(q)
+            if k and k not in seen:
+                seen.add(k)
+                uniq.append(q)
+
+        sys_prompt = (
+            "You are given a fixed catalog of room types. For each query, choose the best matching item from the catalog. "
+            "If none fits well, set confidence < 0.85. "
+            "Return ONLY a JSON array with one object per input in the same order. "
+            'Each object must be: {"nr": str, "roomtype": str, "confidence": number, "rationale": str}. '
+            "Do not include ellipses, code fences, or prose."
+        )
+
+        def _call_once(batch: List[str]) -> List[Dict[str, Any]]:
+            payload = {"catalog": catalog, "queries": batch}
+            prompt = sys_prompt + "\n\n" + json.dumps(payload, ensure_ascii=False)
+            text = self._generate(prompt) or ""
+            start = text.find("[")
+            end = text.rfind("]")
+            if start == -1 or end == -1:
+                return []
+            try:
+                arr = json.loads(text[start : end + 1])
+                if isinstance(arr, list):
+                    return arr
+                return []
+            except Exception:
+                return []
+
+        out_map: Dict[str, Dict[str, Any]] = {}
+
+        for i in range(0, len(uniq), batch_size):
+            batch = uniq[i : i + batch_size]
+            arr: List[Dict[str, Any]] = []
+            for r in range(max_retries):
+                arr = _call_once(batch)
+                if len(arr) == len(batch):
+                    break
+                time.sleep(retry_backoff_sec * (r + 1))
+
+            if len(arr) < len(batch):
+                arr = arr + [
+                    {
+                        "nr": "",
+                        "roomtype": "",
+                        "confidence": min_confidence_if_unsure,
+                        "rationale": "no_response",
+                    }
+                    for _ in range(len(batch) - len(arr))
+                ]
+            elif len(arr) > len(batch):
+                arr = arr[: len(batch)]
+
+            for q, o in zip(batch, arr):
+                k = _norm(q)
+                out_map[k] = {
+                    "nr": str(o.get("nr", "")).strip(),
+                    "roomtype": str(o.get("roomtype", "")).strip(),
+                    "confidence": float(o.get("confidence", 0.0)),
+                    "rationale": str(o.get("rationale", "")),
+                }
+
+        return out_map

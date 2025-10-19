@@ -1,4 +1,5 @@
 """Configuration"""
+
 import os
 from pathlib import Path
 from dotenv import load_dotenv
@@ -10,10 +11,10 @@ GEMINI_MODEL = 'gemini-2.5-flash-lite'
 REPORTS_DIR = Path(__file__).parent.parent / "reports"
 
 FORMATS = {
-    '1': ('PDF', '.pdf'),
-    '2': ('DOCX', '.docx'),
-    '3': ('Markdown', '.md'),
-    '4': ('All', 'all')
+    "1": ("PDF", ".pdf"),
+    "2": ("DOCX", ".docx"),
+    "3": ("Markdown", ".md"),
+    "4": ("All", "all"),
 }
 
 # Report structure based on analyzed Erläuterungsberichte
@@ -28,8 +29,8 @@ REPORT_STRUCTURE = [
             "A.5 KG 440 - Elektrische Anlagen",
             "A.6 KG 450 - Kommunikations-, sicherheits- und informationstechnische Anlagen",
             "A.7 KG 470 - Nutzungsspezifische Anlagen",
-            "A.8 KG 480 - Gebäudeautomation"
-        ]
+            "A.8 KG 480 - Gebäudeautomation",
+        ],
     }
 ]
 

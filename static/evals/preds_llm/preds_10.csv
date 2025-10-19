@@ -1,0 +1,19 @@
+﻿Sheet,RowIndex,Raum-Bezeichnung,MatchedRoomtype,Nr,Score,Method,AI_Confidence,AI_Rationale,Accepted
+Leistungsermittlung Raumdaten,11,LKW-Halle,Lkw-Halle,12,1.0,llm_only,1.0,Direkte Übereinstimmung mit der Bezeichnung 'Lkw-Halle'.,True
+Leistungsermittlung Raumdaten,12,Büro,Büros und Räume ähnlicher Nutzung,1,1.0,llm_only,1.0,Büro ist eine typische Nutzung für diese Kategorie.,True
+Leistungsermittlung Raumdaten,13,WC-H,WC's,5,0.95,llm_only,0.95,WC-H (WC Herren) ist eine Unterkategorie von WC's.,True
+Leistungsermittlung Raumdaten,14,WC-D,WC's,5,0.95,llm_only,0.95,WC-D (WC Damen) ist eine Unterkategorie von WC's.,True
+Leistungsermittlung Raumdaten,15,Flur,"Verkehrsflächen, Flure",4,1.0,llm_only,1.0,Flur entspricht direkt Verkehrsflächen.,True
+Leistungsermittlung Raumdaten,16,Vorr.,Lager,9,0.9,llm_only,0.9,Vorr. (Vorratsraum) wird als Lager klassifiziert.,True
+Leistungsermittlung Raumdaten,17,Verkauf,"Besprechungs-, Verkaufsräume",2,1.0,llm_only,1.0,Verkauf entspricht direkt Besprechungs-/Verkaufsräume.,True
+Leistungsermittlung Raumdaten,18,Werkstatt,Werkstätten,11,1.0,llm_only,1.0,Direkte Übereinstimmung mit Werkstatt.,True
+Leistungsermittlung Raumdaten,19,Anlieferung/Lager,Lager,9,0.95,llm_only,0.95,Anlieferung/Lager entspricht der allgemeinen Lagerkategorie.,True
+Leistungsermittlung Raumdaten,20,Karkassenlager,Lager,9,0.88,llm_only,0.88,"Karkassenlager wird als spezielle Lagerform interpretiert, obwohl es eine spezialisierte Nutzung sein könnte. Nähe zu Lager ist hoch.",True
+Leistungsermittlung Raumdaten,21,HA.,Hausanschlussraum,14,1.0,llm_only,1.0,HA. (Hausanschluss) korrespondiert mit Hausanschlussraum.,True
+Leistungsermittlung Raumdaten,22,WC-BEH.,Beh. WC's,6,1.0,llm_only,1.0,WC-BEH. (Behinderten-WC) entspricht Beh. WC's.,True
+Leistungsermittlung Raumdaten,23,Sozialraum,Aufenthaltsräume,3,0.95,llm_only,0.95,Sozialraum fällt unter Aufenthaltsräume.,True
+Leistungsermittlung Raumdaten,24,Umkleide,Umkleiden,8,1.0,llm_only,1.0,Direkte Übereinstimmung mit Umkleide.,True
+Leistungsermittlung Raumdaten,25,DU. 1,Duschen,7,1.0,llm_only,1.0,DU. 1 entspricht Duschen.,True
+Leistungsermittlung Raumdaten,26,DU. 2,Duschen,7,1.0,llm_only,1.0,DU. 2 entspricht Duschen.,True
+Leistungsermittlung Raumdaten,27,Reifenlager,Reifenlager,13,1.0,llm_only,1.0,Direkte Übereinstimmung.,True
+Leistungsermittlung Raumdaten,28,Haustechnik,Technikräume,10,0.9,llm_only,0.9,"Haustechnik wird dem Technikraum zugeordnet. Alternativ: Hausanschlussraum (14), aber Technikraum ist allgemeiner.",True
