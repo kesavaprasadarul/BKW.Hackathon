@@ -17,6 +17,14 @@ export interface Step2Data {
   annualSavings: number;
 }
 
+export interface RoomTypeClassificationData {
+  processed_file: string;
+  report_csv: string;
+  output_xlsx: string;
+  rows: number;
+  message: string;
+}
+
 interface AnalysisState {
   currentStep: AnalysisStep;
   uploadedFiles: {
@@ -31,6 +39,7 @@ interface AnalysisState {
   isProcessing: boolean;
   step1Data: Step1Data | null;
   step2Data: Step2Data | null;
+  roomTypeData: RoomTypeClassificationData | null;
 }
 
 interface AnalysisContextType {
@@ -45,6 +54,7 @@ interface AnalysisContextType {
   setProcessing: (isProcessing: boolean) => void;
   setStep1Data: (data: Step1Data) => void;
   setStep2Data: (data: Step2Data) => void;
+  setRoomTypeData: (data: RoomTypeClassificationData) => void;
   resetAnalysis: () => void;
 }
 
@@ -64,6 +74,7 @@ const initialState: AnalysisState = {
   isProcessing: false,
   step1Data: null,
   step2Data: null,
+  roomTypeData: null,
 };
 
 export function AnalysisProvider({ children }: { children: ReactNode }) {
@@ -109,6 +120,10 @@ export function AnalysisProvider({ children }: { children: ReactNode }) {
     setState(prev => ({ ...prev, step2Data: data }));
   };
 
+  const setRoomTypeData = (data: RoomTypeClassificationData) => {
+    setState(prev => ({ ...prev, roomTypeData: data }));
+  };
+
   const resetAnalysis = () => {
     setState(initialState);
   };
@@ -127,6 +142,7 @@ export function AnalysisProvider({ children }: { children: ReactNode }) {
         setProcessing,
         setStep1Data,
         setStep2Data,
+        setRoomTypeData,
         resetAnalysis,
       }}
     >

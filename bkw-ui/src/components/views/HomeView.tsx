@@ -3,16 +3,32 @@
 import { DraftingCompass } from 'lucide-react';
 import { HomeUploadArea } from '@/components/HomeUploadArea';
 import { useAnalysis } from '@/contexts/AnalysisContext';
+import { classifyRoomTypes } from '@/services/api';
 
 export function HomeView() {
-  const { setUploadedFiles, setCurrentStep } = useAnalysis();
+  const { setUploadedFiles, setCurrentStep, setRoomTypeData, setProcessing } = useAnalysis();
 
-  const handleFileSelect = (file1: File, file2: File) => {
+  const handleFileSelect = async (file1: File, file2: File) => {
     setUploadedFiles(file1, file2);
-    // Start automatic analysis flow
-    setTimeout(() => {
-      setCurrentStep('processing');
-    }, 500);
+    setProcessing(true);
+    setCurrentStep('processing');
+
+    try {
+      // Call the room type classification API with both files
+      // file1: Excel file with room data
+      // file2: Mapping CSV file
+      const roomTypeResult = await classifyRoomTypes(file1, file2);
+      setRoomTypeData(roomTypeResult);
+      
+      // Proceed to the next step after successful classification
+      setCurrentStep('intermediate');
+    } catch (error) {
+      console.error('Error classifying room types:', error);
+      // Handle error - you might want to show an error message to the user
+      setCurrentStep('home');
+    } finally {
+      setProcessing(false);
+    }
   };
 
   return (
