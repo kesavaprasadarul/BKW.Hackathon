@@ -3,12 +3,13 @@
 import { ProgressStepper, defaultSteps } from '@/components/ProgressStepper';
 import { MetricCard } from '@/components/MetricCard';
 import { FadeIn } from '@/components/FadeIn';
-import { Zap, Flame, TrendingDown } from 'lucide-react';
+import { Zap, Flame, TrendingDown, Euro, Calculator, Building2 } from 'lucide-react';
 import { useAnalysis } from '@/contexts/AnalysisContext';
 import { useEffect, useRef } from 'react';
 
 export function Step2View() {
   const { state, setCurrentStep, markReportComplete, markStep2Visited } = useAnalysis();
+  const { costEstimationData } = state;
 
   // Auto-advance to report only on first visit
   useEffect(() => {
@@ -91,6 +92,63 @@ export function Step2View() {
               />
             </FadeIn>
           </div>
+
+          {/* Cost Estimation Results */}
+          {costEstimationData && (
+            <FadeIn delay={600} duration={400}>
+              <div className="bg-white rounded-lg p-6 border border-gray-100 mb-5">
+                <h2 className="text-lg font-semibold text-text-primary mb-4 text-center">
+                  Kostenschätzung Ergebnisse
+                </h2>
+                <div className="grid md:grid-cols-3 gap-4 mb-4">
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-primary-blue mb-1">
+                      €{costEstimationData.summary.grand_total_cost.toLocaleString()}
+                    </div>
+                    <div className="text-sm text-text-secondary">Gesamtkosten</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-success-green mb-1">
+                      {Object.keys(costEstimationData.detailed_boq).length}
+                    </div>
+                    <div className="text-sm text-text-secondary">Kostenpositionen</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-accent-blue mb-1">
+                      {Object.keys(costEstimationData.summary.project_metrics).length}
+                    </div>
+                    <div className="text-sm text-text-secondary">Projektmetriken</div>
+                  </div>
+                </div>
+                
+                {/* Cost Breakdown */}
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <h3 className="font-medium text-text-primary mb-2">Kostenfaktoren</h3>
+                    <div className="space-y-1">
+                      {Object.entries(costEstimationData.summary.cost_factors_applied).map(([key, value]) => (
+                        <div key={key} className="flex justify-between text-sm">
+                          <span className="text-text-secondary">{key}</span>
+                          <span className="font-medium text-text-primary">{value.toFixed(2)}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="font-medium text-text-primary mb-2">Projektmetriken</h3>
+                    <div className="space-y-1">
+                      {Object.entries(costEstimationData.summary.project_metrics).map(([key, value]) => (
+                        <div key={key} className="flex justify-between text-sm">
+                          <span className="text-text-secondary">{key}</span>
+                          <span className="font-medium text-text-primary">{value.toFixed(2)}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </FadeIn>
+          )}
 
           {/* Energy Breakdown and Optimization Highlights - Side by Side */}
           <FadeIn delay={700} duration={500}>

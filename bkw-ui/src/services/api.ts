@@ -30,6 +30,40 @@ interface PowerRequirementsResponse {
   message: string;
 }
 
+interface CostBOQItem {
+  description: string;
+  subgroup_kg?: string;
+  subgroup_title?: string;
+  quantity: number;
+  unit?: string;
+  material_unit_price: number;
+  total_material_price: number;
+  total_final_price: number;
+  bki_component_title: string;
+  type?: string;
+}
+
+interface CostEstimationSummary {
+  project_metrics: Record<string, number>;
+  grand_total_cost: number;
+  cost_factors_applied: Record<string, number>;
+}
+
+interface CostEstimationOutput {
+  summary: CostEstimationSummary;
+  detailed_boq: CostBOQItem[];
+}
+
+interface ReportGenerateResponse {
+  project_name: string;
+  file_count: number;
+  formats_generated: string[];
+  pdf_path?: string;
+  docx_path?: string;
+  markdown_path?: string;
+  message: string;
+}
+
 interface Step1Response {
   optimizedRooms: number;
   totalRooms: number;
@@ -72,6 +106,51 @@ export async function generatePowerRequirements(heatingFile: File, ventilationFi
   formData.append('ventilation_file', ventilationFile);
 
   const response = await fetch(`${API_BASE_URL}/power/requirements`, {
+    method: 'POST',
+    body: formData,
+  });
+
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
+
+  return response.json();
+}
+
+export async function generateCostEstimate(powerRequirements: PowerRequirementsResponse): Promise<CostEstimationOutput> {
+  const response = await fetch(`${API_BASE_URL}/cost/estimate`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(powerRequirements),
+  });
+
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
+
+  return response.json();
+}
+
+export async function generateReport(
+  files: File[], 
+  projectName: string = 'Projekt', 
+  formats: string = 'pdf'
+): Promise<ReportGenerateResponse> {
+  const formData = new FormData();
+  
+  // Add all files
+  files.forEach(file => {
+    formData.append('files', file);
+  });
+  
+  // Add form fields
+  formData.append('project_name', projectName);
+  formData.append('formats', formats);
+  formData.append('download', 'false'); // We want JSON response, not file download
+
+  const response = await fetch(`${API_BASE_URL}/report/generate`, {
     method: 'POST',
     body: formData,
   });

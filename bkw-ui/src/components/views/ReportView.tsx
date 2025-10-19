@@ -13,13 +13,17 @@ import {
   Leaf,
   Building,
   Brain,
+  FileText,
+  File,
 } from 'lucide-react';
 import { useAnalysis } from '@/contexts/AnalysisContext';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { generateReport } from '@/services/api';
 
 export function ReportView() {
-  const { state } = useAnalysis();
+  const { state, setReportGenerateData, setProcessing } = useAnalysis();
   const [activeTab, setActiveTab] = useState<'overview' | 'details' | 'recommendations'>('overview');
+  const [isGeneratingReport, setIsGeneratingReport] = useState(false);
 
   // Update steps - all completed and clickable
   const steps = defaultSteps.map((step, index) => ({
@@ -58,8 +62,69 @@ export function ReportView() {
   const totalSavings = totalStandard - totalOptimized;
   const savingsPercentage = ((totalSavings / totalStandard) * 100).toFixed(1);
 
+  // Generate report when component mounts
+  useEffect(() => {
+    const generateReportData = async () => {
+      if (!state.reportGenerateData && !isGeneratingReport) {
+        try {
+          setIsGeneratingReport(true);
+          setProcessing(true);
+          
+          // Collect all uploaded files
+          const files: File[] = [];
+          if (state.uploadedFiles.file1) files.push(state.uploadedFiles.file1);
+          if (state.uploadedFiles.file2) files.push(state.uploadedFiles.file2);
+          if (state.uploadedFiles.file3) files.push(state.uploadedFiles.file3);
+          if (state.uploadedFiles.file4) files.push(state.uploadedFiles.file4);
+          
+          if (files.length > 0) {
+            console.log('Generating report with', files.length, 'files');
+            const reportResult = await generateReport(files, 'Projekt', 'pdf,docx');
+            console.log('Report generation completed:', reportResult);
+            setReportGenerateData(reportResult);
+          }
+        } catch (error) {
+          console.error('Error generating report:', error);
+        } finally {
+          setIsGeneratingReport(false);
+          setProcessing(false);
+        }
+      }
+    };
+
+    generateReportData();
+  }, [state.reportGenerateData, isGeneratingReport, state.uploadedFiles, setReportGenerateData, setProcessing]);
+
+  const downloadFile = async (filePath: string, filename: string) => {
+    try {
+      const response = await fetch(`http://localhost:8000/download?file=${encodeURIComponent(filePath)}`);
+      if (response.ok) {
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+        document.body.removeChild(a);
+      } else {
+        console.error('Failed to download file:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Error downloading file:', error);
+    }
+  };
+
   const handleExport = () => {
-    alert('Export-Funktion würde hier den Bericht als PDF exportieren');
+    if (state.reportGenerateData) {
+      // Download PDF if available
+      if (state.reportGenerateData.pdf_path) {
+        downloadFile(state.reportGenerateData.pdf_path, 'Bericht.pdf');
+      } else if (state.reportGenerateData.docx_path) {
+        downloadFile(state.reportGenerateData.docx_path, 'Bericht.docx');
+      }
+    }
   };
 
   return (
@@ -78,15 +143,86 @@ export function ReportView() {
               {new Date().toLocaleDateString('de-DE')}
             </p>
           </div>
-          <button
-            onClick={handleExport}
-            className="bg-primary-blue hover:bg-primary-blue-dark text-white px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-1.5 transition-colors"
-          >
-            <Download className="w-4 h-4" />
-            Exportieren
-          </button>
+          <div className="flex gap-2">
+            {isGeneratingReport && (
+              <div className="flex items-center gap-2 text-sm text-text-secondary">
+                <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-primary-blue"></div>
+                Bericht wird generiert...
+              </div>
+            )}
+            <button
+              onClick={handleExport}
+              disabled={!state.reportGenerateData || isGeneratingReport}
+              className="bg-primary-blue hover:bg-primary-blue-dark disabled:bg-gray-300 disabled:cursor-not-allowed text-white px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-1.5 transition-colors"
+            >
+              <Download className="w-4 h-4" />
+              Exportieren
+            </button>
+          </div>
         </div>
         </FadeIn>
+
+        {/* Report Generation Status */}
+        {state.reportGenerateData && (
+          <FadeIn delay={200} duration={400}>
+            <div className="bg-white rounded-lg p-4 border border-gray-100 mb-4">
+              <h2 className="text-lg font-semibold text-text-primary mb-3">
+                Generierter Bericht
+              </h2>
+              <div className="grid md:grid-cols-3 gap-4 mb-4">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-primary-blue mb-1">
+                    {state.reportGenerateData.file_count}
+                  </div>
+                  <div className="text-sm text-text-secondary">Verarbeitete Dateien</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-success-green mb-1">
+                    {state.reportGenerateData.formats_generated.length}
+                  </div>
+                  <div className="text-sm text-text-secondary">Generierte Formate</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-accent-blue mb-1">
+                    {state.reportGenerateData.project_name}
+                  </div>
+                  <div className="text-sm text-text-secondary">Projektname</div>
+                </div>
+              </div>
+              
+              {/* Download Options */}
+              <div className="flex flex-wrap gap-2">
+                {state.reportGenerateData.pdf_path && (
+                  <button
+                    onClick={() => downloadFile(state.reportGenerateData.pdf_path!, 'Bericht.pdf')}
+                    className="inline-flex items-center gap-2 px-3 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors text-sm"
+                  >
+                    <FileText className="w-4 h-4" />
+                    PDF herunterladen
+                  </button>
+                )}
+                {state.reportGenerateData.docx_path && (
+                  <button
+                    onClick={() => downloadFile(state.reportGenerateData.docx_path!, 'Bericht.docx')}
+                    className="inline-flex items-center gap-2 px-3 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors text-sm"
+                  >
+                    <File className="w-4 h-4" />
+                    Word herunterladen
+                  </button>
+                )}
+                {state.reportGenerateData.markdown_path && (
+                  <button
+                    onClick={() => downloadFile(state.reportGenerateData.markdown_path!, 'Bericht.md')}
+                    className="inline-flex items-center gap-2 px-3 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition-colors text-sm"
+                  >
+                    <FileText className="w-4 h-4" />
+                    Markdown herunterladen
+                  </button>
+                )}
+              </div>
+            </div>
+          </FadeIn>
+        )}
 
         {/* Key Metrics and Breakdown */}
         <div className="grid md:grid-cols-2 gap-4 mb-4">

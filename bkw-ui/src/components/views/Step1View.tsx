@@ -6,9 +6,10 @@ import { FadeIn } from '@/components/FadeIn';
 import { Building, CheckCircle2, TrendingUp } from 'lucide-react';
 import { useAnalysis } from '@/contexts/AnalysisContext';
 import { useEffect, useRef } from 'react';
+import { generateCostEstimate } from '@/services/api';
 
 export function Step1View() {
-  const { state, setCurrentStep, markStep1Visited } = useAnalysis();
+  const { state, setCurrentStep, markStep1Visited, setCostEstimationData, setProcessing } = useAnalysis();
 
   // Auto-advance to step 2 processing only on first visit
   useEffect(() => {
@@ -16,9 +17,27 @@ export function Step1View() {
       // Mark as visited immediately
       markStep1Visited();
 
-      // Auto-advance after 2 seconds
-      const timer = setTimeout(() => {
-        setCurrentStep('step2-processing');
+      // Auto-advance after 2 seconds, but first call cost estimation
+      const timer = setTimeout(async () => {
+        try {
+          console.log('Starting cost estimation...');
+          setProcessing(true);
+          
+          // Call cost estimation API with power requirements data
+          if (state.powerRequirementsData) {
+            const costResult = await generateCostEstimate(state.powerRequirementsData);
+            console.log('Cost estimation completed:', costResult);
+            setCostEstimationData(costResult);
+          }
+          
+          setCurrentStep('step2-processing');
+        } catch (error) {
+          console.error('Error generating cost estimate:', error);
+          // Still proceed to step2 even if cost estimation fails
+          setCurrentStep('step2-processing');
+        } finally {
+          setProcessing(false);
+        }
       }, 2000);
 
       return () => clearTimeout(timer);
