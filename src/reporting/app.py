@@ -1,7 +1,7 @@
 """Main Application"""
 from src.ai import AIService
 from designer import Designer
-from config import FORMATS
+from src.config import FORMATS
 from extractor import extract_project_data
 from pathlib import Path
 

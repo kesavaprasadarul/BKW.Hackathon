@@ -10,7 +10,7 @@ from reportlab.lib.enums import TA_CENTER, TA_JUSTIFY
 from docx import Document
 from docx.shared import RGBColor
 from docx.enum.text import WD_ALIGN_PARAGRAPH
-from config import REPORTS_DIR
+from src.config import REPORTS_DIR
 import re
 
 
