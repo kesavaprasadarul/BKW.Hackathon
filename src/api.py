@@ -148,6 +148,18 @@ def _safe_float(val) -> Optional[float]:
 	except Exception:
 		return None
 
+def _zip_files(files: List[Path], zip_name: str) -> Path:
+	"""Zip multiple files into uploads/zip directory and return path."""
+	zip_dir = UPLOAD_ROOT / "zip"
+	zip_dir.mkdir(parents=True, exist_ok=True)
+	zip_path = zip_dir / zip_name
+	import zipfile
+	with zipfile.ZipFile(zip_path, 'w', compression=zipfile.ZIP_DEFLATED) as zf:
+		for fp in files:
+			if fp.exists():
+				zf.write(fp, arcname=fp.name)
+	return zip_path
+
 
 # -------------------------------
 # Endpoints (to be implemented next)
@@ -157,6 +169,8 @@ def _safe_float(val) -> Optional[float]:
 def classify_roomtypes(
 	excel_file: UploadFile = File(..., description="Excel file containing room data"),
 	mapping_csv: str = Form("../static/mapping/mapping.csv"),
+	download: bool = Form(False),
+	download_type: str = Form("xlsx"),  # xlsx | report | all
 ):
 	"""Classify room types from uploaded Excel and write Nummer Raumtyp into sheet.
 
@@ -184,6 +198,21 @@ def classify_roomtypes(
 		wb = openpyxl.load_workbook(output_xlsx, read_only=True)
 		ws = wb.worksheets[0]
 		rows = ws.max_row
+		if download:
+			# Decide which files to include
+			files: List[Path] = []
+			if download_type in ("xlsx", "all"):
+				files.append(output_xlsx)
+			if download_type in ("report", "all"):
+				files.append(report_csv)
+			if not files:
+				files = [output_xlsx]
+			if len(files) == 1:
+				fp = files[0]
+				media = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" if fp.suffix == '.xlsx' else 'text/csv'
+				return FileResponse(str(fp), filename=fp.name, media_type=media)
+			zip_path = _zip_files(files, f"roomtypes_{int(time.time())}.zip")
+			return FileResponse(str(zip_path), filename=zip_path.name, media_type="application/zip")
 		return RoomTypeClassificationResponse(
 			processed_file=str(saved),
 			report_csv=str(report_csv),
@@ -200,6 +229,8 @@ def classify_roomtypes(
 async def generate_power_requirements(
 	heating_file: UploadFile = File(...),
 	ventilation_file: UploadFile = File(...),
+	download: bool = Form(False),
+	download_type: str = Form("performance"),  # performance | estimates | all
 ):
 	"""Generate power requirements by merging heating & ventilation Excel files and running analysis."""
 	try:
@@ -288,6 +319,33 @@ async def generate_power_requirements(
 				area_m2=_nan_to_none(area_val),
 				volume_m3=_nan_to_none(vol_val),
 			)
+		if download:
+			files: List[Path] = []
+			# Serialize estimates to a JSON file if requested
+			if download_type in ("estimates", "all"):
+				est_dir = UPLOAD_ROOT / "power"
+				est_dir.mkdir(parents=True, exist_ok=True)
+				est_path = est_dir / f"power_estimates_{int(time.time())}.json"
+				import json
+				with est_path.open('w', encoding='utf-8') as f:
+					json.dump({k: v.dict() for k, v in response_estimates.items()}, f, ensure_ascii=False, indent=2)
+				files.append(est_path)
+			if download_type in ("performance", "all") and performance_table_path.exists():
+				files.append(performance_table_path)
+			if not files:
+				if performance_table_path.exists():
+					files = [performance_table_path]
+			if len(files) == 1:
+				fp = files[0]
+				media = (
+					"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+					if fp.suffix == '.xlsx'
+					else 'application/json'
+				)
+				return FileResponse(str(fp), filename=fp.name, media_type=media)
+			zip_path = _zip_files(files, f"power_{int(time.time())}.zip")
+			return FileResponse(str(zip_path), filename=zip_path.name, media_type="application/zip")
+
 		return PowerRequirementsResponse(
 			heating_file=str(saved_heating),
 			ventilation_file=str(saved_ventilation),
@@ -301,7 +359,11 @@ async def generate_power_requirements(
 		raise HTTPException(status_code=500, detail=str(e))
 
 @app.post("/cost/estimate", response_model=CostEstimationOutput)
-def cost_estimate(request: PowerRequirementsResponse):
+def cost_estimate(
+	request: PowerRequirementsResponse,
+	download: bool = Form(False),
+	download_type: str = Form("json"),  # json | csv | xlsx | all
+):
 	"""Generate a cost estimate using the previously produced power requirements payload.
 
 	Response format matches final_estimate_output.json (summary + detailed_boq)."""
@@ -330,7 +392,84 @@ def cost_estimate(request: PowerRequirementsResponse):
 			filtered.setdefault('total_material_price', 0)
 			filtered.setdefault('total_final_price', 0)
 			boq_items.append(CostBOQItem(**filtered))
-		return CostEstimationOutput(summary=summary, detailed_boq=boq_items)
+		output = CostEstimationOutput(summary=summary, detailed_boq=boq_items)
+
+		if download:
+			out_dir = UPLOAD_ROOT / "cost"
+			out_dir.mkdir(parents=True, exist_ok=True)
+			timestamp = int(time.time())
+			generated: List[Path] = []
+			import json
+			if download_type in ("json", "all"):
+				json_path = out_dir / f"cost_estimate_{timestamp}.json"
+				with json_path.open('w', encoding='utf-8') as f:
+					json.dump(output.dict(), f, ensure_ascii=False, indent=2)
+				generated.append(json_path)
+			if download_type in ("csv", "all"):
+				# Flatten BOQ items to CSV
+				import csv
+				csv_path = out_dir / f"cost_estimate_{timestamp}.csv"
+				with csv_path.open('w', newline='', encoding='utf-8') as f:
+					writer = csv.writer(f)
+					writer.writerow(["description","subgroup_kg","subgroup_title","quantity","unit","material_unit_price","total_material_price","total_final_price","bki_component_title","type"])
+					for item in output.detailed_boq:
+						writer.writerow([
+							item.description,
+							item.subgroup_kg,
+							item.subgroup_title,
+							item.quantity,
+							item.unit,
+							item.material_unit_price,
+							item.total_material_price,
+							item.total_final_price,
+							item.bki_component_title,
+							item.type,
+						])
+				generated.append(csv_path)
+			if download_type in ("xlsx", "all"):
+				try:
+					import openpyxl
+					from openpyxl import Workbook
+					wb = Workbook()
+					ws = wb.active
+					ws.title = "CostEstimate"
+					ws.append(["description","subgroup_kg","subgroup_title","quantity","unit","material_unit_price","total_material_price","total_final_price","bki_component_title","type"])
+					for item in output.detailed_boq:
+						ws.append([
+							item.description,
+							item.subgroup_kg,
+							item.subgroup_title,
+							item.quantity,
+							item.unit,
+							item.material_unit_price,
+							item.total_material_price,
+							item.total_final_price,
+							item.bki_component_title,
+							item.type,
+						])
+					xlsx_path = out_dir / f"cost_estimate_{timestamp}.xlsx"
+					wb.save(str(xlsx_path))
+					generated.append(xlsx_path)
+				except Exception as e:
+					print("[cost] excel export failed", e)
+			if not generated:
+				# default to json
+				json_path = out_dir / f"cost_estimate_{timestamp}.json"
+				with json_path.open('w', encoding='utf-8') as f:
+					json.dump(output.dict(), f, ensure_ascii=False, indent=2)
+				generated = [json_path]
+			if len(generated) == 1:
+				fp = generated[0]
+				media = (
+					"application/json" if fp.suffix == '.json' else (
+						'text/csv' if fp.suffix == '.csv' else 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+					)
+				)
+				return FileResponse(str(fp), filename=fp.name, media_type=media)
+			zip_path = _zip_files(generated, f"cost_{timestamp}.zip")
+			return FileResponse(str(zip_path), filename=zip_path.name, media_type="application/zip")
+
+		return output
 	except HTTPException:
 		raise
 	except Exception as e:
