@@ -5,11 +5,13 @@ from src.roomtypes.service import process
 
 
 def main():
+    project_number = "8"
+
     cfg = Cfg()
-    mapping_csv = Path("mapping.csv")
-    target_xlsx = Path("proj_5_test.xlsx")
-    output_xlsx = Path("proj_5_test_output.xlsx")
-    report_csv = Path("match_report.csv")
+    mapping_csv = Path(f"data/evals/mappings/mapping_{project_number}.csv")
+    target_xlsx = Path(f"proj_{project_number}_test.xlsx")
+    output_xlsx = Path(f"proj_{project_number}_test_output.xlsx")
+    report_csv = Path(f"preds_{project_number}.csv")
 
     if not os.getenv("GEMINI_API_KEY"):
         raise RuntimeError("GEMINI_API_KEY not set (check .env.local or environment)")
