@@ -55,6 +55,24 @@ def detect_header_xlsx(ws: Worksheet, max_scan_rows: int) -> HeaderInfo:
     return None, None, None
 
 
+def detect_header_mapping(ws: Worksheet, max_scan_rows: int) -> HeaderInfo:
+    for r in range(1, min(max_scan_rows, ws.max_row) + 1):
+        row_vals = [ws.cell(row=r, column=c).value for c in range(1, ws.max_column + 1)]
+        m: Dict[str, int] = {}
+        for c_idx, v in enumerate(row_vals, start=1):
+            nk = norm_key(v)
+            if nk:
+                m[nk] = c_idx
+        nr_aliases = {"nr", "nummer"}
+        roomtype_aliases = {"bezeichnung", "raumbezeichnung", "raum-bezeichnung"}
+
+        nr_col = next((m[k] for k in nr_aliases if k in m), None)
+        roomtype_col = next((m[k] for k in roomtype_aliases if k in m), None)
+        if nr_col is not None or roomtype_col is not None:
+            return r, nr_col, roomtype_col
+    return None, None, None
+
+
 def ensure_nr_column(ws: Worksheet, header_row: int, nr_col: Optional[int]) -> int:
     """
     If "Nummer Raumtyp" column is missing, create it as the last column
