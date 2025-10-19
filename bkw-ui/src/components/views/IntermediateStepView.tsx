@@ -1,6 +1,6 @@
 'use client';
 
-import { DraftingCompass, Download, Building, Target } from 'lucide-react';
+import { DraftingCompass, Download, Building, Target, Upload } from 'lucide-react';
 import { IntermediateUploadArea } from '@/components/IntermediateUploadArea';
 import { MetricCard } from '@/components/MetricCard';
 import { FadeIn } from '@/components/FadeIn';
@@ -39,6 +39,20 @@ export function IntermediateStepView() {
     link.click();
     document.body.removeChild(link);
     URL.revokeObjectURL(url);
+  };
+
+  const handleImport = () => {
+    // Open file picker for Excel files only
+    const fileInput = document.createElement('input') as HTMLInputElement;
+    fileInput.type = 'file';
+    fileInput.accept = '.xlsx,.xls';
+    fileInput.onchange = (e) => {
+      const file = fileInput.files?.[0];
+      if (file) {
+        console.log('Excel file selected:', file.name);
+      }
+    };
+    fileInput.click();
   };
 
   return (
@@ -90,6 +104,19 @@ export function IntermediateStepView() {
             >
               <Download className="w-4 h-4" />
               Zwischenergebnisse exportieren
+            </button>
+          </div>
+        </FadeIn>
+
+        {/* Import Button */}
+        <FadeIn delay={500} duration={400}>
+          <div className="flex justify-center mb-6">
+            <button
+              onClick={handleImport}
+              className="inline-flex items-center gap-2 px-4 py-2 bg-primary-blue text-white rounded-lg hover:bg-primary-blue/90 transition-colors"
+            >
+              <Upload className="w-4 h-4" />
+              Neues Zwischenergebnis importieren
             </button>
           </div>
         </FadeIn>
