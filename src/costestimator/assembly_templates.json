@@ -1,0 +1,141 @@
+{
+    "KG420_Heat_Pump_System": {
+        "name": "Wärmepumpenanlage",
+        "description": "Template for a complete heat pump system based on project heating load and area.",
+        "components": [
+            {
+                "description": "Sole-/Wasserwärmepumpe",
+                "subgroup_title": "Wärmeerzeugungsanlagen",
+                "subgroup_kg": "421",
+                "bki_kostengruppe": "KG 421",
+                "bki_search_method": "find_best_match_by_load",
+                "unit": "Stck",
+                "quantity_rule": "1 per 75 kW of heating_load"
+            },
+            {
+                "description": "Druckhaltesystem mit Nachspeisung",
+                "subgroup_title": "Wärmeerzeugungsanlagen",
+                "subgroup_kg": "421",
+                "bki_kostengruppe": "KG 421",
+                "bki_search_method": "find_by_keywords",
+                "bki_keywords": ["Druckhaltestation", "Nachspeisung"],
+                "unit": "Stck",
+                "quantity_rule": "1"
+            },
+            {
+                "description": "Pufferspeicher bis 1.500 l",
+                "subgroup_title": "Wärmeerzeugungsanlagen",
+                "subgroup_kg": "421",
+                "bki_kostengruppe": "KG 421",
+                "bki_search_method": "find_by_keywords",
+                "bki_keywords": ["Pufferspeicher", "1500"],
+                "unit": "Stck",
+                "quantity_rule": "1 per 75 kW of heating_load"
+            },
+            {
+                "description": "Umwälzpumpen bis DN 65",
+                "subgroup_title": "Wärmeerzeugungsanlagen",
+                "subgroup_kg": "421",
+                "bki_kostengruppe": "KG 421",
+                "bki_search_method": "find_by_keywords",
+                "bki_keywords": ["Umwälzpumpe", "Heizung"],
+                "unit": "Stck",
+                "quantity_rule": "1 per 20 kW of heating_load"
+            },
+            {
+                "description": "Zubehör, Einregulierung (pauschal)",
+                "subgroup_title": "Wärmeerzeugungsanlagen",
+                "subgroup_kg": "421",
+                "calculation_method": "percentage_of_subgroup",
+                "calculation_basis_kg": "421",
+                "percentage_value": 0.15,
+                "unit": "psch",
+                "quantity_rule": "1"
+            },
+            {
+                "description": "Edelstahlrohr DN 15-50 (repr. DN 25)",
+                "type": "piping",
+                "subgroup_title": "Wärmeverteilnetze",
+                "subgroup_kg": "422",
+                "bki_kostengruppe": "KG 422",
+                "bki_search_method": "find_by_keywords",
+                "bki_keywords": ["Edelstahlrohr", "press"],
+                "unit": "m",
+                "quantity_rule": "0.3 * total_area_m2"
+            },
+            {
+                "description": "Stahlrohre, DN 65-100 (repr. DN 80)",
+                "type": "piping",
+                "subgroup_title": "Wärmeverteilnetze",
+                "subgroup_kg": "422",
+                "bki_kostengruppe": "KG 422",
+                "bki_search_method": "find_by_keywords",
+                "bki_keywords": ["Stahlrohr", "geschweißt", "DN 80"],
+                "unit": "m",
+                "quantity_rule": "0.05 * total_area_m2"
+            },
+            {
+                "description": "Dämmung Rohre, Mineralwolle",
+                "type": "piping",
+                "subgroup_title": "Wärmeverteilnetze",
+                "subgroup_kg": "422",
+                "bki_kostengruppe": "KG 422",
+                "bki_search_method": "find_by_keywords",
+                "bki_keywords": ["Rohrdämmung", "Mineralwolle"],
+                "unit": "m",
+                "quantity_rule": "0.35 * total_area_m2"
+            },
+            {
+                "description": "Armaturen (Absperrungen, Ventile)",
+                "subgroup_title": "Wärmeverteilnetze",
+                "subgroup_kg": "422",
+                "calculation_method": "percentage_of_subgroup",
+                "calculation_basis_kg": "422",
+                "percentage_value": 0.20,
+                "unit": "psch",
+                "quantity_rule": "1"
+            },
+            {
+                "description": "Konvektor inkl. Thermostatventil",
+                "subgroup_title": "Raumheizflächen",
+                "subgroup_kg": "423",
+                "bki_kostengruppe": "KG 423",
+                "bki_search_method": "find_by_keywords",
+                "bki_keywords": ["Konvektor"],
+                "unit": "Stck",
+                "quantity_rule": "1 per 80 m2 of total_area_m2"
+            },
+            {
+                "description": "Heizkörper (Heizwand)",
+                "subgroup_title": "Raumheizflächen",
+                "subgroup_kg": "423",
+                "bki_kostengruppe": "KG 423",
+                "bki_search_method": "find_by_keywords",
+                "bki_keywords": ["Heizwand", "Heizkörper"],
+                "unit": "Stck",
+                "quantity_rule": "1 per 250 m2 of total_area_m2"
+            },
+            {
+                "description": "R90-Durchführungen (Brandschutz)",
+                "subgroup_title": "Sonstige Leistungen",
+                "subgroup_kg": "429",
+                "bki_kostengruppe": "KG 419",
+                "bki_search_method": "find_by_keywords",
+                "bki_keywords": ["R90", "Brandschutzmanschette"],
+                "unit": "Stck",
+                "quantity_rule": "1 per 50 m2 of total_area_m2"
+            },
+            {
+                "description": "Techn. Bearbeitung (Spülen, IBN, etc.)",
+                "subgroup_title": "Sonstige Leistungen",
+                "subgroup_kg": "429",
+                "calculation_method": "percentage_of_subgroup",
+                "calculation_basis_kg": "420_total",
+                "percentage_value": 0.05,
+                "unit": "psch",
+                "quantity_rule": "1"
+            }
+        ]
+    }
+}
+
