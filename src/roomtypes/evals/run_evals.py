@@ -93,9 +93,9 @@ def evaluate(gt_csv: Path, preds_csv: Path):
 
 
 if __name__ == "__main__":
-    project_number = "10"
-    gt_path = Path(f"data/evals/gt/gt_{project_number}.csv")
-    preds_path = Path(f"data/evals/preds/preds_{project_number}.csv")
+    project_number = "5"
+    gt_path = Path(f"static/evals/gt/gt_{project_number}.csv")
+    preds_path = Path(f"static/evals/preds_llm/preds_{project_number}.csv")
 
     detailed, confusion = evaluate(gt_path, preds_path)
     print("\nTop (GT_ID, PRED_Nr) pairs")

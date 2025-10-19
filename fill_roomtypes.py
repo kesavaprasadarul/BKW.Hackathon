@@ -8,10 +8,12 @@ def main():
     project_number = "8"
 
     cfg = Cfg()
-    mapping_csv = Path(f"data/evals/mappings/mapping_{project_number}.csv")
-    target_xlsx = Path(f"proj_{project_number}_test.xlsx")
-    output_xlsx = Path(f"proj_{project_number}_test_output.xlsx")
-    report_csv = Path(f"preds_{project_number}.csv")
+    mapping_csv = Path(f"static/evals/mappings/mapping_{project_number}.csv")
+    target_xlsx = Path(f"static/evals/input_excel/proj_{project_number}_test.xlsx")
+    output_xlsx = Path(
+        f"static/evals/output_excel/proj_{project_number}_test_output.xlsx"
+    )
+    report_csv = Path(f"static/evals/preds/preds_{project_number}.csv")
 
     if not os.getenv("GEMINI_API_KEY"):
         raise RuntimeError("GEMINI_API_KEY not set (check .env.local or environment)")
