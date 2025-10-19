@@ -8,7 +8,7 @@ from pathlib import Path
 class Cfg:
     """Configuration"""
 
-    fts_threshold: float = 0.05
+    fts_threshold: float = 0.85
     ai_threshold: float = 0.75
     max_scan_rows: int = 30
     top_k: int = 25
