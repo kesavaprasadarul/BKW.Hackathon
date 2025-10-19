@@ -38,7 +38,7 @@ def evaluate(gt_csv: Path, preds_csv: Path):
     n = min(len(gt), len(pr))
     if len(gt) != len(pr):
         print(
-            f"⚠️ Length mismatch: gt={len(gt)} rows, preds={len(pr)} rows. Comparing first {n} rows in order."
+            f"Length mismatch: gt={len(gt)} rows, preds={len(pr)} rows. Comparing first {n} rows in order."
         )
 
     gt_can = gt.loc[: n - 1, "ID"].map(_canon_id_str)
@@ -93,7 +93,7 @@ def evaluate(gt_csv: Path, preds_csv: Path):
 
 
 if __name__ == "__main__":
-    project_number = "5"
+    project_number = "10"
     gt_path = Path(f"data/evals/gt/gt_{project_number}.csv")
     preds_path = Path(f"data/evals/preds/preds_{project_number}.csv")
 
