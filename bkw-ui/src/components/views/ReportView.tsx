@@ -27,9 +27,9 @@ export function ReportView() {
     active: index === 2,
     completed: index < 2,
     path:
-      index === 0 && state.step1Completed
+      index === 0 && (state.step1Completed || state.roomTypeData)
         ? ('step1' as const)
-        : index === 1 && state.step2Completed
+        : index === 1 && (state.step2Completed || state.costEstimationData)
         ? ('step2' as const)
         : index === 2 && state.reportCompleted
         ? ('report' as const)
