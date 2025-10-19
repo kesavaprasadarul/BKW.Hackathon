@@ -4,6 +4,7 @@ import { useAnalysis } from '@/contexts/AnalysisContext';
 import { Navigation } from '@/components/Navigation';
 import { HomeView } from '@/components/views/HomeView';
 import { ProcessingView } from '@/components/views/ProcessingView';
+import { IntermediateStepView } from '@/components/views/IntermediateStepView';
 import { Step1View } from '@/components/views/Step1View';
 import { Step2ProcessingView } from '@/components/views/Step2ProcessingView';
 import { Step2View } from '@/components/views/Step2View';
@@ -18,6 +19,8 @@ export default function Home() {
         return <HomeView />;
       case 'processing':
         return <ProcessingView />;
+      case 'intermediate':
+        return <IntermediateStepView />;
       case 'step1':
         return <Step1View />;
       case 'step2-processing':

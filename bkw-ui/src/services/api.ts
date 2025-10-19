@@ -13,6 +13,12 @@ interface Step2Response {
   annualSavings: number;
 }
 
+interface Step3Response {
+  comparisonResults: number;
+  newOptimizations: number;
+  additionalSavings: number;
+}
+
 export async function fetchStep1Analysis(file1: File, file2: File): Promise<Step1Response> {
   // Simulate API call with 1 second delay
   await new Promise(resolve => setTimeout(resolve, 1000));
@@ -51,5 +57,23 @@ export async function fetchStep2Analysis(): Promise<Step2Response> {
     energyConsumption: 45,
     reductionPercentage: 18,
     annualSavings: 7800,
+  };
+}
+
+export async function fetchStep3Analysis(): Promise<Step3Response> {
+  // Simulate API call with 1 second delay
+  await new Promise(resolve => setTimeout(resolve, 1000));
+
+  // TODO: Replace with actual POST to your Vercel API endpoint
+  // const response = await fetch('/api/analyze/step3', {
+  //   method: 'POST',
+  // });
+  // return response.json();
+
+  // Simulated response data
+  return {
+    comparisonResults: 15,
+    newOptimizations: 8,
+    additionalSavings: 3200,
   };
 }

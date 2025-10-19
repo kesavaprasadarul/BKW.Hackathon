@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useState, ReactNode } from 'react';
 
-export type AnalysisStep = 'home' | 'processing' | 'step1' | 'step2-processing' | 'step2' | 'report';
+export type AnalysisStep = 'home' | 'processing' | 'intermediate' | 'step1' | 'step2-processing' | 'step2' | 'report';
 
 export interface Step1Data {
   optimizedRooms: number;
