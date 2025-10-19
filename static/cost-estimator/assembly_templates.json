@@ -130,6 +130,79 @@
         "calculation_basis_kg": "420_total",
         "percentage_value": 0.05
       }
+      ,
+      {
+        "description": "Hydraulischer Abgleich / Verteiler",
+        "subgroup_title": "Wärmeerzeugungsanlagen",
+        "subgroup_kg": "421",
+        "unit": "psch",
+        "type": "service",
+        "calculation_method": "percentage_of_subgroup",
+        "calculation_basis_kg": "421",
+        "percentage_value": 0.08,
+        "bki_search_method": "find_by_keywords",
+        "bki_kostengruppe": "421",
+        "bki_keywords": ["hydraulisch", "Abgleich"]
+      },
+      {
+        "description": "Plattenwärmetauscher (Sekundärkreis)",
+        "subgroup_title": "Wärmeerzeugungsanlagen",
+        "subgroup_kg": "421",
+        "unit": "Stck",
+        "type": "equipment",
+        "quantity_rule": "1 per 250 kW",
+        "bki_search_method": "find_by_keywords",
+        "bki_kostengruppe": "421",
+        "bki_keywords": ["Plattenwärmetauscher"]
+      },
+      {
+        "description": "Magnetit-/Schlammabscheider",
+        "subgroup_title": "Wärmeverteilnetze",
+        "subgroup_kg": "422",
+        "unit": "Stck",
+        "type": "equipment",
+        "quantity_rule": "1 per 1000 m2",
+        "bki_search_method": "find_by_keywords",
+        "bki_kostengruppe": "422",
+        "bki_keywords": ["Schlammabscheider", "Magnetit"]
+      },
+      {
+        "description": "Feinfilter Heizung DN < 50",
+        "subgroup_title": "Wärmeverteilnetze",
+        "subgroup_kg": "422",
+        "unit": "Stck",
+        "type": "equipment",
+        "quantity_rule": "1 per 500 m2",
+        "bki_search_method": "find_by_keywords",
+        "bki_kostengruppe": "422",
+        "bki_keywords": ["Filter", "Heizung", "DN"]
+      },
+      {
+        "description": "Mess- & Fühlerebene (Temperatur, Druck, Volumenstrom)",
+        "subgroup_title": "Sonstige Leistungen",
+        "subgroup_kg": "429",
+        "unit": "psch",
+        "type": "service",
+        "calculation_method": "percentage_of_subgroup",
+        "calculation_basis_kg": "420_total",
+        "percentage_value": 0.03,
+        "bki_search_method": "find_by_keywords",
+        "bki_kostengruppe": "429",
+        "bki_keywords": ["Sensor", "Mess", "Fühler"]
+      },
+      {
+        "description": "Gebäudeautomation Schnittstellen (Heizung)",
+        "subgroup_title": "Gebäudeautomation",
+        "subgroup_kg": "429",
+        "unit": "psch",
+        "type": "service",
+        "calculation_method": "percentage_of_subgroup",
+        "calculation_basis_kg": "420_total",
+        "percentage_value": 0.04,
+        "bki_search_method": "find_by_keywords",
+        "bki_kostengruppe": "429",
+        "bki_keywords": ["Automation", "Regelung", "GLT"]
+      }
     ]
   },
   "KG430_Ventilation_System": {
@@ -189,6 +262,65 @@
         "bki_search_method": "find_by_keywords",
         "bki_kostengruppe": "432",
         "bki_keywords": ["Wärmedämmung", "Mineralwolle", "alukaschiert"]
+      },
+      {
+        "description": "Schalldämpfer rechteckig",
+        "subgroup_title": "Luftverteilung",
+        "subgroup_kg": "432",
+        "unit": "Stck",
+        "type": "equipment",
+        "quantity_rule": "1 per 3000 m3/h",
+        "bki_search_method": "find_by_keywords",
+        "bki_kostengruppe": "432",
+        "bki_keywords": ["Schalldämpfer"]
+      },
+      {
+        "description": "Volumenstromregler (VAV-Box)",
+        "subgroup_title": "Luftverteilung",
+        "subgroup_kg": "432",
+        "unit": "Stck",
+        "type": "equipment",
+        "quantity_rule": "1 per 150 m2",
+        "bki_search_method": "find_by_keywords",
+        "bki_kostengruppe": "432",
+        "bki_keywords": ["Volumenstromregler", "VAV"]
+      },
+      {
+        "description": "Kondensatpumpe für RLT-Gerät",
+        "subgroup_title": "Lüftungsanlagen",
+        "subgroup_kg": "431",
+        "unit": "Stck",
+        "type": "equipment",
+        "quantity_rule": "1 per 25000 m3/h",
+        "bki_search_method": "find_by_keywords",
+        "bki_kostengruppe": "431",
+        "bki_keywords": ["Kondensatpumpe"]
+      },
+      {
+        "description": "Regelungs- & Messstation (Luft)",
+        "subgroup_title": "Sonstige Leistungen",
+        "subgroup_kg": "436",
+        "unit": "psch",
+        "type": "service",
+        "calculation_method": "percentage_of_subgroup",
+        "calculation_basis_kg": "430_total",
+        "percentage_value": 0.05,
+        "bki_search_method": "find_by_keywords",
+        "bki_kostengruppe": "436",
+        "bki_keywords": ["Regelung", "Mess", "Luft"]
+      },
+      {
+        "description": "Gebäudeautomation Schnittstellen (Lüftung)",
+        "subgroup_title": "Gebäudeautomation",
+        "subgroup_kg": "436",
+        "unit": "psch",
+        "type": "service",
+        "calculation_method": "percentage_of_subgroup",
+        "calculation_basis_kg": "430_total",
+        "percentage_value": 0.04,
+        "bki_search_method": "find_by_keywords",
+        "bki_kostengruppe": "436",
+        "bki_keywords": ["Automation", "GLT", "Regelung"]
       }
     ]
   }
