@@ -1,0 +1,157 @@
+﻿Sheet,RowIndex,Raum-Bezeichnung,MatchedRoomtype,Nr,Score,Method,AI_Confidence,AI_Rationale,Accepted
+Leistungsermittlung Raumdaten,11,Flex-Work Area,Flex-/ Co-Work/,1,0.6667,fts,,fts,True
+Leistungsermittlung Raumdaten,12,Allg. & Gruppenleitung,Einzel-/Zweierbüros,2,0.88,gemini,0.88,"Bezieht sich auf Büros für eine oder zwei Personen, was für 'Allg. & Gruppenleitung' eine passende Zuordnung darstellt.",True
+Leistungsermittlung Raumdaten,13,Azubi,Einzel-/Zweierbüros,2,0.9,gemini,0.9,"Azubi-Plätze werden oft in Büroeinheiten oder Großraumbüros untergebracht, 'Einzel-/Zweierbüros' ist die nächstbeste Kategorie für eine Personalarbeitsstätte.",True
+Leistungsermittlung Raumdaten,14,Post / Kopieren,Drucker-/Kopierräume,16,0.95,gemini,0.95,"Direkte Entsprechung für Bereiche, in denen Postverteilung und Kopierarbeiten stattfinden.",True
+Leistungsermittlung Raumdaten,15,Technikum,Technikum,3,1.0,fts,,fts,True
+Leistungsermittlung Raumdaten,16,Smartfarming,Smart Farming,4,1.0,gemini,1.0,Direkte Entsprechung im Raumkatalog.,True
+Leistungsermittlung Raumdaten,17,I4.4 & Robotik,Robotik,5,0.3633,fts,,fts,True
+Leistungsermittlung Raumdaten,18,Flur,"Verkehrsflächen, Flure",6,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,19,Flur,"Verkehrsflächen, Flure",6,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,20,WC Herren,WCs,8,0.05,fts,,fts,True
+Leistungsermittlung Raumdaten,21,WC B,WCs,8,0.05,fts,,fts,True
+Leistungsermittlung Raumdaten,22,WC Frauen,WCs,8,0.05,fts,,fts,True
+Leistungsermittlung Raumdaten,23,WC Herren,WCs,8,0.05,fts,,fts,True
+Leistungsermittlung Raumdaten,24,Putzraum,Putzmittel/ Lager,10,0.98,gemini,0.98,Direkte Entsprechung für einen Putzraum/Lagerraum für Reinigungsmittel.,True
+Leistungsermittlung Raumdaten,25,Serverraum,ELT-Zentrale,9,0.87,gemini,0.87,"Serverräume fallen typischerweise unter eine zentrale Technik- oder Elektrotechnik-Zentrale (ELT-Zentrale), da diese Räume hohe Anforderungen an Kühlung und Sicherheit stellen.",True
+Leistungsermittlung Raumdaten,26,ELT,ELT-Zentrale,9,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,27,Treppe/Flur,Treppenhäuser/Magistrale,17,0.05,fts,,fts,True
+Leistungsermittlung Raumdaten,28,Installationsschacht,ELT-Schacht,14,0.92,gemini,0.92,Installationsschächte dienen der vertikalen Führung von Leitungen und passen zur Kategorie 'ELT-Schacht'.,True
+Leistungsermittlung Raumdaten,29,Installationsschacht,ELT-Schacht,14,0.92,gemini,0.92,Installationsschächte dienen der vertikalen Führung von Leitungen und passen zur Kategorie 'ELT-Schacht'.,True
+Leistungsermittlung Raumdaten,30,Aufzug,Aufzüge,19,1.0,gemini,1.0,Direkte Entsprechung.,True
+Leistungsermittlung Raumdaten,31,Co-Working,Flex-/ Co-Work/,1,0.425,fts,,fts,True
+Leistungsermittlung Raumdaten,32,Co-Working Space,Flex-/ Co-Work/,1,0.2933,fts,,fts,True
+Leistungsermittlung Raumdaten,33,Postlager/Teeküche/Kopieren,Teeküchen,7,0.235,fts,,fts,True
+Leistungsermittlung Raumdaten,34,Allg. & Gruppenleitung,Einzel-/Zweierbüros,2,0.88,gemini,0.88,"Bezieht sich auf Büros für eine oder zwei Personen, was für 'Allg. & Gruppenleitung' eine passende Zuordnung darstellt.",True
+Leistungsermittlung Raumdaten,35,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,gemini,0.88,"Wiss. Mitarbeiter benötigen in der Regel Einzel- oder Doppelarbeitsplätze, welche durch 'Einzel-/Zweierbüros' abgedeckt werden.",True
+Leistungsermittlung Raumdaten,36,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,gemini,0.88,"Wiss. Mitarbeiter benötigen in der Regel Einzel- oder Doppelarbeitsplätze, welche durch 'Einzel-/Zweierbüros' abgedeckt werden.",True
+Leistungsermittlung Raumdaten,37,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,gemini,0.88,"Wiss. Mitarbeiter benötigen in der Regel Einzel- oder Doppelarbeitsplätze, welche durch 'Einzel-/Zweierbüros' abgedeckt werden.",True
+Leistungsermittlung Raumdaten,38,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,gemini,0.88,"Wiss. Mitarbeiter benötigen in der Regel Einzel- oder Doppelarbeitsplätze, welche durch 'Einzel-/Zweierbüros' abgedeckt werden.",True
+Leistungsermittlung Raumdaten,39,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,gemini,0.88,"Wiss. Mitarbeiter benötigen in der Regel Einzel- oder Doppelarbeitsplätze, welche durch 'Einzel-/Zweierbüros' abgedeckt werden.",True
+Leistungsermittlung Raumdaten,40,Flur,"Verkehrsflächen, Flure",6,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,41,Flur,"Verkehrsflächen, Flure",6,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,42,WC Herren,WCs,8,0.05,fts,,fts,True
+Leistungsermittlung Raumdaten,43,WC Damen,WCs,8,0.05,fts,,fts,True
+Leistungsermittlung Raumdaten,44,WC Herren,WCs,8,0.05,fts,,fts,True
+Leistungsermittlung Raumdaten,45,Putzraum,Putzmittel/ Lager,10,0.98,gemini,0.98,Direkte Entsprechung für einen Putzraum/Lagerraum für Reinigungsmittel.,True
+Leistungsermittlung Raumdaten,46,Lager,Putzmittel/ Lager,10,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,47,Serverraum,ELT-Zentrale,9,0.87,gemini,0.87,"Serverräume fallen typischerweise unter eine zentrale Technik- oder Elektrotechnik-Zentrale (ELT-Zentrale), da diese Räume hohe Anforderungen an Kühlung und Sicherheit stellen.",True
+Leistungsermittlung Raumdaten,48,ELT,ELT-Zentrale,9,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,49,Treppe/Flur,Treppenhäuser/Magistrale,17,0.05,fts,,fts,True
+Leistungsermittlung Raumdaten,50,Installationsschacht,ELT-Schacht,14,0.92,gemini,0.92,Installationsschächte dienen der vertikalen Führung von Leitungen und passen zur Kategorie 'ELT-Schacht'.,True
+Leistungsermittlung Raumdaten,51,Installationsschacht,ELT-Schacht,14,0.92,gemini,0.92,Installationsschächte dienen der vertikalen Führung von Leitungen und passen zur Kategorie 'ELT-Schacht'.,True
+Leistungsermittlung Raumdaten,52,Aufzug,Aufzüge,19,1.0,gemini,1.0,Direkte Entsprechung.,True
+Leistungsermittlung Raumdaten,53,Flexwork,Flex-/ Co-Work/,1,1.0,gemini,1.0,Direkte Entsprechung.,True
+Leistungsermittlung Raumdaten,54,Allg. & Gruppenleitung,Einzel-/Zweierbüros,2,0.88,gemini,0.88,"Bezieht sich auf Büros für eine oder zwei Personen, was für 'Allg. & Gruppenleitung' eine passende Zuordnung darstellt.",True
+Leistungsermittlung Raumdaten,55,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,gemini,0.88,"Wiss. Mitarbeiter benötigen in der Regel Einzel- oder Doppelarbeitsplätze, welche durch 'Einzel-/Zweierbüros' abgedeckt werden.",True
+Leistungsermittlung Raumdaten,56,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,gemini,0.88,"Wiss. Mitarbeiter benötigen in der Regel Einzel- oder Doppelarbeitsplätze, welche durch 'Einzel-/Zweierbüros' abgedeckt werden.",True
+Leistungsermittlung Raumdaten,57,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,gemini,0.88,"Wiss. Mitarbeiter benötigen in der Regel Einzel- oder Doppelarbeitsplätze, welche durch 'Einzel-/Zweierbüros' abgedeckt werden.",True
+Leistungsermittlung Raumdaten,58,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,gemini,0.88,"Wiss. Mitarbeiter benötigen in der Regel Einzel- oder Doppelarbeitsplätze, welche durch 'Einzel-/Zweierbüros' abgedeckt werden.",True
+Leistungsermittlung Raumdaten,59,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,gemini,0.88,"Wiss. Mitarbeiter benötigen in der Regel Einzel- oder Doppelarbeitsplätze, welche durch 'Einzel-/Zweierbüros' abgedeckt werden.",True
+Leistungsermittlung Raumdaten,60,Doktorand,Einzel-/Zweierbüros,2,0.87,gemini,0.87,"Doktoranden benötigen Einzelarbeitsplätze, was die nächstliegende Kategorie darstellt.",True
+Leistungsermittlung Raumdaten,61,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,gemini,0.88,"Wiss. Mitarbeiter benötigen in der Regel Einzel- oder Doppelarbeitsplätze, welche durch 'Einzel-/Zweierbüros' abgedeckt werden.",True
+Leistungsermittlung Raumdaten,62,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,gemini,0.88,"Wiss. Mitarbeiter benötigen in der Regel Einzel- oder Doppelarbeitsplätze, welche durch 'Einzel-/Zweierbüros' abgedeckt werden.",True
+Leistungsermittlung Raumdaten,63,Flur,"Verkehrsflächen, Flure",6,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,64,Flur,"Verkehrsflächen, Flure",6,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,65,WC Damen,WCs,8,0.05,fts,,fts,True
+Leistungsermittlung Raumdaten,66,WC Herren,WCs,8,0.05,fts,,fts,True
+Leistungsermittlung Raumdaten,67,WC Herren,WCs,8,0.05,fts,,fts,True
+Leistungsermittlung Raumdaten,68,Putzraum,Putzmittel/ Lager,10,0.98,gemini,0.98,Direkte Entsprechung für einen Putzraum/Lagerraum für Reinigungsmittel.,True
+Leistungsermittlung Raumdaten,69,Lager,Putzmittel/ Lager,10,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,70,Serverraum,ELT-Zentrale,9,0.87,gemini,0.87,"Serverräume fallen typischerweise unter eine zentrale Technik- oder Elektrotechnik-Zentrale (ELT-Zentrale), da diese Räume hohe Anforderungen an Kühlung und Sicherheit stellen.",True
+Leistungsermittlung Raumdaten,71,ELT,ELT-Zentrale,9,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,72,Treppe/Flur,Treppenhäuser/Magistrale,17,0.05,fts,,fts,True
+Leistungsermittlung Raumdaten,73,Installationsschacht,ELT-Schacht,14,0.92,gemini,0.92,Installationsschächte dienen der vertikalen Führung von Leitungen und passen zur Kategorie 'ELT-Schacht'.,True
+Leistungsermittlung Raumdaten,74,Installationsschacht,ELT-Schacht,14,0.92,gemini,0.92,Installationsschächte dienen der vertikalen Führung von Leitungen und passen zur Kategorie 'ELT-Schacht'.,True
+Leistungsermittlung Raumdaten,75,Aufzug,Aufzüge,19,1.0,gemini,1.0,Direkte Entsprechung.,True
+Leistungsermittlung Raumdaten,76,Seminar,Serminarraum,20,1.0,gemini,1.0,"Direkte Entsprechung (Anmerkung: 'Serminarraum' im Katalog scheint ein Tippfehler für 'Seminarraum' zu sein, wird aber als beste Übereinstimmung gewählt).",True
+Leistungsermittlung Raumdaten,77,Entwicklungslabor,Technikum,3,0.9,gemini,0.9,Entwicklungslabore oder spezifische Versuchseinrichtungen fallen unter die Kategorie 'Technikum'.,True
+Leistungsermittlung Raumdaten,78,Flex-Work,Flex-/ Co-Work/,1,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,79,Co-Working,Flex-/ Co-Work/,1,0.425,fts,,fts,True
+Leistungsermittlung Raumdaten,80,Allg. & Gruppenleitung,Einzel-/Zweierbüros,2,0.88,gemini,0.88,"Bezieht sich auf Büros für eine oder zwei Personen, was für 'Allg. & Gruppenleitung' eine passende Zuordnung darstellt.",True
+Leistungsermittlung Raumdaten,81,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,gemini,0.88,"Wiss. Mitarbeiter benötigen in der Regel Einzel- oder Doppelarbeitsplätze, welche durch 'Einzel-/Zweierbüros' abgedeckt werden.",True
+Leistungsermittlung Raumdaten,82,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,gemini,0.88,"Wiss. Mitarbeiter benötigen in der Regel Einzel- oder Doppelarbeitsplätze, welche durch 'Einzel-/Zweierbüros' abgedeckt werden.",True
+Leistungsermittlung Raumdaten,83,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,gemini,0.88,"Wiss. Mitarbeiter benötigen in der Regel Einzel- oder Doppelarbeitsplätze, welche durch 'Einzel-/Zweierbüros' abgedeckt werden.",True
+Leistungsermittlung Raumdaten,84,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,gemini,0.88,"Wiss. Mitarbeiter benötigen in der Regel Einzel- oder Doppelarbeitsplätze, welche durch 'Einzel-/Zweierbüros' abgedeckt werden.",True
+Leistungsermittlung Raumdaten,85,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,gemini,0.88,"Wiss. Mitarbeiter benötigen in der Regel Einzel- oder Doppelarbeitsplätze, welche durch 'Einzel-/Zweierbüros' abgedeckt werden.",True
+Leistungsermittlung Raumdaten,86,Doktorand,Einzel-/Zweierbüros,2,0.87,gemini,0.87,"Doktoranden benötigen Einzelarbeitsplätze, was die nächstliegende Kategorie darstellt.",True
+Leistungsermittlung Raumdaten,87,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,gemini,0.88,"Wiss. Mitarbeiter benötigen in der Regel Einzel- oder Doppelarbeitsplätze, welche durch 'Einzel-/Zweierbüros' abgedeckt werden.",True
+Leistungsermittlung Raumdaten,88,Sekretariat,Einzel-/Zweierbüros,2,0.88,gemini,0.88,"Sekretariate sind spezialisierte Büros, die am besten in der Kategorie 'Einzel-/Zweierbüros' eingeordnet werden.",True
+Leistungsermittlung Raumdaten,89,Flur,"Verkehrsflächen, Flure",6,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,90,Flur,"Verkehrsflächen, Flure",6,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,91,WC Frauen,WCs,8,0.05,fts,,fts,True
+Leistungsermittlung Raumdaten,92,WC Herren,WCs,8,0.05,fts,,fts,True
+Leistungsermittlung Raumdaten,93,WC Herren,WCs,8,0.05,fts,,fts,True
+Leistungsermittlung Raumdaten,94,Putzraum,Putzmittel/ Lager,10,0.98,gemini,0.98,Direkte Entsprechung für einen Putzraum/Lagerraum für Reinigungsmittel.,True
+Leistungsermittlung Raumdaten,95,Serverraum,ELT-Zentrale,9,0.87,gemini,0.87,"Serverräume fallen typischerweise unter eine zentrale Technik- oder Elektrotechnik-Zentrale (ELT-Zentrale), da diese Räume hohe Anforderungen an Kühlung und Sicherheit stellen.",True
+Leistungsermittlung Raumdaten,96,ELT,ELT-Zentrale,9,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,97,Treppe/Flur,Treppenhäuser/Magistrale,17,0.05,fts,,fts,True
+Leistungsermittlung Raumdaten,98,Installationsschacht,ELT-Schacht,14,0.92,gemini,0.92,Installationsschächte dienen der vertikalen Führung von Leitungen und passen zur Kategorie 'ELT-Schacht'.,True
+Leistungsermittlung Raumdaten,99,Installationsschacht,ELT-Schacht,14,0.92,gemini,0.92,Installationsschächte dienen der vertikalen Führung von Leitungen und passen zur Kategorie 'ELT-Schacht'.,True
+Leistungsermittlung Raumdaten,100,Aufzug,Aufzüge,19,1.0,gemini,1.0,Direkte Entsprechung.,True
+Leistungsermittlung Raumdaten,101,Diele,Diele,21,1.0,fts,,fts,True
+Leistungsermittlung Raumdaten,102,Social-Area/Flex-Work/Co-Work,Flex-/ Co-Work/,1,0.63,fts,,fts,True
+Leistungsermittlung Raumdaten,103,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,gemini,0.88,"Wiss. Mitarbeiter benötigen in der Regel Einzel- oder Doppelarbeitsplätze, welche durch 'Einzel-/Zweierbüros' abgedeckt werden.",True
+Leistungsermittlung Raumdaten,104,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,gemini,0.88,"Wiss. Mitarbeiter benötigen in der Regel Einzel- oder Doppelarbeitsplätze, welche durch 'Einzel-/Zweierbüros' abgedeckt werden.",True
+Leistungsermittlung Raumdaten,105,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,gemini,0.88,"Wiss. Mitarbeiter benötigen in der Regel Einzel- oder Doppelarbeitsplätze, welche durch 'Einzel-/Zweierbüros' abgedeckt werden.",True
+Leistungsermittlung Raumdaten,106,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,gemini,0.88,"Wiss. Mitarbeiter benötigen in der Regel Einzel- oder Doppelarbeitsplätze, welche durch 'Einzel-/Zweierbüros' abgedeckt werden.",True
+Leistungsermittlung Raumdaten,107,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,gemini,0.88,"Wiss. Mitarbeiter benötigen in der Regel Einzel- oder Doppelarbeitsplätze, welche durch 'Einzel-/Zweierbüros' abgedeckt werden.",True
+Leistungsermittlung Raumdaten,108,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,gemini,0.88,"Wiss. Mitarbeiter benötigen in der Regel Einzel- oder Doppelarbeitsplätze, welche durch 'Einzel-/Zweierbüros' abgedeckt werden.",True
+Leistungsermittlung Raumdaten,109,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,gemini,0.88,"Wiss. Mitarbeiter benötigen in der Regel Einzel- oder Doppelarbeitsplätze, welche durch 'Einzel-/Zweierbüros' abgedeckt werden.",True
+Leistungsermittlung Raumdaten,110,Allg. & Gruppenleitung,Einzel-/Zweierbüros,2,0.88,gemini,0.88,"Bezieht sich auf Büros für eine oder zwei Personen, was für 'Allg. & Gruppenleitung' eine passende Zuordnung darstellt.",True
+Leistungsermittlung Raumdaten,111,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,gemini,0.88,"Wiss. Mitarbeiter benötigen in der Regel Einzel- oder Doppelarbeitsplätze, welche durch 'Einzel-/Zweierbüros' abgedeckt werden.",True
+Leistungsermittlung Raumdaten,112,Techniker,Einzel-/Zweierbüros,2,0.88,gemini,0.88,"Techniker benötigen feste Arbeitsplätze, die in der Kategorie 'Einzel-/Zweierbüros' abgebildet werden.",True
+Leistungsermittlung Raumdaten,113,Flur,"Verkehrsflächen, Flure",6,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,114,Flur,"Verkehrsflächen, Flure",6,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,115,WC Frauen,WCs,8,0.05,fts,,fts,True
+Leistungsermittlung Raumdaten,116,WC Herren,WCs,8,0.05,fts,,fts,True
+Leistungsermittlung Raumdaten,117,WC Herren,WCs,8,0.05,fts,,fts,True
+Leistungsermittlung Raumdaten,118,Putzmittel / Lager,Putzmittel/ Lager,10,1.0,fts,,fts,True
+Leistungsermittlung Raumdaten,119,Putzraum,Putzmittel/ Lager,10,0.98,gemini,0.98,Direkte Entsprechung für einen Putzraum/Lagerraum für Reinigungsmittel.,True
+Leistungsermittlung Raumdaten,120,Serverraum,ELT-Zentrale,9,0.87,gemini,0.87,"Serverräume fallen typischerweise unter eine zentrale Technik- oder Elektrotechnik-Zentrale (ELT-Zentrale), da diese Räume hohe Anforderungen an Kühlung und Sicherheit stellen.",True
+Leistungsermittlung Raumdaten,121,ELT,ELT-Zentrale,9,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,122,Treppe/Flur,Treppenhäuser/Magistrale,17,0.05,fts,,fts,True
+Leistungsermittlung Raumdaten,123,Installationsschacht,ELT-Schacht,14,0.92,gemini,0.92,Installationsschächte dienen der vertikalen Führung von Leitungen und passen zur Kategorie 'ELT-Schacht'.,True
+Leistungsermittlung Raumdaten,124,Installationsschacht,ELT-Schacht,14,0.92,gemini,0.92,Installationsschächte dienen der vertikalen Führung von Leitungen und passen zur Kategorie 'ELT-Schacht'.,True
+Leistungsermittlung Raumdaten,125,Aufzug,Aufzüge,19,1.0,gemini,1.0,Direkte Entsprechung.,True
+Leistungsermittlung Raumdaten,126,Post/Teeküche/Kopierer,Teeküchen,7,0.235,fts,,fts,True
+Leistungsermittlung Raumdaten,127,Co-Working,Flex-/ Co-Work/,1,0.425,fts,,fts,True
+Leistungsermittlung Raumdaten,128,Allg. & Gruppenleitung,Einzel-/Zweierbüros,2,0.88,gemini,0.88,"Bezieht sich auf Büros für eine oder zwei Personen, was für 'Allg. & Gruppenleitung' eine passende Zuordnung darstellt.",True
+Leistungsermittlung Raumdaten,129,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,gemini,0.88,"Wiss. Mitarbeiter benötigen in der Regel Einzel- oder Doppelarbeitsplätze, welche durch 'Einzel-/Zweierbüros' abgedeckt werden.",True
+Leistungsermittlung Raumdaten,130,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,gemini,0.88,"Wiss. Mitarbeiter benötigen in der Regel Einzel- oder Doppelarbeitsplätze, welche durch 'Einzel-/Zweierbüros' abgedeckt werden.",True
+Leistungsermittlung Raumdaten,131,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,gemini,0.88,"Wiss. Mitarbeiter benötigen in der Regel Einzel- oder Doppelarbeitsplätze, welche durch 'Einzel-/Zweierbüros' abgedeckt werden.",True
+Leistungsermittlung Raumdaten,132,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,gemini,0.88,"Wiss. Mitarbeiter benötigen in der Regel Einzel- oder Doppelarbeitsplätze, welche durch 'Einzel-/Zweierbüros' abgedeckt werden.",True
+Leistungsermittlung Raumdaten,133,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,gemini,0.88,"Wiss. Mitarbeiter benötigen in der Regel Einzel- oder Doppelarbeitsplätze, welche durch 'Einzel-/Zweierbüros' abgedeckt werden.",True
+Leistungsermittlung Raumdaten,134,Techniker,Einzel-/Zweierbüros,2,0.88,gemini,0.88,"Techniker benötigen feste Arbeitsplätze, die in der Kategorie 'Einzel-/Zweierbüros' abgebildet werden.",True
+Leistungsermittlung Raumdaten,135,Flur,"Verkehrsflächen, Flure",6,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,136,Flur,"Verkehrsflächen, Flure",6,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,137,WC Frauen,WCs,8,0.05,fts,,fts,True
+Leistungsermittlung Raumdaten,138,WC Herren,WCs,8,0.05,fts,,fts,True
+Leistungsermittlung Raumdaten,139,WC Herren,WCs,8,0.05,fts,,fts,True
+Leistungsermittlung Raumdaten,140,Putzraum,Putzmittel/ Lager,10,0.98,gemini,0.98,Direkte Entsprechung für einen Putzraum/Lagerraum für Reinigungsmittel.,True
+Leistungsermittlung Raumdaten,141,Putzmittel / Lager,Putzmittel/ Lager,10,1.0,fts,,fts,True
+Leistungsermittlung Raumdaten,142,Lager,Putzmittel/ Lager,10,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,143,Serverraum,ELT-Zentrale,9,0.87,gemini,0.87,"Serverräume fallen typischerweise unter eine zentrale Technik- oder Elektrotechnik-Zentrale (ELT-Zentrale), da diese Räume hohe Anforderungen an Kühlung und Sicherheit stellen.",True
+Leistungsermittlung Raumdaten,144,Treppe/Flur,Treppenhäuser/Magistrale,17,0.05,fts,,fts,True
+Leistungsermittlung Raumdaten,145,Installationsschacht,ELT-Schacht,14,0.92,gemini,0.92,Installationsschächte dienen der vertikalen Führung von Leitungen und passen zur Kategorie 'ELT-Schacht'.,True
+Leistungsermittlung Raumdaten,146,Installationsschacht,ELT-Schacht,14,0.92,gemini,0.92,Installationsschächte dienen der vertikalen Führung von Leitungen und passen zur Kategorie 'ELT-Schacht'.,True
+Leistungsermittlung Raumdaten,147,Aufzug,Aufzüge,19,1.0,gemini,1.0,Direkte Entsprechung.,True
+Leistungsermittlung Raumdaten,148,Seminarraum,Serminarraum,20,1.0,gemini,1.0,Direkte Entsprechung.,True
+Leistungsermittlung Raumdaten,149,Seminarraum,Serminarraum,20,1.0,gemini,1.0,Direkte Entsprechung.,True
+Leistungsermittlung Raumdaten,150,Seminarraum,Serminarraum,20,1.0,gemini,1.0,Direkte Entsprechung.,True
+Leistungsermittlung Raumdaten,151,Flur,"Verkehrsflächen, Flure",6,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,152,Flur,"Verkehrsflächen, Flure",6,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,153,Datenraum Allgemein,ELT-Zentrale,9,0.86,gemini,0.86,"Datenräume (allgemein) für IT-Infrastruktur können als Untergruppe der Hauptverteilerräume (ELT-Zentrale) betrachtet werden, auch wenn eine dedizierte 'Serverraum'-Kategorie fehlt.",True
+Leistungsermittlung Raumdaten,154,NSHV Raum AV Netz,ELT-Zentrale,9,0.85,gemini,0.85,Räume für unterbrechungsfreie Stromversorgung (USV) und Notstromversorgung sind integraler Bestandteil der allgemeinen Elektrotechnikzentralen.,True
+Leistungsermittlung Raumdaten,155,BOS Funk / BMZ,ELT-Zentrale,9,0.85,gemini,0.85,Räume für BOS Funk und BMZ (Brandmeldezentrale) sind Teil der sicherheitsrelevanten Elektroinstallationen und werden oft in der ELT-Zentrale untergebracht.,True
+Leistungsermittlung Raumdaten,156,Batterieraum,Batterieräume,15,1.0,gemini,1.0,Direkte Entsprechung.,True
+Leistungsermittlung Raumdaten,157,USV Raum,ELT-Zentrale,9,0.86,gemini,0.86,"USV-Räume sind eng mit der zentralen Stromversorgung (ELT-Zentrale) verbunden, da sie Teil der Hauptstromversorgungsinfrastruktur sind.",True
+Leistungsermittlung Raumdaten,158,Lager,Putzmittel/ Lager,10,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,159,Lager,Putzmittel/ Lager,10,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,160,Lager,Putzmittel/ Lager,10,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,161,RLHK Zentrale,ELT-Zentrale,9,0.48,fts,,fts,True
+Leistungsermittlung Raumdaten,162,SAN Zentrale,ELT-Zentrale,9,0.48,fts,,fts,True
+Leistungsermittlung Raumdaten,163,Treppe,Treppenhäuser/Magistrale,17,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,164,Einbringöffnung,Schächte,18,0.9,gemini,0.9,"Einbringöffnungen führen zu Schächten oder größeren Hohlräumen und werden der allgemeinen Kategorie 'Schächte' zugeordnet, da keine spezifische 'Einbringöffnung' existiert.",True
+Leistungsermittlung Raumdaten,165,Fortluft,Schächte,18,0.9,gemini,0.9,Fortluft wird über Lüftungskanäle oder Schächte abgeführt; 'Schächte' ist die nächstbeste technische Zuordnung.,True
+Leistungsermittlung Raumdaten,166,Aufzug,Aufzüge,19,1.0,gemini,1.0,Direkte Entsprechung.,True

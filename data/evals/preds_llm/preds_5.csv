@@ -1,0 +1,157 @@
+﻿Sheet,RowIndex,Raum-Bezeichnung,MatchedRoomtype,Nr,Score,Method,AI_Confidence,AI_Rationale,Accepted
+Leistungsermittlung Raumdaten,11,Flex-Work Area,Flex-/ Co-Work/,1,0.98,llm_only,0.98,Entspricht direkt der Definition 'Flex-Work Area' und 'Co-Working Space'.,True
+Leistungsermittlung Raumdaten,12,Allg. & Gruppenleitung,Flex-/ Co-Work/,1,0.9,llm_only,0.9,"Obwohl 'Allg. & Gruppenleitung' spezifischer wäre, ist 'Flex-/ Co-Work/' die beste verfügbare Kategorie für allgemeine oder leitende Bürobereiche, sofern keine spezifische 'Büro'-Kategorie existiert.",True
+Leistungsermittlung Raumdaten,13,Azubi,Flex-/ Co-Work/,1,0.88,llm_only,0.88,"Wird als allgemeiner Arbeitsbereich interpretiert, passend zu 'Flex-/ Co-Work/'.",True
+Leistungsermittlung Raumdaten,14,Post / Kopieren,Drucker-/Kopierräume,16,0.95,llm_only,0.95,Entspricht der Funktion 'Post / Kopieren'.,True
+Leistungsermittlung Raumdaten,15,Technikum,Technikum,3,1.0,llm_only,1.0,Exakte Übereinstimmung.,True
+Leistungsermittlung Raumdaten,16,Smartfarming,Smart Farming,4,1.0,llm_only,1.0,Exakte Übereinstimmung.,True
+Leistungsermittlung Raumdaten,17,I4.4 & Robotik,Robotik,5,0.98,llm_only,0.98,Die Kombination 'I4.4 & Robotik' wird dem spezifischsten Eintrag 'Robotik' zugeordnet.,True
+Leistungsermittlung Raumdaten,18,Flur,"Verkehrsflächen, Flure",6,0.98,llm_only,0.98,Entspricht der allgemeinen Bezeichnung 'Flur'.,True
+Leistungsermittlung Raumdaten,19,Flur,"Verkehrsflächen, Flure",6,0.98,llm_only,0.98,Entspricht der allgemeinen Bezeichnung 'Flur'.,True
+Leistungsermittlung Raumdaten,20,WC Herren,WCs,8,0.99,llm_only,0.99,"Oberbegriff für alle WC-Räume ('WC Herren', 'WC B', 'WC Frauen', 'WC Damen').",True
+Leistungsermittlung Raumdaten,21,WC B,WCs,8,0.99,llm_only,0.99,Oberbegriff für alle WC-Räume.,True
+Leistungsermittlung Raumdaten,22,WC Frauen,WCs,8,0.99,llm_only,0.99,Oberbegriff für alle WC-Räume.,True
+Leistungsermittlung Raumdaten,23,WC Herren,WCs,8,0.99,llm_only,0.99,"Oberbegriff für alle WC-Räume ('WC Herren', 'WC B', 'WC Frauen', 'WC Damen').",True
+Leistungsermittlung Raumdaten,24,Putzraum,Putzmittel/ Lager,10,0.98,llm_only,0.98,Entspricht der Funktion 'Putzraum'.,True
+Leistungsermittlung Raumdaten,25,Serverraum,ELT-Zentrale,9,0.9,llm_only,0.9,Ein Serverraum wird primär als Technikzentrale der Elektrotechnik interpretiert ('ELT').,True
+Leistungsermittlung Raumdaten,26,ELT,ELT-Zentrale,9,0.98,llm_only,0.98,Als Oberbegriff für 'ELT' (Elektrotechnik-Zentrale) wird diese Kategorie gewählt.,True
+Leistungsermittlung Raumdaten,27,Treppe/Flur,Treppenhäuser/Magistrale,17,0.95,llm_only,0.95,"'Treppe/Flur' wird der Kategorie 'Treppenhäuser/Magistrale' zugeordnet, da 'Flure' separat existieren (KG 6).",True
+Leistungsermittlung Raumdaten,28,Installationsschacht,Schächte,18,0.98,llm_only,0.98,Exakte Übereinstimmung mit 'Installationsschacht'.,True
+Leistungsermittlung Raumdaten,29,Installationsschacht,Schächte,18,0.98,llm_only,0.98,Exakte Übereinstimmung mit 'Installationsschacht'.,True
+Leistungsermittlung Raumdaten,30,Aufzug,Aufzüge,19,1.0,llm_only,1.0,Exakte Übereinstimmung.,True
+Leistungsermittlung Raumdaten,31,Co-Working,Flex-/ Co-Work/,1,0.99,llm_only,0.99,Direkte Entsprechung zu 'Co-Working'.,True
+Leistungsermittlung Raumdaten,32,Co-Working Space,Flex-/ Co-Work/,1,0.99,llm_only,0.99,Direkte Entsprechung zu 'Co-Working Space'.,True
+Leistungsermittlung Raumdaten,33,Postlager/Teeküche/Kopieren,Teeküchen,7,0.87,llm_only,0.87,"Die Bezeichnung 'Postlager/Teeküche/Kopieren' umfasst mehrere Funktionen. Teeküche ist die spezifischste der gelisteten Funktionen, die nicht durch andere Kategorien (Lager, Kopieren) abgedeckt wird.",True
+Leistungsermittlung Raumdaten,34,Allg. & Gruppenleitung,Flex-/ Co-Work/,1,0.9,llm_only,0.9,"Obwohl 'Allg. & Gruppenleitung' spezifischer wäre, ist 'Flex-/ Co-Work/' die beste verfügbare Kategorie für allgemeine oder leitende Bürobereiche, sofern keine spezifische 'Büro'-Kategorie existiert.",True
+Leistungsermittlung Raumdaten,35,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,llm_only,0.88,"Wird als Büroarbeitsplatz für spezialisiertes Personal (Wissenschaftliche Mitarbeiter) interpretiert, wobei 'Einzel-/Zweierbüros' die passendste Standardbüroform darstellt.",True
+Leistungsermittlung Raumdaten,36,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,llm_only,0.88,"Wird als Büroarbeitsplatz für spezialisiertes Personal (Wissenschaftliche Mitarbeiter) interpretiert, wobei 'Einzel-/Zweierbüros' die passendste Standardbüroform darstellt.",True
+Leistungsermittlung Raumdaten,37,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,llm_only,0.88,"Wird als Büroarbeitsplatz für spezialisiertes Personal (Wissenschaftliche Mitarbeiter) interpretiert, wobei 'Einzel-/Zweierbüros' die passendste Standardbüroform darstellt.",True
+Leistungsermittlung Raumdaten,38,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,llm_only,0.88,"Wird als Büroarbeitsplatz für spezialisiertes Personal (Wissenschaftliche Mitarbeiter) interpretiert, wobei 'Einzel-/Zweierbüros' die passendste Standardbüroform darstellt.",True
+Leistungsermittlung Raumdaten,39,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,llm_only,0.88,"Wird als Büroarbeitsplatz für spezialisiertes Personal (Wissenschaftliche Mitarbeiter) interpretiert, wobei 'Einzel-/Zweierbüros' die passendste Standardbüroform darstellt.",True
+Leistungsermittlung Raumdaten,40,Flur,"Verkehrsflächen, Flure",6,0.98,llm_only,0.98,Entspricht der allgemeinen Bezeichnung 'Flur'.,True
+Leistungsermittlung Raumdaten,41,Flur,"Verkehrsflächen, Flure",6,0.98,llm_only,0.98,Entspricht der allgemeinen Bezeichnung 'Flur'.,True
+Leistungsermittlung Raumdaten,42,WC Herren,WCs,8,0.99,llm_only,0.99,"Oberbegriff für alle WC-Räume ('WC Herren', 'WC B', 'WC Frauen', 'WC Damen').",True
+Leistungsermittlung Raumdaten,43,WC Damen,Flex-/ Co-Work/,1,0.99,llm_only,0.99,Entspricht direkt der Definition 'Flexwork'.,True
+Leistungsermittlung Raumdaten,44,WC Herren,WCs,8,0.99,llm_only,0.99,"Oberbegriff für alle WC-Räume ('WC Herren', 'WC B', 'WC Frauen', 'WC Damen').",True
+Leistungsermittlung Raumdaten,45,Putzraum,Putzmittel/ Lager,10,0.98,llm_only,0.98,Entspricht der Funktion 'Putzraum'.,True
+Leistungsermittlung Raumdaten,46,Lager,Einzel-/Zweierbüros,2,0.88,llm_only,0.88,"Doktoranden nutzen in Forschungsumgebungen oft dedizierte oder geteilte Büroräume, was durch 'Einzel-/Zweierbüros' am besten abgedeckt wird.",True
+Leistungsermittlung Raumdaten,47,Serverraum,ELT-Zentrale,9,0.9,llm_only,0.9,Ein Serverraum wird primär als Technikzentrale der Elektrotechnik interpretiert ('ELT').,True
+Leistungsermittlung Raumdaten,48,ELT,ELT-Zentrale,9,0.98,llm_only,0.98,Als Oberbegriff für 'ELT' (Elektrotechnik-Zentrale) wird diese Kategorie gewählt.,True
+Leistungsermittlung Raumdaten,49,Treppe/Flur,Treppenhäuser/Magistrale,17,0.95,llm_only,0.95,"'Treppe/Flur' wird der Kategorie 'Treppenhäuser/Magistrale' zugeordnet, da 'Flure' separat existieren (KG 6).",True
+Leistungsermittlung Raumdaten,50,Installationsschacht,Schächte,18,0.98,llm_only,0.98,Exakte Übereinstimmung mit 'Installationsschacht'.,True
+Leistungsermittlung Raumdaten,51,Installationsschacht,Schächte,18,0.98,llm_only,0.98,Exakte Übereinstimmung mit 'Installationsschacht'.,True
+Leistungsermittlung Raumdaten,52,Aufzug,Aufzüge,19,1.0,llm_only,1.0,Exakte Übereinstimmung.,True
+Leistungsermittlung Raumdaten,53,Flexwork,,,0.0,llm_only_no_answer,0.0,no_response,False
+Leistungsermittlung Raumdaten,54,Allg. & Gruppenleitung,Flex-/ Co-Work/,1,0.9,llm_only,0.9,"Obwohl 'Allg. & Gruppenleitung' spezifischer wäre, ist 'Flex-/ Co-Work/' die beste verfügbare Kategorie für allgemeine oder leitende Bürobereiche, sofern keine spezifische 'Büro'-Kategorie existiert.",True
+Leistungsermittlung Raumdaten,55,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,llm_only,0.88,"Wird als Büroarbeitsplatz für spezialisiertes Personal (Wissenschaftliche Mitarbeiter) interpretiert, wobei 'Einzel-/Zweierbüros' die passendste Standardbüroform darstellt.",True
+Leistungsermittlung Raumdaten,56,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,llm_only,0.88,"Wird als Büroarbeitsplatz für spezialisiertes Personal (Wissenschaftliche Mitarbeiter) interpretiert, wobei 'Einzel-/Zweierbüros' die passendste Standardbüroform darstellt.",True
+Leistungsermittlung Raumdaten,57,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,llm_only,0.88,"Wird als Büroarbeitsplatz für spezialisiertes Personal (Wissenschaftliche Mitarbeiter) interpretiert, wobei 'Einzel-/Zweierbüros' die passendste Standardbüroform darstellt.",True
+Leistungsermittlung Raumdaten,58,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,llm_only,0.88,"Wird als Büroarbeitsplatz für spezialisiertes Personal (Wissenschaftliche Mitarbeiter) interpretiert, wobei 'Einzel-/Zweierbüros' die passendste Standardbüroform darstellt.",True
+Leistungsermittlung Raumdaten,59,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,llm_only,0.88,"Wird als Büroarbeitsplatz für spezialisiertes Personal (Wissenschaftliche Mitarbeiter) interpretiert, wobei 'Einzel-/Zweierbüros' die passendste Standardbüroform darstellt.",True
+Leistungsermittlung Raumdaten,60,Doktorand,,,0.0,llm_only_no_answer,0.0,no_response,False
+Leistungsermittlung Raumdaten,61,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,llm_only,0.88,"Wird als Büroarbeitsplatz für spezialisiertes Personal (Wissenschaftliche Mitarbeiter) interpretiert, wobei 'Einzel-/Zweierbüros' die passendste Standardbüroform darstellt.",True
+Leistungsermittlung Raumdaten,62,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,llm_only,0.88,"Wird als Büroarbeitsplatz für spezialisiertes Personal (Wissenschaftliche Mitarbeiter) interpretiert, wobei 'Einzel-/Zweierbüros' die passendste Standardbüroform darstellt.",True
+Leistungsermittlung Raumdaten,63,Flur,"Verkehrsflächen, Flure",6,0.98,llm_only,0.98,Entspricht der allgemeinen Bezeichnung 'Flur'.,True
+Leistungsermittlung Raumdaten,64,Flur,"Verkehrsflächen, Flure",6,0.98,llm_only,0.98,Entspricht der allgemeinen Bezeichnung 'Flur'.,True
+Leistungsermittlung Raumdaten,65,WC Damen,Flex-/ Co-Work/,1,0.99,llm_only,0.99,Entspricht direkt der Definition 'Flexwork'.,True
+Leistungsermittlung Raumdaten,66,WC Herren,WCs,8,0.99,llm_only,0.99,"Oberbegriff für alle WC-Räume ('WC Herren', 'WC B', 'WC Frauen', 'WC Damen').",True
+Leistungsermittlung Raumdaten,67,WC Herren,WCs,8,0.99,llm_only,0.99,"Oberbegriff für alle WC-Räume ('WC Herren', 'WC B', 'WC Frauen', 'WC Damen').",True
+Leistungsermittlung Raumdaten,68,Putzraum,Putzmittel/ Lager,10,0.98,llm_only,0.98,Entspricht der Funktion 'Putzraum'.,True
+Leistungsermittlung Raumdaten,69,Lager,Einzel-/Zweierbüros,2,0.88,llm_only,0.88,"Doktoranden nutzen in Forschungsumgebungen oft dedizierte oder geteilte Büroräume, was durch 'Einzel-/Zweierbüros' am besten abgedeckt wird.",True
+Leistungsermittlung Raumdaten,70,Serverraum,ELT-Zentrale,9,0.9,llm_only,0.9,Ein Serverraum wird primär als Technikzentrale der Elektrotechnik interpretiert ('ELT').,True
+Leistungsermittlung Raumdaten,71,ELT,ELT-Zentrale,9,0.98,llm_only,0.98,Als Oberbegriff für 'ELT' (Elektrotechnik-Zentrale) wird diese Kategorie gewählt.,True
+Leistungsermittlung Raumdaten,72,Treppe/Flur,Treppenhäuser/Magistrale,17,0.95,llm_only,0.95,"'Treppe/Flur' wird der Kategorie 'Treppenhäuser/Magistrale' zugeordnet, da 'Flure' separat existieren (KG 6).",True
+Leistungsermittlung Raumdaten,73,Installationsschacht,Schächte,18,0.98,llm_only,0.98,Exakte Übereinstimmung mit 'Installationsschacht'.,True
+Leistungsermittlung Raumdaten,74,Installationsschacht,Schächte,18,0.98,llm_only,0.98,Exakte Übereinstimmung mit 'Installationsschacht'.,True
+Leistungsermittlung Raumdaten,75,Aufzug,Aufzüge,19,1.0,llm_only,1.0,Exakte Übereinstimmung.,True
+Leistungsermittlung Raumdaten,76,Seminar,Serminarraum,20,0.98,llm_only,0.98,Direkte Übereinstimmung mit 'Seminarraum'.,True
+Leistungsermittlung Raumdaten,77,Entwicklungslabor,Technikum,3,0.75,llm_only,0.75,"'Entwicklungslabor' impliziert Forschungs- oder Testzwecke, was am ehesten dem 'Technikum' entspricht. Konfidenz unter 0.85, da es sich um eine funktionale Ähnlichkeit handelt.",True
+Leistungsermittlung Raumdaten,78,Flex-Work,Flex-/ Co-Work/,1,0.95,llm_only,0.95,Direkte Übereinstimmung mit 'Flex-Work'.,True
+Leistungsermittlung Raumdaten,79,Co-Working,Flex-/ Co-Work/,1,0.99,llm_only,0.99,Direkte Entsprechung zu 'Co-Working'.,True
+Leistungsermittlung Raumdaten,80,Allg. & Gruppenleitung,Flex-/ Co-Work/,1,0.9,llm_only,0.9,"Obwohl 'Allg. & Gruppenleitung' spezifischer wäre, ist 'Flex-/ Co-Work/' die beste verfügbare Kategorie für allgemeine oder leitende Bürobereiche, sofern keine spezifische 'Büro'-Kategorie existiert.",True
+Leistungsermittlung Raumdaten,81,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,llm_only,0.88,"Wird als Büroarbeitsplatz für spezialisiertes Personal (Wissenschaftliche Mitarbeiter) interpretiert, wobei 'Einzel-/Zweierbüros' die passendste Standardbüroform darstellt.",True
+Leistungsermittlung Raumdaten,82,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,llm_only,0.88,"Wird als Büroarbeitsplatz für spezialisiertes Personal (Wissenschaftliche Mitarbeiter) interpretiert, wobei 'Einzel-/Zweierbüros' die passendste Standardbüroform darstellt.",True
+Leistungsermittlung Raumdaten,83,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,llm_only,0.88,"Wird als Büroarbeitsplatz für spezialisiertes Personal (Wissenschaftliche Mitarbeiter) interpretiert, wobei 'Einzel-/Zweierbüros' die passendste Standardbüroform darstellt.",True
+Leistungsermittlung Raumdaten,84,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,llm_only,0.88,"Wird als Büroarbeitsplatz für spezialisiertes Personal (Wissenschaftliche Mitarbeiter) interpretiert, wobei 'Einzel-/Zweierbüros' die passendste Standardbüroform darstellt.",True
+Leistungsermittlung Raumdaten,85,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,llm_only,0.88,"Wird als Büroarbeitsplatz für spezialisiertes Personal (Wissenschaftliche Mitarbeiter) interpretiert, wobei 'Einzel-/Zweierbüros' die passendste Standardbüroform darstellt.",True
+Leistungsermittlung Raumdaten,86,Doktorand,,,0.0,llm_only_no_answer,0.0,no_response,False
+Leistungsermittlung Raumdaten,87,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,llm_only,0.88,"Wird als Büroarbeitsplatz für spezialisiertes Personal (Wissenschaftliche Mitarbeiter) interpretiert, wobei 'Einzel-/Zweierbüros' die passendste Standardbüroform darstellt.",True
+Leistungsermittlung Raumdaten,88,Sekretariat,Einzel-/Zweierbüros,2,0.6,llm_only_low_conf,0.6,"'Sekretariat' ist ein Büroraum, passt aber besser zu allgemeinen Büros als zu spezialisierten Räumen. Konfidenz niedrig.",False
+Leistungsermittlung Raumdaten,89,Flur,"Verkehrsflächen, Flure",6,0.98,llm_only,0.98,Entspricht der allgemeinen Bezeichnung 'Flur'.,True
+Leistungsermittlung Raumdaten,90,Flur,"Verkehrsflächen, Flure",6,0.98,llm_only,0.98,Entspricht der allgemeinen Bezeichnung 'Flur'.,True
+Leistungsermittlung Raumdaten,91,WC Frauen,WCs,8,0.99,llm_only,0.99,Oberbegriff für alle WC-Räume.,True
+Leistungsermittlung Raumdaten,92,WC Herren,WCs,8,0.99,llm_only,0.99,"Oberbegriff für alle WC-Räume ('WC Herren', 'WC B', 'WC Frauen', 'WC Damen').",True
+Leistungsermittlung Raumdaten,93,WC Herren,WCs,8,0.99,llm_only,0.99,"Oberbegriff für alle WC-Räume ('WC Herren', 'WC B', 'WC Frauen', 'WC Damen').",True
+Leistungsermittlung Raumdaten,94,Putzraum,Putzmittel/ Lager,10,0.98,llm_only,0.98,Entspricht der Funktion 'Putzraum'.,True
+Leistungsermittlung Raumdaten,95,Serverraum,ELT-Zentrale,9,0.9,llm_only,0.9,Ein Serverraum wird primär als Technikzentrale der Elektrotechnik interpretiert ('ELT').,True
+Leistungsermittlung Raumdaten,96,ELT,ELT-Zentrale,9,0.98,llm_only,0.98,Als Oberbegriff für 'ELT' (Elektrotechnik-Zentrale) wird diese Kategorie gewählt.,True
+Leistungsermittlung Raumdaten,97,Treppe/Flur,Treppenhäuser/Magistrale,17,0.95,llm_only,0.95,"'Treppe/Flur' wird der Kategorie 'Treppenhäuser/Magistrale' zugeordnet, da 'Flure' separat existieren (KG 6).",True
+Leistungsermittlung Raumdaten,98,Installationsschacht,Schächte,18,0.98,llm_only,0.98,Exakte Übereinstimmung mit 'Installationsschacht'.,True
+Leistungsermittlung Raumdaten,99,Installationsschacht,Schächte,18,0.98,llm_only,0.98,Exakte Übereinstimmung mit 'Installationsschacht'.,True
+Leistungsermittlung Raumdaten,100,Aufzug,Aufzüge,19,1.0,llm_only,1.0,Exakte Übereinstimmung.,True
+Leistungsermittlung Raumdaten,101,Diele,Diele,21,0.99,llm_only,0.99,Direkte Übereinstimmung.,True
+Leistungsermittlung Raumdaten,102,Social-Area/Flex-Work/Co-Work,Flex-/ Co-Work/,1,0.99,llm_only,0.99,Direkte Übereinstimmung mit 'Social-Area/Flex-Work/Co-Work'.,True
+Leistungsermittlung Raumdaten,103,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,llm_only,0.88,"Wird als Büroarbeitsplatz für spezialisiertes Personal (Wissenschaftliche Mitarbeiter) interpretiert, wobei 'Einzel-/Zweierbüros' die passendste Standardbüroform darstellt.",True
+Leistungsermittlung Raumdaten,104,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,llm_only,0.88,"Wird als Büroarbeitsplatz für spezialisiertes Personal (Wissenschaftliche Mitarbeiter) interpretiert, wobei 'Einzel-/Zweierbüros' die passendste Standardbüroform darstellt.",True
+Leistungsermittlung Raumdaten,105,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,llm_only,0.88,"Wird als Büroarbeitsplatz für spezialisiertes Personal (Wissenschaftliche Mitarbeiter) interpretiert, wobei 'Einzel-/Zweierbüros' die passendste Standardbüroform darstellt.",True
+Leistungsermittlung Raumdaten,106,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,llm_only,0.88,"Wird als Büroarbeitsplatz für spezialisiertes Personal (Wissenschaftliche Mitarbeiter) interpretiert, wobei 'Einzel-/Zweierbüros' die passendste Standardbüroform darstellt.",True
+Leistungsermittlung Raumdaten,107,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,llm_only,0.88,"Wird als Büroarbeitsplatz für spezialisiertes Personal (Wissenschaftliche Mitarbeiter) interpretiert, wobei 'Einzel-/Zweierbüros' die passendste Standardbüroform darstellt.",True
+Leistungsermittlung Raumdaten,108,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,llm_only,0.88,"Wird als Büroarbeitsplatz für spezialisiertes Personal (Wissenschaftliche Mitarbeiter) interpretiert, wobei 'Einzel-/Zweierbüros' die passendste Standardbüroform darstellt.",True
+Leistungsermittlung Raumdaten,109,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,llm_only,0.88,"Wird als Büroarbeitsplatz für spezialisiertes Personal (Wissenschaftliche Mitarbeiter) interpretiert, wobei 'Einzel-/Zweierbüros' die passendste Standardbüroform darstellt.",True
+Leistungsermittlung Raumdaten,110,Allg. & Gruppenleitung,Flex-/ Co-Work/,1,0.9,llm_only,0.9,"Obwohl 'Allg. & Gruppenleitung' spezifischer wäre, ist 'Flex-/ Co-Work/' die beste verfügbare Kategorie für allgemeine oder leitende Bürobereiche, sofern keine spezifische 'Büro'-Kategorie existiert.",True
+Leistungsermittlung Raumdaten,111,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,llm_only,0.88,"Wird als Büroarbeitsplatz für spezialisiertes Personal (Wissenschaftliche Mitarbeiter) interpretiert, wobei 'Einzel-/Zweierbüros' die passendste Standardbüroform darstellt.",True
+Leistungsermittlung Raumdaten,112,Techniker,Einzel-/Zweierbüros,2,0.55,llm_only_low_conf,0.55,"'Techniker' (vermutlich Technikerbüro/Arbeitsplatz) ist ein Bürobereich, aber die Kategorie ist zu allgemein. Konfidenz niedrig.",False
+Leistungsermittlung Raumdaten,113,Flur,"Verkehrsflächen, Flure",6,0.98,llm_only,0.98,Entspricht der allgemeinen Bezeichnung 'Flur'.,True
+Leistungsermittlung Raumdaten,114,Flur,"Verkehrsflächen, Flure",6,0.98,llm_only,0.98,Entspricht der allgemeinen Bezeichnung 'Flur'.,True
+Leistungsermittlung Raumdaten,115,WC Frauen,WCs,8,0.99,llm_only,0.99,Oberbegriff für alle WC-Räume.,True
+Leistungsermittlung Raumdaten,116,WC Herren,WCs,8,0.99,llm_only,0.99,"Oberbegriff für alle WC-Räume ('WC Herren', 'WC B', 'WC Frauen', 'WC Damen').",True
+Leistungsermittlung Raumdaten,117,WC Herren,WCs,8,0.99,llm_only,0.99,"Oberbegriff für alle WC-Räume ('WC Herren', 'WC B', 'WC Frauen', 'WC Damen').",True
+Leistungsermittlung Raumdaten,118,Putzmittel / Lager,Putzmittel/ Lager,10,0.99,llm_only,0.99,Direkte Übereinstimmung.,True
+Leistungsermittlung Raumdaten,119,Putzraum,Putzmittel/ Lager,10,0.98,llm_only,0.98,Entspricht der Funktion 'Putzraum'.,True
+Leistungsermittlung Raumdaten,120,Serverraum,ELT-Zentrale,9,0.9,llm_only,0.9,Ein Serverraum wird primär als Technikzentrale der Elektrotechnik interpretiert ('ELT').,True
+Leistungsermittlung Raumdaten,121,ELT,ELT-Zentrale,9,0.98,llm_only,0.98,Als Oberbegriff für 'ELT' (Elektrotechnik-Zentrale) wird diese Kategorie gewählt.,True
+Leistungsermittlung Raumdaten,122,Treppe/Flur,Treppenhäuser/Magistrale,17,0.95,llm_only,0.95,"'Treppe/Flur' wird der Kategorie 'Treppenhäuser/Magistrale' zugeordnet, da 'Flure' separat existieren (KG 6).",True
+Leistungsermittlung Raumdaten,123,Installationsschacht,Schächte,18,0.98,llm_only,0.98,Exakte Übereinstimmung mit 'Installationsschacht'.,True
+Leistungsermittlung Raumdaten,124,Installationsschacht,Schächte,18,0.98,llm_only,0.98,Exakte Übereinstimmung mit 'Installationsschacht'.,True
+Leistungsermittlung Raumdaten,125,Aufzug,Aufzüge,19,1.0,llm_only,1.0,Exakte Übereinstimmung.,True
+Leistungsermittlung Raumdaten,126,Post/Teeküche/Kopierer,Teeküchen,7,0.88,llm_only,0.88,Die Kategorie 'Post/Teeküche/Kopierer' beinhaltet 'Teeküche'. Die Zuordnung zu 'Teeküchen' ist die beste spezifische Übereinstimmung aus dem Katalog.,True
+Leistungsermittlung Raumdaten,127,Co-Working,Flex-/ Co-Work/,1,0.99,llm_only,0.99,Direkte Entsprechung zu 'Co-Working'.,True
+Leistungsermittlung Raumdaten,128,Allg. & Gruppenleitung,Flex-/ Co-Work/,1,0.9,llm_only,0.9,"Obwohl 'Allg. & Gruppenleitung' spezifischer wäre, ist 'Flex-/ Co-Work/' die beste verfügbare Kategorie für allgemeine oder leitende Bürobereiche, sofern keine spezifische 'Büro'-Kategorie existiert.",True
+Leistungsermittlung Raumdaten,129,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,llm_only,0.88,"Wird als Büroarbeitsplatz für spezialisiertes Personal (Wissenschaftliche Mitarbeiter) interpretiert, wobei 'Einzel-/Zweierbüros' die passendste Standardbüroform darstellt.",True
+Leistungsermittlung Raumdaten,130,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,llm_only,0.88,"Wird als Büroarbeitsplatz für spezialisiertes Personal (Wissenschaftliche Mitarbeiter) interpretiert, wobei 'Einzel-/Zweierbüros' die passendste Standardbüroform darstellt.",True
+Leistungsermittlung Raumdaten,131,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,llm_only,0.88,"Wird als Büroarbeitsplatz für spezialisiertes Personal (Wissenschaftliche Mitarbeiter) interpretiert, wobei 'Einzel-/Zweierbüros' die passendste Standardbüroform darstellt.",True
+Leistungsermittlung Raumdaten,132,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,llm_only,0.88,"Wird als Büroarbeitsplatz für spezialisiertes Personal (Wissenschaftliche Mitarbeiter) interpretiert, wobei 'Einzel-/Zweierbüros' die passendste Standardbüroform darstellt.",True
+Leistungsermittlung Raumdaten,133,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,0.88,llm_only,0.88,"Wird als Büroarbeitsplatz für spezialisiertes Personal (Wissenschaftliche Mitarbeiter) interpretiert, wobei 'Einzel-/Zweierbüros' die passendste Standardbüroform darstellt.",True
+Leistungsermittlung Raumdaten,134,Techniker,Einzel-/Zweierbüros,2,0.55,llm_only_low_conf,0.55,"'Techniker' (vermutlich Technikerbüro/Arbeitsplatz) ist ein Bürobereich, aber die Kategorie ist zu allgemein. Konfidenz niedrig.",False
+Leistungsermittlung Raumdaten,135,Flur,"Verkehrsflächen, Flure",6,0.98,llm_only,0.98,Entspricht der allgemeinen Bezeichnung 'Flur'.,True
+Leistungsermittlung Raumdaten,136,Flur,"Verkehrsflächen, Flure",6,0.98,llm_only,0.98,Entspricht der allgemeinen Bezeichnung 'Flur'.,True
+Leistungsermittlung Raumdaten,137,WC Frauen,WCs,8,0.99,llm_only,0.99,Oberbegriff für alle WC-Räume.,True
+Leistungsermittlung Raumdaten,138,WC Herren,WCs,8,0.99,llm_only,0.99,"Oberbegriff für alle WC-Räume ('WC Herren', 'WC B', 'WC Frauen', 'WC Damen').",True
+Leistungsermittlung Raumdaten,139,WC Herren,WCs,8,0.99,llm_only,0.99,"Oberbegriff für alle WC-Räume ('WC Herren', 'WC B', 'WC Frauen', 'WC Damen').",True
+Leistungsermittlung Raumdaten,140,Putzraum,Putzmittel/ Lager,10,0.98,llm_only,0.98,Entspricht der Funktion 'Putzraum'.,True
+Leistungsermittlung Raumdaten,141,Putzmittel / Lager,Putzmittel/ Lager,10,0.99,llm_only,0.99,Direkte Übereinstimmung.,True
+Leistungsermittlung Raumdaten,142,Lager,Einzel-/Zweierbüros,2,0.88,llm_only,0.88,"Doktoranden nutzen in Forschungsumgebungen oft dedizierte oder geteilte Büroräume, was durch 'Einzel-/Zweierbüros' am besten abgedeckt wird.",True
+Leistungsermittlung Raumdaten,143,Serverraum,ELT-Zentrale,9,0.9,llm_only,0.9,Ein Serverraum wird primär als Technikzentrale der Elektrotechnik interpretiert ('ELT').,True
+Leistungsermittlung Raumdaten,144,Treppe/Flur,Treppenhäuser/Magistrale,17,0.95,llm_only,0.95,"'Treppe/Flur' wird der Kategorie 'Treppenhäuser/Magistrale' zugeordnet, da 'Flure' separat existieren (KG 6).",True
+Leistungsermittlung Raumdaten,145,Installationsschacht,Schächte,18,0.98,llm_only,0.98,Exakte Übereinstimmung mit 'Installationsschacht'.,True
+Leistungsermittlung Raumdaten,146,Installationsschacht,Schächte,18,0.98,llm_only,0.98,Exakte Übereinstimmung mit 'Installationsschacht'.,True
+Leistungsermittlung Raumdaten,147,Aufzug,Aufzüge,19,1.0,llm_only,1.0,Exakte Übereinstimmung.,True
+Leistungsermittlung Raumdaten,148,Seminarraum,Serminarraum,20,1.0,llm_only,1.0,Direkte Übereinstimmung.,True
+Leistungsermittlung Raumdaten,149,Seminarraum,Serminarraum,20,1.0,llm_only,1.0,Direkte Übereinstimmung.,True
+Leistungsermittlung Raumdaten,150,Seminarraum,Serminarraum,20,1.0,llm_only,1.0,Direkte Übereinstimmung.,True
+Leistungsermittlung Raumdaten,151,Flur,"Verkehrsflächen, Flure",6,0.98,llm_only,0.98,Entspricht der allgemeinen Bezeichnung 'Flur'.,True
+Leistungsermittlung Raumdaten,152,Flur,"Verkehrsflächen, Flure",6,0.98,llm_only,0.98,Entspricht der allgemeinen Bezeichnung 'Flur'.,True
+Leistungsermittlung Raumdaten,153,Datenraum Allgemein,Reserve,x,0.8,llm_only,0.8,"'Datenraum Allgemein' ist kein spezifischer Katalogeintrag. Könnte 'ELT-Zentrale' (9) oder 'Lager innenliegend' (11) sein, aber am besten als Reserve eingestuft.",True
+Leistungsermittlung Raumdaten,154,NSHV Raum AV Netz,ELT-Zentrale,9,0.7,llm_only_low_conf,0.7,"'NSHV Raum AV Netz' (Niederspannungshauptverteilung) ist ein Bereich der Elektrotechnik. Die 'ELT-Zentrale' ist die nächstbeste TGA-Zuordnung, obwohl es spezifischer sein sollte.",False
+Leistungsermittlung Raumdaten,155,BOS Funk / BMZ,ELT-Zentrale,9,0.75,llm_only,0.75,'BOS Funk / BMZ' (Brandmeldezentrale) gehört zur Elektrotechnik/Sicherheitstechnik. 'ELT-Zentrale' ist die nächstbeste allgemeine Zuordnung.,True
+Leistungsermittlung Raumdaten,156,Batterieraum,Batterieräume,15,1.0,llm_only,1.0,Direkte Übereinstimmung.,True
+Leistungsermittlung Raumdaten,157,USV Raum,TGA-Zentrale,12,0.7,llm_only_low_conf,0.7,"'USV Raum' ist eng mit der TGA verbunden (Stromversorgung/RLT). Die 'TGA-Zentrale' ist die beste allgemeine Zuordnung, obwohl RLH K/SAN spezifischer wären.",False
+Leistungsermittlung Raumdaten,158,Lager,Einzel-/Zweierbüros,2,0.88,llm_only,0.88,"Doktoranden nutzen in Forschungsumgebungen oft dedizierte oder geteilte Büroräume, was durch 'Einzel-/Zweierbüros' am besten abgedeckt wird.",True
+Leistungsermittlung Raumdaten,159,Lager,Einzel-/Zweierbüros,2,0.88,llm_only,0.88,"Doktoranden nutzen in Forschungsumgebungen oft dedizierte oder geteilte Büroräume, was durch 'Einzel-/Zweierbüros' am besten abgedeckt wird.",True
+Leistungsermittlung Raumdaten,160,Lager,Einzel-/Zweierbüros,2,0.88,llm_only,0.88,"Doktoranden nutzen in Forschungsumgebungen oft dedizierte oder geteilte Büroräume, was durch 'Einzel-/Zweierbüros' am besten abgedeckt wird.",True
+Leistungsermittlung Raumdaten,161,RLHK Zentrale,TGA-Zentrale,12,0.8,llm_only,0.8,'RLHK Zentrale' (Raumleittechnik/HLK-Zentrale) ist klar eine TGA-Zentrale. Konfidenz höher als beim USV-Raum.,True
+Leistungsermittlung Raumdaten,162,SAN Zentrale,TGA-Zentrale,12,0.8,llm_only,0.8,'SAN Zentrale' (Storage Area Network) ist oft im Server-/RTR-Bereich. Die TGA-Zentrale (oft mit Serverraum kombiniert) ist die nächste funktionale Nähe.,True
+Leistungsermittlung Raumdaten,163,Treppe,Treppenhäuser/Magistrale,17,0.99,llm_only,0.99,Direkte Übereinstimmung ('Treppe').,True
+Leistungsermittlung Raumdaten,164,Einbringöffnung,Reserve,x,0.7,llm_only_low_conf,0.7,"'Einbringöffnung' ist keine Raumart, sondern ein Bauteil/Durchbruch. Konfidenz niedrig.",False
+Leistungsermittlung Raumdaten,165,Fortluft,Reserve,x,0.7,llm_only_low_conf,0.7,"'Fortluft' bezeichnet einen Luftstrom/Öffnung, nicht einen Raum. Konfidenz niedrig.",False
+Leistungsermittlung Raumdaten,166,Aufzug,Aufzüge,19,1.0,llm_only,1.0,Exakte Übereinstimmung.,True
