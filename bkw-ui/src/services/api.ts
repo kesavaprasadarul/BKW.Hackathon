@@ -10,6 +10,26 @@ interface RoomTypeClassificationResponse {
   message: string;
 }
 
+interface PowerEstimates {
+  room_nr: string;
+  room_type: number;
+  heating_W_per_m2: number;
+  cooling_W_per_m2: number;
+  ventilation_m3_per_h: number;
+  area_m2?: number;
+  volume_m3?: number;
+}
+
+interface PowerRequirementsResponse {
+  heating_file: string;
+  ventilation_file: string;
+  merged_rows: number;
+  merged_columns: number;
+  power_estimates: Record<string, PowerEstimates>;
+  performance_table: string;
+  message: string;
+}
+
 interface Step1Response {
   optimizedRooms: number;
   totalRooms: number;
@@ -35,6 +55,23 @@ export async function classifyRoomTypes(excelFile: File, mappingFile: File): Pro
   formData.append('mapping_csv', mappingFile);
 
   const response = await fetch(`${API_BASE_URL}/roomtypes/classify`, {
+    method: 'POST',
+    body: formData,
+  });
+
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
+
+  return response.json();
+}
+
+export async function generatePowerRequirements(heatingFile: File, ventilationFile: File): Promise<PowerRequirementsResponse> {
+  const formData = new FormData();
+  formData.append('heating_file', heatingFile);
+  formData.append('ventilation_file', ventilationFile);
+
+  const response = await fetch(`${API_BASE_URL}/power/requirements`, {
     method: 'POST',
     body: formData,
   });

@@ -25,6 +25,26 @@ export interface RoomTypeClassificationData {
   message: string;
 }
 
+export interface PowerEstimates {
+  room_nr: string;
+  room_type: number;
+  heating_W_per_m2: number;
+  cooling_W_per_m2: number;
+  ventilation_m3_per_h: number;
+  area_m2?: number;
+  volume_m3?: number;
+}
+
+export interface PowerRequirementsData {
+  heating_file: string;
+  ventilation_file: string;
+  merged_rows: number;
+  merged_columns: number;
+  power_estimates: Record<string, PowerEstimates>;
+  performance_table: string;
+  message: string;
+}
+
 interface AnalysisState {
   currentStep: AnalysisStep;
   uploadedFiles: {
@@ -40,6 +60,7 @@ interface AnalysisState {
   step1Data: Step1Data | null;
   step2Data: Step2Data | null;
   roomTypeData: RoomTypeClassificationData | null;
+  powerRequirementsData: PowerRequirementsData | null;
 }
 
 interface AnalysisContextType {
@@ -55,6 +76,7 @@ interface AnalysisContextType {
   setStep1Data: (data: Step1Data) => void;
   setStep2Data: (data: Step2Data) => void;
   setRoomTypeData: (data: RoomTypeClassificationData) => void;
+  setPowerRequirementsData: (data: PowerRequirementsData) => void;
   resetAnalysis: () => void;
 }
 
@@ -75,6 +97,7 @@ const initialState: AnalysisState = {
   step1Data: null,
   step2Data: null,
   roomTypeData: null,
+  powerRequirementsData: null,
 };
 
 export function AnalysisProvider({ children }: { children: ReactNode }) {
@@ -124,6 +147,10 @@ export function AnalysisProvider({ children }: { children: ReactNode }) {
     setState(prev => ({ ...prev, roomTypeData: data }));
   };
 
+  const setPowerRequirementsData = (data: PowerRequirementsData) => {
+    setState(prev => ({ ...prev, powerRequirementsData: data }));
+  };
+
   const resetAnalysis = () => {
     setState(initialState);
   };
@@ -143,6 +170,7 @@ export function AnalysisProvider({ children }: { children: ReactNode }) {
         setStep1Data,
         setStep2Data,
         setRoomTypeData,
+        setPowerRequirementsData,
         resetAnalysis,
       }}
     >
