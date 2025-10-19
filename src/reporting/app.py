@@ -7,53 +7,80 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from ai import AIService
 from designer import Designer
 from config import FORMATS
-from extractor import extract_project_data
+from extractor import extract_hvac_project_data
 
 
 def main():
     ai = AIService()
     designer = Designer()
     
-    print("Erläuterungsbericht Generator\n" + "="*50)
+    print("TGA Erläuterungsbericht Generator\n" + "="*50)
+    print("\nDieser Generator erstellt Erläuterungsberichte aus:")
+    print("  - Excel-Datei mit Raumdaten")
+    print("  - JSON-Datei mit Kostenschätzung/BOQ")
+    print()
     
-    # Extract data from context directory
-    context_dir = Path(__file__).parent.parent.parent / "context"
-    project_data = extract_project_data(context_dir)
+    # Get input file paths
+    excel_path = input("Pfad zur Excel-Datei (Raumdaten): ").strip()
+    json_path = input("Pfad zur JSON-Datei (Kostendaten): ").strip()
     
-    if not project_data:
-        print("Fehler: Keine Daten aus Context-Verzeichnis extrahiert!")
+    # Resolve paths
+    excel_path = Path(excel_path)
+    json_path = Path(json_path)
+    
+    # Handle relative paths
+    if not excel_path.is_absolute():
+        excel_path = Path(__file__).parent.parent.parent / excel_path
+    if not json_path.is_absolute():
+        json_path = Path(__file__).parent.parent.parent / json_path
+    
+    # Validate files exist
+    if not excel_path.exists():
+        print(f"Fehler: Excel-Datei nicht gefunden: {excel_path}")
+        return
+    if not json_path.exists():
+        print(f"Fehler: JSON-Datei nicht gefunden: {json_path}")
         return
     
-    print(f"{len(project_data.split())} Wörter extrahiert")
+    print("\n" + "="*50)
+    print("Extrahiere Projektdaten...")
+    print("="*50)
+    
+    # Extract data from Excel and JSON
+    project_data = extract_hvac_project_data(excel_path, json_path)
+    
+    if not project_data:
+        print("Fehler: Keine Daten extrahiert!")
+        return
+    
+    print(f"✓ {len(project_data.split())} Wörter extrahiert")
     
     # Generate report in chunks
     print("\n" + "="*50)
     print("Generiere Erläuterungsbericht...")
     print("="*50)
     content = ai.generate_report_chunked(project_data)
-    # content = "test"
+    
     if not content:
+        print("Fehler: Report-Generierung fehlgeschlagen!")
         return
     
-    # Choose format
-    print("\n" + "="*50)
-    print("Format auswählen:")
-    for k, v in FORMATS.items():
-        print(f"{k}. {v[0]}")
+    print("\n✓ Report erfolgreich generiert")
     
-    choice = input("Auswahl (1-4): ").strip()
-
-    if choice == '1':
-        print(f"Gespeichert: {designer.pdf(content, 'Erläuterungsbericht')}")
-    elif choice == '2':
-        print(f"Gespeichert: {designer.docx(content, 'Erläuterungsbericht')}")
-    elif choice == '3':
-        print(f"Gespeichert: {designer.markdown(content)}")
-    elif choice == '4':
-        print("Gespeichert:")
-        print(f"  PDF: {designer.pdf(content, 'Erläuterungsbericht')}")
-        print(f"  DOCX: {designer.docx(content, 'Erläuterungsbericht')}")
-        print(f"  Markdown: {designer.markdown(content)}")
+    # Auto-save all formats
+    print("\n" + "="*50)
+    print("Speichere Report in allen Formaten...")
+    print("="*50)
+    
+    pdf_path = designer.pdf(content, 'Erläuterungsbericht')
+    docx_path = designer.docx(content, 'Erläuterungsbericht')
+    md_path = designer.markdown(content)
+    
+    print("\n✓ Berichte erfolgreich erstellt:")
+    print(f"PDF:      {pdf_path}")
+    print(f"DOCX:     {docx_path}")
+    print(f"Markdown: {md_path}")
+    print()
 
 
 if __name__ == "__main__":
