@@ -1,9 +1,13 @@
 """Main Application"""
-from src.ai import AIService
-from designer import Designer
-from src.config import FORMATS
-from extractor import extract_project_data
+import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
+from ai import AIService
+from designer import Designer
+from config import FORMATS
+from extractor import extract_project_data
 
 
 def main():
@@ -13,7 +17,7 @@ def main():
     print("Erläuterungsbericht Generator\n" + "="*50)
     
     # Extract data from context directory
-    context_dir = Path(__file__).parent.parent / "context"
+    context_dir = Path(__file__).parent.parent.parent / "context"
     project_data = extract_project_data(context_dir)
     
     if not project_data:

@@ -1,6 +1,10 @@
 """Report Designer"""
-from datetime import datetime
+import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
+from datetime import datetime
 from reportlab.lib.pagesizes import A4
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image, Table, TableStyle
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
@@ -10,7 +14,7 @@ from reportlab.lib.enums import TA_CENTER, TA_JUSTIFY
 from docx import Document
 from docx.shared import RGBColor
 from docx.enum.text import WD_ALIGN_PARAGRAPH
-from src.config import REPORTS_DIR
+from config import REPORTS_DIR
 import re
 
 

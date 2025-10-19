@@ -330,7 +330,7 @@ def extract_project_data(context_directory: Union[str, Path]) -> str:
 
 if __name__ == "__main__":
     # Test the extractor
-    context_dir = Path(__file__).parent.parent / "context"
+    context_dir = Path(__file__).parent.parent.parent / "context"
     if context_dir.exists():
         project_data = extract_project_data(context_dir)
         print(f"Extracted {len(project_data)} characters of project data")

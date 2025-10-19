@@ -5,10 +5,13 @@ from pathlib import Path
 from google import genai
 from google.genai import types
 from dotenv import load_dotenv
+
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
 from extractor import extract_project_data
 
 
-load_dotenv(Path(__file__).parent.parent / '.env.local')
+load_dotenv(Path(__file__).parent.parent.parent / '.env.local')
 
 
 class DataAgent:
@@ -122,7 +125,7 @@ def main():
     agent = None
     try:
         agent = DataAgent()
-        agent.load_data(Path(__file__).parent.parent / "agent_context")
+        agent.load_data(Path(__file__).parent.parent.parent / "agent_context")
         agent.run()
     except KeyboardInterrupt:
         pass
