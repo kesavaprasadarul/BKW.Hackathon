@@ -17,7 +17,7 @@ import re
 class Designer:
     def __init__(self):
         REPORTS_DIR.mkdir(exist_ok=True)
-        self.logo_path = Path(__file__).parent.parent / "bkw_eng_logo.png"
+        self.logo_path = Path(__file__).parent / "bkw_eng_logo.png"
     
     def _filename(self, ext):
         return f"report_{datetime.now().strftime('%Y%m%d_%H%M%S')}{ext}"

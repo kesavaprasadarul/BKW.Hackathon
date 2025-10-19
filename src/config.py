@@ -3,7 +3,7 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 
-load_dotenv('.env.local')
+load_dotenv(Path(__file__).parent.parent / '.env.local')
 
 GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
 GEMINI_MODEL = 'gemini-2.5-flash-lite'
