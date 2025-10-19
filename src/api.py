@@ -186,6 +186,18 @@ def _safe_float(val) -> Optional[float]:
     except Exception:
         return None
 
+def _zip_files(files: List[Path], zip_name: str) -> Path:
+	"""Zip multiple files into uploads/zip directory and return path."""
+	zip_dir = UPLOAD_ROOT / "zip"
+	zip_dir.mkdir(parents=True, exist_ok=True)
+	zip_path = zip_dir / zip_name
+	import zipfile
+	with zipfile.ZipFile(zip_path, 'w', compression=zipfile.ZIP_DEFLATED) as zf:
+		for fp in files:
+			if fp.exists():
+				zf.write(fp, arcname=fp.name)
+	return zip_path
+
 
 # -------------------------------
 # Endpoints (to be implemented next)
