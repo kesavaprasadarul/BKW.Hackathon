@@ -3,12 +3,14 @@
 import os
 from pathlib import Path
 from dotenv import load_dotenv
+import json
 
 load_dotenv(".env.local")
 
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 GEMINI_MODEL = "gemini-flash-lite-latest"
 REPORTS_DIR = Path(__file__).parent.parent / "reports"
+HISTORIC_DATA = json.load(open("static/roomtypes/historic_data.json"))
 
 FORMATS = {
     "1": ("PDF", ".pdf"),

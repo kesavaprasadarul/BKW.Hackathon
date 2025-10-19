@@ -1,7 +1,13 @@
 """AI Service"""
 
 import google.generativeai as genai
-from src.config import GEMINI_API_KEY, GEMINI_MODEL, SYSTEM_PROMPT, REPORT_STRUCTURE
+from src.config import (
+    GEMINI_API_KEY,
+    GEMINI_MODEL,
+    SYSTEM_PROMPT,
+    REPORT_STRUCTURE,
+    HISTORIC_DATA,
+)
 import json
 import time
 from typing import List, Dict, Any
@@ -97,6 +103,9 @@ class AIService:
 
         sys_prompt = (
             "You are given a fixed catalog of room types. For each query, choose the best matching item from the catalog. "
+            "You can orient yourself on the following historic data: "
+            + json.dumps(HISTORIC_DATA, ensure_ascii=False)
+            + " "
             "If none fits well, set confidence < 0.85. "
             "Return ONLY a JSON array with one object per input in the same order. "
             'Each object must be: {"nr": str, "roomtype": str, "confidence": number, "rationale": str}. '
