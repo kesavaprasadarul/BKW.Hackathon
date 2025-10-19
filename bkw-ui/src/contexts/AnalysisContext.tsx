@@ -69,16 +69,6 @@ export interface CostEstimationData {
   detailed_boq: CostBOQItem[];
 }
 
-export interface ReportGenerateData {
-  project_name: string;
-  file_count: number;
-  formats_generated: string[];
-  pdf_path?: string;
-  docx_path?: string;
-  markdown_path?: string;
-  message: string;
-}
-
 interface AnalysisState {
   currentStep: AnalysisStep;
   uploadedFiles: {
@@ -96,7 +86,6 @@ interface AnalysisState {
   roomTypeData: RoomTypeClassificationData | null;
   powerRequirementsData: PowerRequirementsData | null;
   costEstimationData: CostEstimationData | null;
-  reportGenerateData: ReportGenerateData | null;
 }
 
 interface AnalysisContextType {
@@ -114,7 +103,6 @@ interface AnalysisContextType {
   setRoomTypeData: (data: RoomTypeClassificationData) => void;
   setPowerRequirementsData: (data: PowerRequirementsData) => void;
   setCostEstimationData: (data: CostEstimationData) => void;
-  setReportGenerateData: (data: ReportGenerateData) => void;
   resetAnalysis: () => void;
 }
 
@@ -137,7 +125,6 @@ const initialState: AnalysisState = {
   roomTypeData: null,
   powerRequirementsData: null,
   costEstimationData: null,
-  reportGenerateData: null,
 };
 
 export function AnalysisProvider({ children }: { children: ReactNode }) {
@@ -195,10 +182,6 @@ export function AnalysisProvider({ children }: { children: ReactNode }) {
     setState(prev => ({ ...prev, costEstimationData: data }));
   };
 
-  const setReportGenerateData = (data: ReportGenerateData) => {
-    setState(prev => ({ ...prev, reportGenerateData: data }));
-  };
-
   const resetAnalysis = () => {
     setState(initialState);
   };
@@ -220,7 +203,6 @@ export function AnalysisProvider({ children }: { children: ReactNode }) {
         setRoomTypeData,
         setPowerRequirementsData,
         setCostEstimationData,
-        setReportGenerateData,
         resetAnalysis,
       }}
     >
