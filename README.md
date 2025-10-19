@@ -6,7 +6,9 @@
 </p>
 
 <div align="center">
-
+  <img src="static/system_overview.png" alt="Atrium AI Overview" width="90%">
+  <br>
+  <em>Atrium AI automates classification, power estimation, cost prediction, and report generation.</em>
 </div>
 
 ---
@@ -22,12 +24,6 @@ It reads Excel-based _technical room books_, _room type lists_, _cost data_, and
 - 📄 **Pre-filled explanatory reports (DOCX/PDF)**
 
 Instead of manually maintaining dozens of Excel sheets, engineers can now use one unified pipeline powered by **structured data processing** and **large language models (LLMs)**.
-
-<div align="center">
-  <img src="assets/system_overview.png" alt="Atrium AI Overview" width="90%">
-  <br>
-  <em>Atrium AI automates classification, power estimation, cost prediction, and report generation.</em>
-</div>
 
 ---
 
