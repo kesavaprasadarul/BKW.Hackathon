@@ -5,7 +5,7 @@ from pathlib import Path
 from google import genai
 from google.genai import types
 from dotenv import load_dotenv
-from extractor import extract_project_data
+from reporting.extractor import extract_project_data
 
 
 load_dotenv(Path(__file__).parent.parent / '.env.local')
