@@ -213,8 +213,8 @@ README.md
 context/
 agent_context/
 cache/
-
-
+uploads/
+outputs/
 # Reports directory
 reports/
 

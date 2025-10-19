@@ -1,7 +1,7 @@
 """AI Service"""
 
 import google.generativeai as genai
-from src.config import (
+from config import (
     GEMINI_API_KEY,
     GEMINI_MODEL,
     SYSTEM_PROMPT,

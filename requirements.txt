@@ -9,3 +9,5 @@ openpyxl==3.1.2
 openpyxl
 pandas
 langchain-google-genai
+fastapi==0.115.2
+uvicorn==0.31.1

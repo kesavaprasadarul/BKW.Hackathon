@@ -6,7 +6,7 @@ from typing import Dict, Optional, Tuple, Iterable
 from openpyxl import load_workbook
 from openpyxl.worksheet.worksheet import Worksheet
 
-from src.roomtypes.matching import norm_key
+from roomtypes.matching import norm_key
 
 HeaderInfo = Tuple[int, Optional[int], Optional[int]]
 

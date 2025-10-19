@@ -1,0 +1,196 @@
+{
+  "KG420_Heat_Pump_System": {
+    "description": "Assembly for a complete heating system based on heat pumps.",
+    "components": [
+      {
+        "description": "Sole-/Wasserwärmepumpe",
+        "subgroup_title": "Wärmeerzeugungsanlagen",
+        "subgroup_kg": "421",
+        "unit": "Stck",
+        "type": "equipment",
+        "quantity_rule": "2",
+        "bki_search_method": "find_best_match_by_load",
+        "bki_kostengruppe": "421"
+      },
+      {
+        "description": "Druckhaltesystem mit Nachspeisung",
+        "subgroup_title": "Wärmeerzeugungsanlagen",
+        "subgroup_kg": "421",
+        "unit": "Stck",
+        "type": "equipment",
+        "quantity_rule": "1 per 125 kW",
+        "bki_search_method": "find_by_keywords",
+        "bki_kostengruppe": "421",
+        "bki_keywords": ["Druckhaltung", "Nachspeisung"]
+      },
+      {
+        "description": "Pufferspeicher bis 1.500 l",
+        "subgroup_title": "Wärmeerzeugungsanlagen",
+        "subgroup_kg": "421",
+        "unit": "Stck",
+        "type": "equipment",
+        "quantity_rule": "1 per 75 kW",
+        "bki_search_method": "find_by_keywords",
+        "bki_kostengruppe": "421",
+        "bki_keywords": ["Pufferspeicher", "1500"]
+      },
+       {
+        "description": "Umwälzpumpen bis DN 65",
+        "subgroup_title": "Wärmeerzeugungsanlagen",
+        "subgroup_kg": "421",
+        "unit": "Stck",
+        "type": "equipment",
+        "quantity_rule": "1 per 30 kW",
+        "bki_search_method": "find_by_keywords",
+        "bki_kostengruppe": "421",
+        "bki_keywords": ["Pumpe", "DN 65"]
+      },
+      {
+        "description": "Stahlrohre, DN 65-100 (repr. DN 80)",
+        "subgroup_title": "Wärmeverteilnetze",
+        "subgroup_kg": "422",
+        "unit": "m",
+        "type": "piping",
+        "quantity_rule": "0.05 * total_area_m2",
+        "bki_search_method": "find_by_keywords",
+        "bki_kostengruppe": "422",
+        "bki_keywords": ["Stahlrohr", "DN 80"]
+      },
+       {
+        "description": "Dämmung Rohre, Mineralwolle",
+        "subgroup_title": "Wärmeverteilnetze",
+        "subgroup_kg": "422",
+        "unit": "m",
+        "type": "piping",
+        "quantity_rule": "0.35 * total_area_m2",
+        "bki_search_method": "find_by_keywords",
+        "bki_kostengruppe": "422",
+        "bki_keywords": ["Dämmung", "Mineralwolle"]
+      },
+      {
+        "description": "Konvektor inkl. Thermostatventil",
+        "subgroup_title": "Raumheizflächen",
+        "subgroup_kg": "423",
+        "unit": "Stck",
+        "type": "equipment",
+        "quantity_rule": "1 per 200 m2",
+        "bki_search_method": "find_by_keywords",
+        "bki_kostengruppe": "423",
+        "bki_keywords": ["Konvektor"]
+      },
+      {
+        "description": "Heizkörper (Heizwand)",
+        "subgroup_title": "Raumheizflächen",
+        "subgroup_kg": "423",
+        "unit": "Stck",
+        "quantity_rule": "1 per 500 m2",
+        "type": "equipment",
+        "bki_search_method": "find_by_keywords",
+        "bki_kostengruppe": "423",
+        "bki_keywords": ["Heizwand", "Heizkörper"]
+      },
+      {
+        "description": "R90-Durchführungen (Brandschutz)",
+        "subgroup_title": "Sonstige Leistungen",
+        "subgroup_kg": "429",
+        "unit": "Stck",
+        "quantity_rule": "1 per 35 m2",
+        "type": "service",
+        "bki_search_method": "find_by_keywords",
+        "bki_kostengruppe": "429",
+        "bki_keywords": ["Brandschutz", "R90"]
+      },
+      {
+        "description": "Zubehör, Einregulierung (pauschal)",
+        "subgroup_title": "Wärmeerzeugungsanlagen",
+        "subgroup_kg": "421",
+        "unit": "psch",
+        "type": "service",
+        "calculation_method": "percentage_of_subgroup",
+        "calculation_basis_kg": "421",
+        "percentage_value": 0.15
+      },
+      {
+        "description": "Armaturen (Absperrungen, Ventile)",
+        "subgroup_title": "Wärmeverteilnetze",
+        "subgroup_kg": "422",
+        "unit": "psch",
+        "type": "service",
+        "calculation_method": "percentage_of_subgroup",
+        "calculation_basis_kg": "422",
+        "percentage_value": 0.20
+      },
+      {
+        "description": "Techn. Bearbeitung (Spülen, IBN, etc.)",
+        "subgroup_title": "Sonstige Leistungen",
+        "subgroup_kg": "429",
+        "unit": "psch",
+        "type": "service",
+        "calculation_method": "percentage_of_subgroup",
+        "calculation_basis_kg": "420_total",
+        "percentage_value": 0.05
+      }
+    ]
+  },
+  "KG430_Ventilation_System": {
+    "description": "Assembly for a complete ventilation system (RLT).",
+    "components": [
+      {
+        "description": "RLT-Gerät (Zentrale Lüftungseinheit)",
+        "subgroup_title": "Lüftungsanlagen",
+        "subgroup_kg": "431",
+        "unit": "Stck",
+        "type": "equipment",
+        "quantity_rule": "1 per 25000 m3/h",
+        "bki_search_method": "find_by_keywords",
+        "bki_kostengruppe": "431",
+        "bki_keywords": ["RLT-Gerät", "Zentralgerät"]
+      },
+      {
+        "description": "Lüftungskanäle, Stahlblech verzinkt",
+        "subgroup_title": "Luftverteilung",
+        "subgroup_kg": "432",
+        "unit": "m2",
+        "type": "ducting",
+        "quantity_rule": "0.4 * total_area_m2",
+        "bki_search_method": "find_by_keywords",
+        "bki_kostengruppe": "432",
+        "bki_keywords": ["Lüftungskanal", "Stahlblech"]
+      },
+      {
+        "description": "Brandschutzklappen",
+        "subgroup_title": "Luftverteilung",
+        "subgroup_kg": "432",
+        "unit": "Stck",
+        "type": "equipment",
+        "quantity_rule": "1 per 100 m2",
+        "bki_search_method": "find_by_keywords",
+        "bki_kostengruppe": "432",
+        "bki_keywords": ["Brandschutzklappe"]
+      },
+      {
+        "description": "Tellerventile (Zuluft/Abluft)",
+        "subgroup_title": "Luftverteilung",
+        "subgroup_kg": "432",
+        "unit": "Stck",
+        "type": "equipment",
+        "quantity_rule": "1 per 25 m2",
+        "bki_search_method": "find_by_keywords",
+        "bki_kostengruppe": "432",
+        "bki_keywords": ["Tellerventil"]
+      },
+      {
+        "description": "Dämmung, Mineralwolle alukaschiert",
+        "subgroup_title": "Luftverteilung",
+        "subgroup_kg": "432",
+        "unit": "m2",
+        "type": "ducting",
+        "quantity_rule": "0.4 * total_area_m2",
+        "bki_search_method": "find_by_keywords",
+        "bki_kostengruppe": "432",
+        "bki_keywords": ["Wärmedämmung", "Mineralwolle", "alukaschiert"]
+      }
+    ]
+  }
+}
+

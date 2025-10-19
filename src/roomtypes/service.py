@@ -4,21 +4,21 @@ from pathlib import Path
 from typing import Dict, List
 import pandas as pd
 
-from src.roomtypes.io import (
+from roomtypes.io import (
     load_wb,
     save_wb,
     detect_header_xlsx,
     ensure_nr_column,
     iter_data_rows,
 )
-from src.roomtypes.models import Cfg
-from src.roomtypes.matching import (
+from roomtypes.models import Cfg
+from roomtypes.matching import (
     load_mapping,
     norm_text,
     best_match_fulltext,
 )
-from src.roomtypes.cache import load_cache, save_cache
-from src.ai import AIService
+from roomtypes.cache import load_cache, save_cache
+from ai import AIService
 
 
 def _validate_against_catalog(res: dict, catalog: List[Dict[str, str]]) -> dict:
