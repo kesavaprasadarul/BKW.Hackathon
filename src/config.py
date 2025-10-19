@@ -5,10 +5,10 @@ from pathlib import Path
 from dotenv import load_dotenv
 import json
 
-load_dotenv(".env.local")
+load_dotenv(Path(__file__).parent.parent / '.env.local')
 
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
-GEMINI_MODEL = "gemini-flash-lite-latest"
+GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
+GEMINI_MODEL = 'gemini-2.5-flash-lite'
 REPORTS_DIR = Path(__file__).parent.parent / "reports"
 HISTORIC_DATA = json.load(open("static/roomtypes/historic_data.json"))
 
@@ -52,5 +52,11 @@ Formatierung:
 - Verwenden Sie * für Aufzählungen (Bullet Points)
 - Nummerieren Sie Unterabschnitte (1., 2., 3., etc.)
 - Strukturieren Sie Absätze klar und übersichtlich
+
+WICHTIG - Mathematische Notation:
+- Verwenden Sie KEINE LaTeX-Notation (keine $, \\text{}, _{}, ^{})
+- Schreiben Sie Variablen normal: Ve,build statt $V_{e,build}$
+- Schreiben Sie Einheiten normal: m³ statt $\\text{m}^3$, m² statt $\\text{m}^2$
+- Verwenden Sie normale Hochzahlen: h⁻¹ statt $\\text{h}^{-1}$
 
 Beachten Sie die DIN 276 Kostengruppen (KG) für die Strukturierung."""

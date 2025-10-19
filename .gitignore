@@ -210,6 +210,8 @@ __marimo__/
 data/
 .env.local
 README.md
+context/
+agent_context/
 cache/
 
 
