@@ -27,6 +27,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from reporting.extractor import FileExtractor
 from reporting.designer import Designer
 from ai import AIService
+from reporting.agent import DataAgent
+import uuid
 
 app = FastAPI(title="BKW Hackathon API", version="0.1.0")
 
@@ -102,12 +104,28 @@ class ReportGenerateResponse(BaseModel):
 	markdown_path: Optional[str] = None
 	message: str
 
+class AgentCreateResponse(BaseModel):
+	agent_id: str
+	file_count: int
+	message: str
+
+class AgentAskRequest(BaseModel):
+	agent_id: str
+	question: str
+
+class AgentAskResponse(BaseModel):
+	agent_id: str
+	question: str
+	answer: str
+	cached: bool
+
 
 # -------------------------------
 # Helpers
 # -------------------------------
 
 UPLOAD_ROOT = Path("uploads")
+_AGENTS: Dict[str, DataAgent] = {}
 
 def save_upload(file: UploadFile, subdir: str) -> Path:
 	target_dir = UPLOAD_ROOT / subdir
@@ -118,6 +136,9 @@ def save_upload(file: UploadFile, subdir: str) -> Path:
 	with target_path.open("wb") as f:
 		shutil.copyfileobj(file.file, f)
 	return target_path
+
+def _new_agent_id() -> str:
+	return uuid.uuid4().hex
 
 def _safe_float(val) -> Optional[float]:
 	try:
@@ -414,6 +435,55 @@ async def generate_report(
 		raise
 	except Exception as e:
 		raise HTTPException(status_code=500, detail=str(e))
+
+@app.post("/agent/create", response_model=AgentCreateResponse)
+async def agent_create(
+	files: List[UploadFile] = File(..., description="Context files for interactive agent"),
+	project_name: str = Form("Projekt"),
+):
+	"""Create a DataAgent with uploaded context files and return agent_id."""
+	try:
+		if not files:
+			raise HTTPException(status_code=400, detail="No files uploaded")
+		session_dir = UPLOAD_ROOT / "agent" / f"session_{int(time.time())}"
+		session_dir.mkdir(parents=True, exist_ok=True)
+		saved_paths = []
+		for f in files:
+			p = session_dir / f.filename
+			with p.open("wb") as out:
+				shutil.copyfileobj(f.file, out)
+			saved_paths.append(p)
+		agent = DataAgent()
+		agent.load_data(session_dir)
+		agent_id = _new_agent_id()
+		_AGENTS[agent_id] = agent
+		return AgentCreateResponse(agent_id=agent_id, file_count=len(saved_paths), message="Agent created")
+	except HTTPException:
+		raise
+	except Exception as e:
+		raise HTTPException(status_code=500, detail=str(e))
+
+@app.post("/agent/ask", response_model=AgentAskResponse)
+async def agent_ask(payload: AgentAskRequest):
+	"""Ask a question to an existing DataAgent."""
+	agent = _AGENTS.get(payload.agent_id)
+	if not agent:
+		raise HTTPException(status_code=404, detail="agent_id not found")
+	answer = agent.ask(payload.question)
+	cached = bool(agent.cache)
+	return AgentAskResponse(agent_id=payload.agent_id, question=payload.question, answer=answer, cached=cached)
+
+@app.delete("/agent/delete/{agent_id}")
+def agent_delete(agent_id: str):
+	"""Delete an existing DataAgent and clean up cache."""
+	agent = _AGENTS.pop(agent_id, None)
+	if not agent:
+		raise HTTPException(status_code=404, detail="agent_id not found")
+	try:
+		agent.cleanup()
+	except Exception:
+		pass
+	return {"agent_id": agent_id, "message": "Agent deleted"}
 
 
 # Routers will be added below in subsequent steps.
