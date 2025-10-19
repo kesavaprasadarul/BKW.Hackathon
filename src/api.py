@@ -9,6 +9,7 @@ Environment: requires GOOGLE_GEMINI_API_KEY and GEMINI_API_KEY as per existing s
 """
 
 from fastapi import FastAPI, UploadFile, File, Form, HTTPException
+from fastapi.responses import FileResponse
 from pydantic import BaseModel
 from typing import List, Dict, Optional
 from pathlib import Path
@@ -23,6 +24,9 @@ from power.merge_excel_files import merge_heating_ventilation_excel
 from power.power_estimator import test_cost_analysis
 from costestimator.main import generate_cost_estimate
 from fastapi.middleware.cors import CORSMiddleware
+from reporting.extractor import FileExtractor
+from reporting.designer import Designer
+from ai import AIService
 
 app = FastAPI(title="BKW Hackathon API", version="0.1.0")
 
@@ -88,6 +92,15 @@ class CostEstimationSummary(BaseModel):
 class CostEstimationOutput(BaseModel):
 	summary: CostEstimationSummary
 	detailed_boq: List[CostBOQItem]
+
+class ReportGenerateResponse(BaseModel):
+	project_name: str
+	file_count: int
+	formats_generated: List[str]
+	pdf_path: Optional[str] = None
+	docx_path: Optional[str] = None
+	markdown_path: Optional[str] = None
+	message: str
 
 
 # -------------------------------
@@ -297,6 +310,106 @@ def cost_estimate(request: PowerRequirementsResponse):
 			filtered.setdefault('total_final_price', 0)
 			boq_items.append(CostBOQItem(**filtered))
 		return CostEstimationOutput(summary=summary, detailed_boq=boq_items)
+	except HTTPException:
+		raise
+	except Exception as e:
+		raise HTTPException(status_code=500, detail=str(e))
+
+@app.post("/report/generate", response_model=ReportGenerateResponse)
+async def generate_report(
+	files: List[UploadFile] = File(..., description="Multiple project context files"),
+	project_name: str = Form("Projekt"),
+	formats: str = Form("pdf"),  # comma separated: pdf,docx,md,all
+	download: bool = Form(False),  # if true return file directly (single or zip)
+)-> ReportGenerateResponse | FileResponse:
+	"""Generate Erläuterungsbericht from uploaded context files.
+
+	Steps:
+	1. Save uploads to a temp dir under uploads/reporting
+	2. Extract text using FileExtractor
+	3. Run AIService.generate_report_chunked
+	4. Produce requested formats via Designer
+	"""
+	try:
+		print("[report] starting generation", project_name, "files=", len(files))
+		if not files:
+			print("[report] no files provided")
+			raise HTTPException(status_code=400, detail="No files uploaded")
+		target_dir = UPLOAD_ROOT / "reporting" / f"session_{int(time.time())}"
+		target_dir.mkdir(parents=True, exist_ok=True)
+		saved_paths = []
+		for f in files:
+			path = target_dir / f.filename
+			with path.open("wb") as out:
+				shutil.copyfileobj(f.file, out)
+			saved_paths.append(path)
+
+		extractor = FileExtractor()
+		extracted_map = {}
+		print("[report] saved", len(saved_paths), "files to", target_dir)
+		for p in saved_paths:
+			content = extractor.extract_from_file(p)
+			if content:
+				extracted_map[p.name] = content
+		if not extracted_map:
+			raise HTTPException(status_code=400, detail="Could not extract content from any file")
+		combined_text = extractor.combine_extracted_data(extracted_map, project_name=project_name)
+		print("[report] combined text length", len(combined_text))
+
+		# AI generation
+		try:
+			ai = AIService()
+		except Exception as e:
+			raise HTTPException(status_code=500, detail=f"AI initialization failed: {e}")
+		report_content = ai.generate_report_chunked(combined_text)
+		print("[report] generated content length", len(report_content) if report_content else 0)
+		if not report_content:
+			raise HTTPException(status_code=500, detail="Report generation produced no content")
+
+		designer = Designer()
+		requested = [s.strip().lower() for s in formats.split(',') if s.strip()]
+		if "all" in requested:
+			requested = ["pdf", "docx", "md"]
+		generated = []
+		pdf_path = docx_path = markdown_path = None
+		if "pdf" in requested:
+			pdf_path = designer.pdf(report_content, doc_title="Erläuterungsbericht")
+			generated.append("pdf")
+		if "docx" in requested:
+			docx_path = designer.docx(report_content, doc_title="Erläuterungsbericht")
+			generated.append("docx")
+		if "md" in requested or "markdown" in requested:
+			markdown_path = designer.markdown(report_content)
+			generated.append("md")
+
+		# If download requested, return the file directly (zip if multiple)
+		if download and generated:
+			# Choose behavior: if more than 1 format, zip them
+			files_to_send = []
+			if pdf_path: files_to_send.append(pdf_path)
+			if docx_path: files_to_send.append(docx_path)
+			if markdown_path: files_to_send.append(markdown_path)
+			if len(files_to_send) == 1:
+				return FileResponse(files_to_send[0], filename=Path(files_to_send[0]).name, media_type="application/octet-stream")
+			else:
+				zip_name = f"report_bundle_{int(time.time())}.zip"
+				zip_path = (UPLOAD_ROOT / "reporting" / zip_name)
+				import zipfile
+				with zipfile.ZipFile(zip_path, 'w', compression=zipfile.ZIP_DEFLATED) as zf:
+					for fp in files_to_send:
+						zf.write(fp, arcname=Path(fp).name)
+				return FileResponse(str(zip_path), filename=zip_name, media_type="application/zip")
+		resp = ReportGenerateResponse(
+			project_name=project_name,
+			file_count=len(saved_paths),
+			formats_generated=generated,
+			pdf_path=pdf_path,
+			docx_path=docx_path,
+			markdown_path=markdown_path,
+			message="Report generated successfully",
+		)
+		print("[report] returning JSON response", resp.formats_generated)
+		return resp
 	except HTTPException:
 		raise
 	except Exception as e:
