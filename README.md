@@ -97,23 +97,38 @@ Creates a **structured, pre-filled project report** summarizing assumptions, sta
 
 ## 🧰 Quickstart
 
-<!-- 1. **Install dependencies**
+### 🚀 Quickstart Instructions
 
-```bash
+### Backend (FastAPI)
+
+```
+cd src
+python3 -m venv .venv
+source .venv/bin/activate # or .venv\Scripts\activate on Windows
 pip install -r requirements.txt
+python api.py
 ```
 
-2. **Run the end-to-end pipeline**
+The backend will now run at:
 
-```bash
-python main.py
+http://localhost:8000
+
+Swagger docs: http://localhost:8000/docs
+
+### Frontend (Next.js)
+
+Navigate to the frontend directory and start the development server
+
+```
+cd bkw-ui
+npm install
+npm run dev
 ```
 
-3. **Generate the explanatory report**
+The frontend will now run at`
+👉 http://localhost:3000
 
-```bash
-python generate_report.py --input outputs/performance_and_costs.xlsx --template templates/report.docx
-``` -->
+It should connect to the backend at http://localhost:8000
 
 ✅ Automatically handles Excel/PDF parsing  
 ✅ Uses LLMs for contextual reasoning (OpenAI GPT / Gemini)  
