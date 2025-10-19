@@ -17,7 +17,7 @@ import re
 class Designer:
     def __init__(self):
         REPORTS_DIR.mkdir(exist_ok=True)
-        self.logo_path = Path(__file__).parent.parent / "BKW_Energie_logo.png"
+        self.logo_path = Path(__file__).parent / "bkw_eng_logo.png"
     
     def _filename(self, ext):
         return f"report_{datetime.now().strftime('%Y%m%d_%H%M%S')}{ext}"
@@ -25,6 +25,38 @@ class Designer:
     def _convert_markdown_to_html(self, text):
         """Convert markdown bold (**text**) to HTML <b>text</b>"""
         return re.sub(r'\*\*([^*]+)\*\*', r'<b>\1</b>', text)
+    
+    def _clean_latex_math(self, text):
+        """Convert LaTeX mathematical notation to readable text"""
+        replacements = [
+            (r'\$([^$]+)\$', lambda m: self._process_math_expression(m.group(1))),
+            (r'\$', ''),
+        ]
+        
+        for pattern, replacement in replacements:
+            if callable(replacement):
+                text = re.sub(pattern, replacement, text)
+            else:
+                text = re.sub(pattern, replacement, text)
+        
+        return text
+    
+    def _process_math_expression(self, expr):
+        """Process individual math expressions"""
+        expr = re.sub(r'\\text\{([^}]+)\}', r'\1', expr)
+        expr = re.sub(r'_{([^}]+)}', r'_\1', expr)
+        
+        expr = re.sub(r'\^{([^}]+)}', r'^\1', expr)
+        
+        expr = re.sub(r'm\^3', 'm³', expr)
+        expr = re.sub(r'm\^2', 'm²', expr)
+        expr = re.sub(r'h\^{-1}', 'h⁻¹', expr)
+        expr = re.sub(r'°C', '°C', expr)
+        expr = re.sub(r'\^\{\\circ\}C', '°C', expr)
+        
+        expr = re.sub(r'\s+', ' ', expr).strip()
+        
+        return expr
     
     def _create_styles(self):
         """Create custom styles for the report"""
@@ -85,7 +117,7 @@ class Designer:
     def _add_header(self, story, doc_title, styles):
         """Add header with logo and title"""
         if self.logo_path.exists():
-            logo = Image(str(self.logo_path), width=20*mm, height=7*mm)
+            logo = Image(str(self.logo_path), width=20*mm, height=20*mm)
             
             title_para = Paragraph(doc_title, styles['CustomTitle'])
             
@@ -119,21 +151,25 @@ class Designer:
                 continue
             if line.startswith('#'):
                 level = len(line) - len(line.lstrip('#'))
-                text = self._convert_markdown_to_html(line.lstrip('#').strip())
+                text = self._clean_latex_math(line.lstrip('#').strip())
+                text = self._convert_markdown_to_html(text)
                 style = styles['MainHeading'] if level <= 2 else styles['SubHeading']
                 story.append(Paragraph(text, style))
                 continue
             if re.match(r'^A\.\d+\s+KG\s+\d+', line):
-                story.append(Paragraph(self._convert_markdown_to_html(line), styles['MainHeading']))
+                text = self._clean_latex_math(line)
+                story.append(Paragraph(self._convert_markdown_to_html(text), styles['MainHeading']))
                 continue
             if re.match(r'^\d+\.?\s+[A-ZÄÖÜ]', line) and len(line) < 80:
-                story.append(Paragraph(self._convert_markdown_to_html(line), styles['SubHeading']))
+                text = self._clean_latex_math(line)
+                story.append(Paragraph(self._convert_markdown_to_html(text), styles['SubHeading']))
                 continue
             if line.startswith('* ') or line.startswith('- '):
-                bullet_text = self._convert_markdown_to_html(line[2:].strip())
-                story.append(Paragraph(f'• {bullet_text}', styles['Bullet']))
+                bullet_text = self._clean_latex_math(line[2:].strip())
+                story.append(Paragraph(f'• {self._convert_markdown_to_html(bullet_text)}', styles['Bullet']))
                 continue
-            story.append(Paragraph(self._convert_markdown_to_html(line), styles['BodyText']))
+            text = self._clean_latex_math(line)
+            story.append(Paragraph(self._convert_markdown_to_html(text), styles['BodyText']))
         return story
     
     def pdf(self, content, doc_title="AI Generated Report"):
@@ -151,6 +187,8 @@ class Designer:
     
     def _process_bold_text(self, paragraph, text):
         """Process bold markdown in DOCX"""
+        text = self._clean_latex_math(text)
+        
         parts = re.split(r'(\*\*[^*]+\*\*)', text)
         for part in parts:
             if part.startswith('**') and part.endswith('**'):
@@ -180,17 +218,20 @@ class Designer:
                 continue
             if line.startswith('#'):
                 level = min(len(line) - len(line.lstrip('#')), 3)
-                heading = doc.add_heading(line.lstrip('#').strip(), level=level)
+                heading_text = self._clean_latex_math(line.lstrip('#').strip())
+                heading = doc.add_heading(heading_text, level=level)
                 if heading.runs:
                     color = RGBColor(0, 102, 204) if level <= 2 else RGBColor(0, 64, 128)
                     heading.runs[0].font.color.rgb = color
                 continue
             if re.match(r'^A\.\d+\s+KG\s+\d+', line):
-                heading = doc.add_heading(line, level=1)
+                heading_text = self._clean_latex_math(line)
+                heading = doc.add_heading(heading_text, level=1)
                 heading.runs[0].font.color.rgb = RGBColor(0, 102, 204)
                 continue
             if re.match(r'^\d+\.?\s+[A-ZÄÖÜ]', line) and len(line) < 80:
-                heading = doc.add_heading(line, level=2)
+                heading_text = self._clean_latex_math(line)
+                heading = doc.add_heading(heading_text, level=2)
                 heading.runs[0].font.color.rgb = RGBColor(0, 64, 128)
                 continue
             if line.startswith('* ') or line.startswith('- '):
