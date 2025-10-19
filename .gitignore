@@ -221,3 +221,5 @@ reports/
 # Virtual environment
 venv/
 src/costestimator/bki_data_enriched_regex.json
+src/costestimator/final_estimate_output.json
+src/costestimator/power_estimates.json

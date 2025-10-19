@@ -68,25 +68,26 @@ class PowerRequirementsResponse(BaseModel):
 	performance_table: str
 	message: str
 
-class CostLineItem(BaseModel):
-	subgroup_kg: str | None = None
-	component_title: str | None = None
+class CostBOQItem(BaseModel):
+	description: str
+	subgroup_kg: Optional[str] = None
+	subgroup_title: Optional[str] = None
 	quantity: float
+	unit: Optional[str] = None
 	material_unit_price: float
 	total_material_price: float
 	total_final_price: float
-	bki_component_title: str | None = None
-	type: str | None = None
+	bki_component_title: str
+	type: Optional[str] = None
 
 class CostEstimationSummary(BaseModel):
 	project_metrics: Dict[str, float]
 	grand_total_cost: float
 	cost_factors_applied: Dict[str, float]
 
-class CostEstimationResponse(BaseModel):
+class CostEstimationOutput(BaseModel):
 	summary: CostEstimationSummary
-	detailed_boq: List[CostLineItem]
-	message: str
+	detailed_boq: List[CostBOQItem]
 
 
 # -------------------------------
@@ -265,33 +266,37 @@ async def generate_power_requirements(
 	except Exception as e:
 		raise HTTPException(status_code=500, detail=str(e))
 
-@app.post("/cost/estimate", response_model=CostEstimationResponse)
+@app.post("/cost/estimate", response_model=CostEstimationOutput)
 def cost_estimate(request: PowerRequirementsResponse):
-	"""Generate a cost estimate using the previously produced power requirements payload."""
+	"""Generate a cost estimate using the previously produced power requirements payload.
+
+	Response format matches final_estimate_output.json (summary + detailed_boq)."""
 	try:
 		if not request.power_estimates:
 			raise HTTPException(status_code=400, detail="power_estimates cannot be empty")
-		# Delegate to cost estimation engine
 		result = generate_cost_estimate(request)
-		line_items = []
-		for li in result.get('detailed_boq', []):
-			line_items.append(CostLineItem(
-				subgroup_kg=li.get('subgroup_kg'),
-				component_title=li.get('title') or li.get('component_title'),
-				quantity=li.get('quantity', 0),
-				material_unit_price=li.get('material_unit_price', 0),
-				total_material_price=li.get('total_material_price', 0),
-				total_final_price=li.get('total_final_price', 0),
-				bki_component_title=li.get('bki_component_title'),
-				type=li.get('type'),
-			))
 		summary_raw = result.get('summary', {})
 		summary = CostEstimationSummary(
 			project_metrics=summary_raw.get('project_metrics', {}),
 			grand_total_cost=summary_raw.get('grand_total_cost', 0),
 			cost_factors_applied=summary_raw.get('cost_factors_applied', {}),
 		)
-		return CostEstimationResponse(summary=summary, detailed_boq=line_items, message="Cost estimation complete")
+		allowed_fields = {"description","subgroup_kg","subgroup_title","quantity","unit","material_unit_price","total_material_price","total_final_price","bki_component_title","type"}
+		boq_items: List[CostBOQItem] = []
+		for li in result.get('detailed_boq', []):
+			filtered = {k: v for k, v in li.items() if k in allowed_fields}
+			# Some templates may use 'title' instead of 'description'
+			if 'description' not in filtered and 'title' in li:
+				filtered['description'] = li.get('title')
+			# Ensure mandatory keys exist
+			filtered.setdefault('description', 'N/A')
+			filtered.setdefault('bki_component_title', 'N/A')
+			filtered.setdefault('quantity', 0)
+			filtered.setdefault('material_unit_price', 0)
+			filtered.setdefault('total_material_price', 0)
+			filtered.setdefault('total_final_price', 0)
+			boq_items.append(CostBOQItem(**filtered))
+		return CostEstimationOutput(summary=summary, detailed_boq=boq_items)
 	except HTTPException:
 		raise
 	except Exception as e:
