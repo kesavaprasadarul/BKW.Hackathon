@@ -7,14 +7,18 @@ import sys
 from pathlib import Path
 import google.generativeai as genai
 from dotenv import load_dotenv
+import os
 
-# Add src directory to Python path
-sys.path.insert(0, str(Path(__file__).parent / "src"))
-
-from extractor import extract_project_data
-from config import GEMINI_API_KEY
+src_path = Path(__file__).parent / "src"
+sys.path.insert(0, str(src_path))
+import importlib.util
+spec = importlib.util.spec_from_file_location("extractor", src_path / "extractor.py")
+extractor_module = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(extractor_module)
+extract_project_data = extractor_module.extract_project_data
 
 load_dotenv('.env.local')
+GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
 
 class DataAgent:
     def __init__(self):
