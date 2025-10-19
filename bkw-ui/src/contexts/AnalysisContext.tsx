@@ -17,6 +17,58 @@ export interface Step2Data {
   annualSavings: number;
 }
 
+export interface RoomTypeClassificationData {
+  processed_file: string;
+  report_csv: string;
+  output_xlsx: string;
+  rows: number;
+  message: string;
+}
+
+export interface PowerEstimates {
+  room_nr: string;
+  room_type: number;
+  heating_W_per_m2: number;
+  cooling_W_per_m2: number;
+  ventilation_m3_per_h: number;
+  area_m2?: number;
+  volume_m3?: number;
+}
+
+export interface PowerRequirementsData {
+  heating_file: string;
+  ventilation_file: string;
+  merged_rows: number;
+  merged_columns: number;
+  power_estimates: Record<string, PowerEstimates>;
+  performance_table: string;
+  message: string;
+}
+
+export interface CostBOQItem {
+  description: string;
+  subgroup_kg?: string;
+  subgroup_title?: string;
+  quantity: number;
+  unit?: string;
+  material_unit_price: number;
+  total_material_price: number;
+  total_final_price: number;
+  bki_component_title: string;
+  type?: string;
+}
+
+export interface CostEstimationSummary {
+  project_metrics: Record<string, number>;
+  grand_total_cost: number;
+  cost_factors_applied: Record<string, number>;
+}
+
+export interface CostEstimationData {
+  summary: CostEstimationSummary;
+  detailed_boq: CostBOQItem[];
+}
+
 interface AnalysisState {
   currentStep: AnalysisStep;
   uploadedFiles: {
@@ -31,6 +83,9 @@ interface AnalysisState {
   isProcessing: boolean;
   step1Data: Step1Data | null;
   step2Data: Step2Data | null;
+  roomTypeData: RoomTypeClassificationData | null;
+  powerRequirementsData: PowerRequirementsData | null;
+  costEstimationData: CostEstimationData | null;
 }
 
 interface AnalysisContextType {
@@ -45,6 +100,9 @@ interface AnalysisContextType {
   setProcessing: (isProcessing: boolean) => void;
   setStep1Data: (data: Step1Data) => void;
   setStep2Data: (data: Step2Data) => void;
+  setRoomTypeData: (data: RoomTypeClassificationData) => void;
+  setPowerRequirementsData: (data: PowerRequirementsData) => void;
+  setCostEstimationData: (data: CostEstimationData) => void;
   resetAnalysis: () => void;
 }
 
@@ -64,6 +122,9 @@ const initialState: AnalysisState = {
   isProcessing: false,
   step1Data: null,
   step2Data: null,
+  roomTypeData: null,
+  powerRequirementsData: null,
+  costEstimationData: null,
 };
 
 export function AnalysisProvider({ children }: { children: ReactNode }) {
@@ -109,6 +170,18 @@ export function AnalysisProvider({ children }: { children: ReactNode }) {
     setState(prev => ({ ...prev, step2Data: data }));
   };
 
+  const setRoomTypeData = (data: RoomTypeClassificationData) => {
+    setState(prev => ({ ...prev, roomTypeData: data }));
+  };
+
+  const setPowerRequirementsData = (data: PowerRequirementsData) => {
+    setState(prev => ({ ...prev, powerRequirementsData: data }));
+  };
+
+  const setCostEstimationData = (data: CostEstimationData) => {
+    setState(prev => ({ ...prev, costEstimationData: data }));
+  };
+
   const resetAnalysis = () => {
     setState(initialState);
   };
@@ -127,6 +200,9 @@ export function AnalysisProvider({ children }: { children: ReactNode }) {
         setProcessing,
         setStep1Data,
         setStep2Data,
+        setRoomTypeData,
+        setPowerRequirementsData,
+        setCostEstimationData,
         resetAnalysis,
       }}
     >

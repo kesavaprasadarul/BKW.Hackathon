@@ -1,44 +1,73 @@
 'use client';
 
-import { DraftingCompass, Download, Building, Target, Upload } from 'lucide-react';
+import { DraftingCompass, Download, Building, Target, Upload, FileText, Table, Zap, Wind } from 'lucide-react';
 import { IntermediateUploadArea } from '@/components/IntermediateUploadArea';
 import { MetricCard } from '@/components/MetricCard';
 import { FadeIn } from '@/components/FadeIn';
 import { useAnalysis } from '@/contexts/AnalysisContext';
+import { generatePowerRequirements } from '@/services/api';
 
 export function IntermediateStepView() {
-  const { setUploadedFiles, setCurrentStep } = useAnalysis();
+  const { setUploadedFiles, setCurrentStep, setPowerRequirementsData, setProcessing, state } = useAnalysis();
+  const { roomTypeData, powerRequirementsData } = state;
 
-  const handleFileSelect = (file1: File, file2: File) => {
+  const handleFileSelect = async (file1: File, file2: File) => {
+    console.log('Files selected for power analysis:', file1.name, file2.name);
     setUploadedFiles(file1, file2);
-    // Navigate directly to step1 since we already have the first analysis results
-    setTimeout(() => {
+    setProcessing(true);
+
+    try {
+      console.log('Starting power requirements analysis...');
+      // Call the power requirements API with both files
+      // file1: Heating file
+      // file2: Ventilation file
+      const powerResult = await generatePowerRequirements(file1, file2);
+      console.log('Power requirements analysis completed:', powerResult);
+      setPowerRequirementsData(powerResult);
+      
+      // Navigate to step1 after successful power analysis
+      console.log('Navigating to step1...');
       setCurrentStep('step1');
-    }, 500);
+    } catch (error) {
+      console.error('Error generating power requirements:', error);
+      // Handle error - you might want to show an error message to the user
+      setCurrentStep('intermediate');
+    } finally {
+      setProcessing(false);
+    }
   };
 
-  const handleExport = () => {
-    // Create a mock intermediate file for download
-    const data = {
-      roomsMatched: 89,
-      averageCertainty: 94.2,
-      timestamp: new Date().toISOString(),
-      analysisResults: {
-        totalRooms: 52,
-        matchedRooms: 46,
-        confidence: 94.2
+  const downloadFile = async (filePath: string, filename: string) => {
+    try {
+      const response = await fetch(`http://localhost:8000/download?file=${encodeURIComponent(filePath)}`);
+      if (response.ok) {
+        const blob = await response.blob();
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+      } else {
+        console.error('Failed to download file:', response.statusText);
       }
-    };
-    
-    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = `intermediate-analysis-${new Date().toISOString().split('T')[0]}.json`;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error('Error downloading file:', error);
+    }
+  };
+
+  const handleDownloadReport = () => {
+    if (roomTypeData?.report_csv) {
+      downloadFile(roomTypeData.report_csv, 'room-type-report.csv');
+    }
+  };
+
+  const handleDownloadOutput = () => {
+    if (roomTypeData?.output_xlsx) {
+      downloadFile(roomTypeData.output_xlsx, 'classified-rooms.xlsx');
+    }
   };
 
   const handleImport = () => {
@@ -74,39 +103,106 @@ export function IntermediateStepView() {
         </FadeIn>
 
         {/* Stats Cards */}
-        <div className="grid md:grid-cols-2 gap-4 mb-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
           <FadeIn delay={200} duration={400}>
             <MetricCard
               icon={Building}
-              title="Räume zugeordnet"
-              value="89%"
-              delta="46 von 52 Räumen"
+              title="Räume verarbeitet"
+              value={roomTypeData?.rows?.toString() || "0"}
+              delta="Klassifizierte Räume"
               deltaType="positive"
             />
           </FadeIn>
           <FadeIn delay={350} duration={400}>
             <MetricCard
               icon={Target}
-              title="Durchschnittliche Genauigkeit"
-              value="94.2%"
-              delta="KI-Konfidenz"
+              title="Verarbeitung abgeschlossen"
+              value="100%"
+              delta={roomTypeData?.message || "Erfolgreich"}
               deltaType="positive"
             />
           </FadeIn>
+          {powerRequirementsData && (
+            <>
+              <FadeIn delay={500} duration={400}>
+                <MetricCard
+                  icon={Zap}
+                  title="Leistungsanalyse"
+                  value={Object.keys(powerRequirementsData.power_estimates).length.toString()}
+                  delta="Räume analysiert"
+                  deltaType="positive"
+                />
+              </FadeIn>
+              <FadeIn delay={650} duration={400}>
+                <MetricCard
+                  icon={Wind}
+                  title="Daten zusammengeführt"
+                  value={powerRequirementsData.merged_rows.toString()}
+                  delta={`${powerRequirementsData.merged_columns} Spalten`}
+                  deltaType="positive"
+                />
+              </FadeIn>
+            </>
+          )}
         </div>
 
-        {/* Export Button */}
+        {/* Download Buttons */}
         <FadeIn delay={500} duration={400}>
-          <div className="flex justify-center mb-6">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
             <button
-              onClick={handleExport}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-primary-blue text-white rounded-lg hover:bg-primary-blue/90 transition-colors"
+              onClick={handleDownloadReport}
+              disabled={!roomTypeData?.report_csv}
+              className="inline-flex items-center gap-2 px-4 py-2 bg-primary-blue text-white rounded-lg hover:bg-primary-blue/90 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed"
             >
-              <Download className="w-4 h-4" />
-              Zwischenergebnisse exportieren
+              <FileText className="w-4 h-4" />
+              Report CSV herunterladen
+            </button>
+            <button
+              onClick={handleDownloadOutput}
+              disabled={!roomTypeData?.output_xlsx}
+              className="inline-flex items-center gap-2 px-4 py-2 bg-success-green text-white rounded-lg hover:bg-success-green/90 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed"
+            >
+              <Table className="w-4 h-4" />
+              Klassifizierte Excel-Datei herunterladen
             </button>
           </div>
         </FadeIn>
+
+        {/* Power Requirements Summary */}
+        {powerRequirementsData && (
+          <FadeIn delay={700} duration={500}>
+            <div className="bg-white rounded-lg p-6 border border-gray-100 mb-6">
+              <h2 className="text-lg font-semibold text-text-primary mb-4 text-center">
+                Leistungsanalyse Ergebnisse
+              </h2>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <h3 className="font-medium text-text-primary">Durchschnittliche Heizleistung</h3>
+                  <div className="text-2xl font-bold text-primary-blue">
+                    {Math.round(
+                      Object.values(powerRequirementsData.power_estimates)
+                        .reduce((sum, room) => sum + room.heating_W_per_m2, 0) / 
+                      Object.keys(powerRequirementsData.power_estimates).length
+                    )} W/m²
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <h3 className="font-medium text-text-primary">Durchschnittliche Lüftung</h3>
+                  <div className="text-2xl font-bold text-success-green">
+                    {Math.round(
+                      Object.values(powerRequirementsData.power_estimates)
+                        .reduce((sum, room) => sum + room.ventilation_m3_per_h, 0) / 
+                      Object.keys(powerRequirementsData.power_estimates).length
+                    )} m³/h
+                  </div>
+                </div>
+              </div>
+              <div className="mt-4 text-sm text-text-secondary text-center">
+                {powerRequirementsData.message}
+              </div>
+            </div>
+          </FadeIn>
+        )}
 
         {/* Import Button */}
         <FadeIn delay={500} duration={400}>
@@ -144,25 +240,48 @@ export function IntermediateStepView() {
               Analysefortschritt
             </h3>
             <div className="grid md:grid-cols-3 gap-4">
-              <div className="flex items-start gap-2">
+              <button 
+                onClick={() => setCurrentStep('home')}
+                className="flex items-start gap-2 p-2 rounded-lg hover:bg-white/50 transition-colors text-left"
+                disabled={!roomTypeData}
+              >
                 <div className="w-6 h-6 bg-success-green rounded-full flex items-center justify-center flex-shrink-0">
                   <span className="text-xs text-white font-bold">✓</span>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-text-primary">Erste Analyse</p>
-                  <p className="text-xs text-text-secondary">89% Räume zugeordnet</p>
+                  <p className="text-xs font-semibold text-text-primary">Raumtyp-Optimierung</p>
+                  <p className="text-xs text-text-secondary">
+                    {roomTypeData ? `${roomTypeData.rows} Räume zugeordnet` : "Abgeschlossen"}
+                  </p>
                 </div>
-              </div>
-              <div className="flex items-start gap-2">
-                <div className="w-6 h-6 bg-primary-blue rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-xs text-white font-bold">2</span>
+              </button>
+              <button 
+                onClick={() => setCurrentStep('intermediate')}
+                className="flex items-start gap-2 p-2 rounded-lg hover:bg-white/50 transition-colors text-left"
+                disabled={!powerRequirementsData}
+              >
+                <div className={`w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 ${
+                  powerRequirementsData 
+                    ? 'bg-success-green' 
+                    : 'bg-primary-blue'
+                }`}>
+                  <span className={`text-xs font-bold ${
+                    powerRequirementsData ? 'text-white' : 'text-white'
+                  }`}>
+                    {powerRequirementsData ? '✓' : '2'}
+                  </span>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-text-primary">Zusätzliche Dateien</p>
-                  <p className="text-xs text-text-secondary">Für vollständige Analyse</p>
+                  <p className="text-xs font-semibold text-text-primary">Leistungsanalyse</p>
+                  <p className="text-xs text-text-secondary">
+                    {powerRequirementsData 
+                      ? `${Object.keys(powerRequirementsData.power_estimates).length} Räume analysiert`
+                      : "Zusätzliche Dateien hochladen"
+                    }
+                  </p>
                 </div>
-              </div>
-              <div className="flex items-start gap-2">
+              </button>
+              <div className="flex items-start gap-2 p-2 rounded-lg opacity-50">
                 <div className="w-6 h-6 bg-gray-300 rounded-full flex items-center justify-center flex-shrink-0">
                   <span className="text-xs text-gray-600 font-bold">3</span>
                 </div>

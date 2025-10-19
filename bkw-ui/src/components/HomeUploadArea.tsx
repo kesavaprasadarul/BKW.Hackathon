@@ -11,7 +11,7 @@ interface HomeUploadAreaProps {
 
 export function HomeUploadArea({
   onFileSelect,
-  acceptedFormats = ['.xlsx', '.xls'],
+  acceptedFormats = ['.xlsx', '.xls', '.csv'],
   maxSizeMB = 10,
 }: HomeUploadAreaProps) {
   const [isDragging1, setIsDragging1] = useState(false);
