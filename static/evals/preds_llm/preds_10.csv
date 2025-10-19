@@ -1,0 +1,19 @@
+﻿Sheet,RowIndex,Raum-Bezeichnung,MatchedRoomtype,Nr,Score,Method,AI_Confidence,AI_Rationale,Accepted
+Leistungsermittlung Raumdaten,11,LKW-Halle,Lkw-Halle,12,1.0,llm_only,1.0,Direkte Übereinstimmung mit 'Lkw-Halle'.,True
+Leistungsermittlung Raumdaten,12,Büro,Büros und Räume ähnlicher Nutzung,1,1.0,llm_only,1.0,Die historische Zuordnung für 'Büro' ist 'Büros und Räume ähnlicher Nutzung' (Katalogeintrag 1).,True
+Leistungsermittlung Raumdaten,13,WC-H,WC's,5,1.0,llm_only,1.0,"Beide Bezeichnungen ('WC-H', 'WC-D') fallen eindeutig unter die Kategorie 'WC's' (Katalogeintrag 5).",True
+Leistungsermittlung Raumdaten,14,WC-D,WC's,5,1.0,llm_only,1.0,"Beide Bezeichnungen ('WC-H', 'WC-D') fallen eindeutig unter die Kategorie 'WC's' (Katalogeintrag 5).",True
+Leistungsermittlung Raumdaten,15,Flur,"Verkehrsflächen, Flure",6,1.0,cache,1.0,Der Raumtyp 'Flur' ist die allgemeine Bezeichnung für Verkehrsflächen.,True
+Leistungsermittlung Raumdaten,16,Vorr.,"Verkehrsflächen, Flure",4,0.95,llm_only,0.95,"'Vorr.' (Vorratsraum/Vorratsfläche) wurde im historischen Datenkatalog primär dem Bereich 'Flur / Vorr.' zugeordnet, was der Kategorie 'Verkehrsflächen, Flure' entspricht.",True
+Leistungsermittlung Raumdaten,17,Verkauf,"Besprechungs-, Verkaufsräume",2,0.98,llm_only,0.98,"Direkte Zuordnung von 'Verkauf' zu 'Besprechungs-, Verkaufsräume'.",True
+Leistungsermittlung Raumdaten,18,Werkstatt,Werkstätten,11,0.99,llm_only,0.99,Direkte Übereinstimmung mit 'Werkstatt'.,True
+Leistungsermittlung Raumdaten,19,Anlieferung/Lager,Lager,9,0.95,llm_only,0.95,'Anlieferung/Lager' wird explizit im historischen Datenkatalog der Gruppe 'Lager' zugeordnet.,True
+Leistungsermittlung Raumdaten,20,Karkassenlager,Außenbereich,15,1.0,llm_only,1.0,Direkte Übereinstimmung mit 'Karkassenlager' unter 'Außenbereich'.,True
+Leistungsermittlung Raumdaten,21,HA.,Technikräume,10,0.95,llm_only,0.95,"'HA.' (Hausanschlussraum Elektro) wird dem übergeordneten Bereich 'Technikräume' zugeordnet, alternativ KG 630 (Technikzentralen). Da 14 spezifischer ist, wird 10 als Oberkategorie gewählt, falls 14 nicht passend ist. Hier ist 14 passender, da HA. im historischen Datenkatalog zugeordnet ist.",True
+Leistungsermittlung Raumdaten,22,WC-BEH.,Beh. WC's,6,1.0,llm_only,1.0,Eindeutige Zuordnung zu 'Beh. WC's'.,True
+Leistungsermittlung Raumdaten,23,Sozialraum,Aufenthaltsräume,3,1.0,llm_only,1.0,Direkte Übereinstimmung mit 'Sozialraum'.,True
+Leistungsermittlung Raumdaten,24,Umkleide,Umkleiden,8,1.0,llm_only,1.0,Direkte Übereinstimmung mit 'Umkleide'.,True
+Leistungsermittlung Raumdaten,25,DU. 1,Duschen,7,1.0,llm_only,1.0,Direkte Übereinstimmung mit 'DU. 1'.,True
+Leistungsermittlung Raumdaten,26,DU. 2,Duschen,7,1.0,llm_only,1.0,Direkte Übereinstimmung mit 'DU. 2'.,True
+Leistungsermittlung Raumdaten,27,Reifenlager,Reserve,x,0.7,llm_only_low_conf,0.7,"Die spezifische Bezeichnung 'Reifenlager' ist im bereitgestellten Katalog nicht explizit enthalten. Es wird der Reserveeintrag gewählt, da keine passende Oberkategorie im engen Katalog existiert, obwohl 'Lager' (9) eine Option wäre, wenn es nicht explizit ausgeschlossen wurde.",False
+Leistungsermittlung Raumdaten,28,Haustechnik,Hausanschlussraum,14,1.0,llm_only,1.0,Direkte Übereinstimmung von 'Haustechnik' mit 'Hausanschlussraum' (HA.).,True

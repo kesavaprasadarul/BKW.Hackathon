@@ -6,9 +6,8 @@ Gemini Report Generator - Main Entry Point
 import sys
 from pathlib import Path
 
-# Add src directory to Python path
-src_path = Path(__file__).parent / "src"
-sys.path.insert(0, str(src_path))
+
+sys.path.insert(0, str(Path(__file__).parent))
 
 from app import main
 

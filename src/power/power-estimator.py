@@ -87,7 +87,7 @@ async def test_cost_analysis(df: pd.DataFrame, skip_structure_analysis: bool = F
     print(f"Column names: {list(df.columns[:10])}...")  # Show first 10 columns
 
     # Load historic data
-    with open("data/context.json", "r", encoding="utf-8") as f:
+    with open("context.json", "r", encoding="utf-8") as f:
         historic_data = json.load(f)
     
     # Initialize Google GenAI chat model with optimized settings

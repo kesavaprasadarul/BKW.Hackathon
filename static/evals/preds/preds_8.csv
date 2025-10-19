@@ -1,0 +1,278 @@
+﻿Sheet,RowIndex,Raum-Bezeichnung,MatchedRoomtype,Nr,Score,Method,AI_Confidence,AI_Rationale,Accepted
+Leistungsermittlung Raumdaten,11,Redundant IT,Serverräume,26,1.0,gemini,1.0,Die Bezeichnung 'Redundant IT' ist eindeutig dem Bereich Serverräume zuzuordnen.,True
+Leistungsermittlung Raumdaten,12,Fernwärme Übergabe,Technikräume,24,1.0,gemini,1.0,"Die Bezeichnung 'Fernwärme Übergabe' beschreibt eine technische Funktion, die typischerweise in Technikräumen angesiedelt ist.",True
+Leistungsermittlung Raumdaten,13,RLT,Schächte,31,1.0,gemini,1.0,Die Abkürzung 'RLT' (Raumlufttechnik) bezieht sich auf installationsbezogene Schächte.,True
+Leistungsermittlung Raumdaten,14,ELT,Technikräume,24,1.0,gemini,1.0,"Die Abkürzung 'ELT' (Elektrotechnik) deutet auf einen Technikraum hin, der elektrische Anlagen beherbergt.",True
+Leistungsermittlung Raumdaten,15,Umkleide,Umkleiden,20,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,16,Hausanschlussraum Elektro,Technikräume,24,1.0,gemini,1.0,Die Bezeichnung 'Hausanschlussraum Elektro' ist eindeutig einem Technikraum für die Elektroinstallation zuzuordnen.,True
+Leistungsermittlung Raumdaten,17,Neutra,Technikräume,24,1.0,gemini,1.0,"Die Bezeichnung 'Neutra' (Neutralisationsanlage) ist einer technischen Anlage zuzuordnen, die in einem Technikraum untergebracht ist.",True
+Leistungsermittlung Raumdaten,18,RZ 1,Serverräume,26,1.0,gemini,1.0,Die Bezeichnungen 'RZ 1' und 'RZ 2' (Rechenzentrum) sind eindeutig Serverräumen zuzuordnen.,True
+Leistungsermittlung Raumdaten,19,Sanitär Zentrale,Technikräume,24,1.0,gemini,1.0,"Die Bezeichnung 'Sanitär Zentrale' beschreibt eine technische Anlage, die in einem Technikraum untergebracht ist.",True
+Leistungsermittlung Raumdaten,20,Sprinkler Zentrale,Technikräume,24,1.0,gemini,1.0,"Die Bezeichnung 'Sprinkler Zentrale' beschreibt eine technische Anlage, die in einem Technikraum untergebracht ist.",True
+Leistungsermittlung Raumdaten,21,HZG/KLT/SAN-Schacht,Schächte,31,1.0,gemini,1.0,"Die Bezeichnung 'HZG/KLT/SAN-Schacht' beschreibt einen Installationsschacht für Heizung, Kaltluft und Sanitär.",True
+Leistungsermittlung Raumdaten,22,Gr. Steigschacht + ELT,Schächte,31,1.0,gemini,1.0,"Die Bezeichnung 'Gr. Steigschacht + ELT' beschreibt einen größeren Installationsschacht, der auch Elektrotechnik beinhaltet.",True
+Leistungsermittlung Raumdaten,23,Putzraum,Putzräume,21,1.0,gemini,1.0,Die Bezeichnung 'Putzraum' ist eindeutig einem Putzraum zuzuordnen.,True
+Leistungsermittlung Raumdaten,24,Aufzug,Aufzüge,32,1.0,gemini,1.0,Die Bezeichnung 'Aufzug' ist eindeutig einem Aufzug zuzuordnen.,True
+Leistungsermittlung Raumdaten,25,Flur UG,"Verkehrsflächen, Flure",14,1.0,gemini,1.0,Die Bezeichnung 'Flur UG' ist eindeutig einer Verkehrsfläche/einem Flur im Untergeschoss zuzuordnen.,True
+Leistungsermittlung Raumdaten,26,Mediengang UG,"Verkehrsflächen, Flure",14,1.0,gemini,1.0,Die Bezeichnung 'Mediengang UG' ist eindeutig einer Verkehrsfläche/einem Flur im Untergeschoss zuzuordnen.,True
+Leistungsermittlung Raumdaten,27,Aufzug,Aufzüge,32,1.0,gemini,1.0,Die Bezeichnung 'Aufzug' ist eindeutig einem Aufzug zuzuordnen.,True
+Leistungsermittlung Raumdaten,28,Dusche,Duschen,19,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,29,Dusche,Duschen,19,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,30,Dusche,Duschen,19,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,31,WC,WCs,17,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,32,Treppenhaus,Treppenhäuser,30,1.0,gemini,1.0,Die Bezeichnung 'Treppenhaus' ist eindeutig einem Treppenhaus zuzuordnen.,True
+Leistungsermittlung Raumdaten,33,Flur,"Verkehrsflächen, Flure",14,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,34,Flur,"Verkehrsflächen, Flure",14,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,35,Lager IT / Warenlieferung,Lager,22,1.0,gemini,1.0,Die Bezeichnung 'Lager IT / Warenlieferung' beschreibt eine Lagerfunktion für IT und Waren.,True
+Leistungsermittlung Raumdaten,36,Stuhllager Seminarraum,Lager,22,1.0,gemini,1.0,"Die Bezeichnung 'Stuhllager Seminarraum' beschreibt ein Lager für Stühle, spezifisch für einen Seminarraum.",True
+Leistungsermittlung Raumdaten,37,Lager Marketing,Lager,22,1.0,gemini,1.0,Die Bezeichnung 'Lager Marketing' beschreibt ein Lager für Materialien des Marketings.,True
+Leistungsermittlung Raumdaten,38,Lager Reinigungsdienst,Lager,22,1.0,gemini,1.0,Die Bezeichnung 'Lager Reinigungsdienst' beschreibt ein Lager für Materialien des Reinigungsdienstes.,True
+Leistungsermittlung Raumdaten,39,Archiv Patente,Lager,22,1.0,gemini,1.0,Die Bezeichnung 'Archiv Patente' beschreibt einen Lagerbereich für Patente.,True
+Leistungsermittlung Raumdaten,40,Lager Büromöbel,Lager,22,1.0,gemini,1.0,Die Bezeichnung 'Lager Büromöbel' beschreibt ein Lager für Büromöbel.,True
+Leistungsermittlung Raumdaten,41,Lager Allgemein (Fachabteilung),Lager,22,1.0,gemini,1.0,Die Bezeichnung 'Lager Allgemein (Fachabteilung)' beschreibt ein allgemeines Lager einer Fachabteilung.,True
+Leistungsermittlung Raumdaten,42,Mittelspannungsschaltanlage / Übergabestation,Technikräume Außenspange,25,1.0,gemini,1.0,"Die Bezeichnung 'Mittelspannungsschaltanlage / Übergabestation' beschreibt eine technische Anlage, die typischerweise in einer Außenspange untergebracht ist.",True
+Leistungsermittlung Raumdaten,43,NSHV,Technikräume,24,1.0,gemini,1.0,Die Abkürzung 'NSHV' (Niederspannungshauptverteilung) deutet auf einen Technikraum für die elektrische Hauptverteilung hin.,True
+Leistungsermittlung Raumdaten,44,RLT,Schächte,31,1.0,gemini,1.0,Die Abkürzung 'RLT' (Raumlufttechnik) bezieht sich auf installationsbezogene Schächte.,True
+Leistungsermittlung Raumdaten,45,Lager-1,Lager,22,1.0,gemini,1.0,Der Raumnamen 'Lager-1' entspricht exakt einem Eintrag im Lagerkatalog.,True
+Leistungsermittlung Raumdaten,46,Lager-2,Lager,22,1.0,gemini,1.0,Der Raumnamen 'Lager-2' entspricht exakt einem Eintrag im Lagerkatalog.,True
+Leistungsermittlung Raumdaten,47,Lager-3,Lager,22,1.0,gemini,1.0,Der Raumnamen 'Lager-3' entspricht exakt einem Eintrag im Lagerkatalog.,True
+Leistungsermittlung Raumdaten,48,Anlieferung,"Verkehrsflächen, Flure",14,1.0,gemini,1.0,Der Raumnamen 'Anlieferung' ist ein Synonym für Verkehrsflächen und ist im Katalog vorhanden.,True
+Leistungsermittlung Raumdaten,49,Labor Süd,Laborräume physikalisch,6,1.0,gemini,1.0,Der Raumnamen 'Labor Süd' ist ein direkter Treffer für physikalische Laborräume.,True
+Leistungsermittlung Raumdaten,50,Labor West,Laborräume physikalisch,6,1.0,gemini,1.0,Der Raumnamen 'Labor West' ist ein direkter Treffer für physikalische Laborräume.,True
+Leistungsermittlung Raumdaten,51,Labor Nord,Laborräume chemisch,7,1.0,gemini,1.0,Der Raumnamen 'Labor Nord' ist ein direkter Treffer für chemische Laborräume.,True
+Leistungsermittlung Raumdaten,52,Sec. Bereich,Laborräume physikalisch,6,1.0,gemini,1.0,Der Raumnamen 'Sec. Bereich' ist ein Synonym für physikalische Laborräume und ist im Katalog vorhanden.,True
+Leistungsermittlung Raumdaten,53,Labor Ost,Laborräume physikalisch,6,1.0,gemini,1.0,Der Raumnamen 'Labor Ost' ist ein direkter Treffer für physikalische Laborräume.,True
+Leistungsermittlung Raumdaten,54,Putzraum,Putzräume,21,1.0,gemini,1.0,Die Bezeichnung 'Putzraum' ist eindeutig einem Putzraum zuzuordnen.,True
+Leistungsermittlung Raumdaten,55,HZG/KLT/SAN-Schacht,Schächte,31,1.0,gemini,1.0,"Die Bezeichnung 'HZG/KLT/SAN-Schacht' beschreibt einen Installationsschacht für Heizung, Kaltluft und Sanitär.",True
+Leistungsermittlung Raumdaten,56,ELT,Technikräume,24,1.0,gemini,1.0,"Die Abkürzung 'ELT' (Elektrotechnik) deutet auf einen Technikraum hin, der elektrische Anlagen beherbergt.",True
+Leistungsermittlung Raumdaten,57,EDV-1,Serverräume,26,1.0,gemini,1.0,Der Raumnamen 'EDV-1' ist ein Synonym für Serverräume und ist im Katalog vorhanden.,True
+Leistungsermittlung Raumdaten,58,EDV-2,Serverräume,26,1.0,gemini,1.0,Der Raumnamen 'EDV-2' ist ein Synonym für Serverräume und ist im Katalog vorhanden.,True
+Leistungsermittlung Raumdaten,59,Flur EG,"Verkehrsflächen, Flure",14,1.0,gemini,1.0,Der Raumnamen 'Flur EG' ist ein direkter Treffer für Verkehrsflächen und Flure.,True
+Leistungsermittlung Raumdaten,60,ELT,Technikräume,24,1.0,gemini,1.0,"Die Abkürzung 'ELT' (Elektrotechnik) deutet auf einen Technikraum hin, der elektrische Anlagen beherbergt.",True
+Leistungsermittlung Raumdaten,61,Einzelbüro,Einzel-/Zweierbüros,2,1.0,gemini,1.0,Der Raumnamen 'Einzelbüro' ist ein direkter Treffer für Einzel-/Zweierbüros.,True
+Leistungsermittlung Raumdaten,62,Büro,Großraumbüros,1,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,63,Eltern-Kind-Büro,Einzel-/Zweierbüros,2,1.0,gemini,1.0,Der Raumnamen 'Eltern-Kind-Büro' ist ein direkter Treffer für Einzel-/Zweierbüros.,True
+Leistungsermittlung Raumdaten,64,Sekreteriat,Einzel-/Zweierbüros,2,1.0,gemini,1.0,Der Raumnamen 'Sekreteriat' ist ein Synonym für Einzel-/Zweierbüros und ist im Katalog vorhanden.,True
+Leistungsermittlung Raumdaten,65,Doppelbüro,Einzel-/Zweierbüros,2,1.0,gemini,1.0,Der Raumnamen 'Doppelbüro' ist ein direkter Treffer für Einzel-/Zweierbüros.,True
+Leistungsermittlung Raumdaten,66,Doppelbüro,Einzel-/Zweierbüros,2,1.0,gemini,1.0,Der Raumnamen 'Doppelbüro' ist ein direkter Treffer für Einzel-/Zweierbüros.,True
+Leistungsermittlung Raumdaten,67,Doppelbüro,Einzel-/Zweierbüros,2,1.0,gemini,1.0,Der Raumnamen 'Doppelbüro' ist ein direkter Treffer für Einzel-/Zweierbüros.,True
+Leistungsermittlung Raumdaten,68,Doppelbüro,Einzel-/Zweierbüros,2,1.0,gemini,1.0,Der Raumnamen 'Doppelbüro' ist ein direkter Treffer für Einzel-/Zweierbüros.,True
+Leistungsermittlung Raumdaten,69,Empfangsbereich / Wartefläche,Aufenthaltsräume/Cafeteria,4,1.0,gemini,1.0,Der Raumnamen 'Empfangsbereich / Wartefläche' ist ein direkter Treffer für Aufenthaltsräume/Cafeteria.,True
+Leistungsermittlung Raumdaten,70,RLT(Labor)-Schacht,Schächte,31,1.0,gemini,1.0,Der Raumnamen 'RLT(Labor)-Schacht' ist ein direkter Treffer für Schächte.,True
+Leistungsermittlung Raumdaten,71,Gr. Steigschacht + ELT,Schächte,31,1.0,gemini,1.0,"Die Bezeichnung 'Gr. Steigschacht + ELT' beschreibt einen größeren Installationsschacht, der auch Elektrotechnik beinhaltet.",True
+Leistungsermittlung Raumdaten,72,Erste-Hilfe-Raum,Erste-Hilfe-/Sanitätsraum,13,1.0,gemini,1.0,Der Raumnamen 'Erste-Hilfe-Raum' ist ein direkter Treffer für Erste-Hilfe-/Sanitätsräume.,True
+Leistungsermittlung Raumdaten,73,Pförtnerraum,Aufenthaltsräume/Cafeteria,4,1.0,gemini,1.0,Der Raumnamen 'Pförtnerraum' ist ein Synonym für Aufenthaltsräume/Cafeteria und ist im Katalog vorhanden.,True
+Leistungsermittlung Raumdaten,74,Besprechungsräume,Seminar-/Besprechungsräume,3,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,75,Werkstatt Metall (Technik),Werkstatt Labor/Reinraum,11,1.0,gemini,1.0,Der Raumnamen 'Werkstatt Metall (Technik)' ist ein direkter Treffer für Werkstatt Labor/Reinraum.,True
+Leistungsermittlung Raumdaten,76,NSHV ESV,Technikräume,24,1.0,gemini,1.0,Der Raumnamen 'NSHV ESV' ist ein direkter Treffer für Technikräume.,True
+Leistungsermittlung Raumdaten,77,Wc B.,WCs Beh.,18,1.0,gemini,1.0,Der Raumnamen 'Wc B.' ist ein direkter Treffer für behindertengerechte WCs.,True
+Leistungsermittlung Raumdaten,78,Wc D.,WCs,17,1.0,gemini,1.0,Der Raumnamen 'Wc D.' ist ein direkter Treffer für WCs.,True
+Leistungsermittlung Raumdaten,79,Wc H.,WCs,17,1.0,gemini,1.0,Der Raumnamen 'Wc H.' ist ein direkter Treffer für WCs.,True
+Leistungsermittlung Raumdaten,80,Flur Labor,"Verkehrsflächen, Flure",14,1.0,gemini,1.0,"Der Raumeintrag 'Flur Labor' passt direkt zur Raumkategorie 'Verkehrsflächen, Flure'.",True
+Leistungsermittlung Raumdaten,81,Flur / ZBV,"Verkehrsflächen, Flure",14,1.0,gemini,1.0,"Der Raumeintrag 'Flur / ZBV' passt direkt zur Raumkategorie 'Verkehrsflächen, Flure'.",True
+Leistungsermittlung Raumdaten,82,Empfangsbereich / Wartefläche EG,Aufenthaltsräume/Cafeteria,4,1.0,gemini,1.0,Der Raumeintrag 'Empfangsbereich / Wartefläche EG' passt zu 'Aufenthaltsräume/Cafeteria' im Sinne eines Wartebereichs.,True
+Leistungsermittlung Raumdaten,83,Gemeinschaftsraum,Aufenthaltsräume/Cafeteria,4,1.0,gemini,1.0,Der Raumeintrag 'Gemeinschaftsraum' passt zur Raumkategorie 'Aufenthaltsräume/Cafeteria'.,True
+Leistungsermittlung Raumdaten,84,Gemeinschaftsraum / Cafeteria,Aufenthaltsräume/Cafeteria,4,1.0,gemini,1.0,Der Raumeintrag 'Gemeinschaftsraum / Cafeteria' passt zur Raumkategorie 'Aufenthaltsräume/Cafeteria'.,True
+Leistungsermittlung Raumdaten,85,Poststelle,Lager,22,1.0,gemini,1.0,Der Raumeintrag 'Poststelle' wird in der historischen Zuordnung der Kategorie 'Lager' zugeordnet (Poststelle).,True
+Leistungsermittlung Raumdaten,86,Drucker/Kopierer,Drucker-/Kopierräume,29,1.0,gemini,1.0,Der Raumeintrag 'Drucker/Kopierer' passt direkt zur Raumkategorie 'Drucker-/Kopierräume'.,True
+Leistungsermittlung Raumdaten,87,Besprechungsräume,Seminar-/Besprechungsräume,3,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,88,Abfallbehälter,Müllräume,27,1.0,gemini,1.0,Der Raumeintrag 'Abfallbehälter' ist synonym zur Raumkategorie 'Müllräume'.,True
+Leistungsermittlung Raumdaten,89,Palleten&Gitterboxen,Lager,22,0.9,gemini,0.9,Der Raumeintrag 'Palleten&Gitterboxen' impliziert Lagerung und passt am besten zur allgemeinen Lagerkategorie.,True
+Leistungsermittlung Raumdaten,90,Notstromaggregat,Technikräume Außenspange,25,1.0,gemini,1.0,Der Raumeintrag 'Notstromaggregat' passt direkt zur Raumkategorie 'Technikräume Außenspange'.,True
+Leistungsermittlung Raumdaten,91,Besprechungsräume,Seminar-/Besprechungsräume,3,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,92,IBC Container+Palleten,Lager,22,0.9,gemini,0.9,Der Raumeintrag 'IBC Container+Palleten' impliziert Lagerung und passt am besten zur allgemeinen Lagerkategorie.,True
+Leistungsermittlung Raumdaten,93,Aufzug,Aufzüge,32,1.0,gemini,1.0,Die Bezeichnung 'Aufzug' ist eindeutig einem Aufzug zuzuordnen.,True
+Leistungsermittlung Raumdaten,94,Sec. Bereich,Laborräume physikalisch,6,1.0,gemini,1.0,Der Raumnamen 'Sec. Bereich' ist ein Synonym für physikalische Laborräume und ist im Katalog vorhanden.,True
+Leistungsermittlung Raumdaten,95,Labor Süd,Laborräume physikalisch,6,1.0,gemini,1.0,Der Raumnamen 'Labor Süd' ist ein direkter Treffer für physikalische Laborräume.,True
+Leistungsermittlung Raumdaten,96,Eingang,Windfang,16,1.0,gemini,1.0,Der Raumeintrag 'Eingang' ist synonym zur Raumkategorie 'Windfang' oder 'Foyer'.,True
+Leistungsermittlung Raumdaten,97,Eingang,Windfang,16,1.0,gemini,1.0,Der Raumeintrag 'Eingang' ist synonym zur Raumkategorie 'Windfang' oder 'Foyer'.,True
+Leistungsermittlung Raumdaten,98,Leiter/Treppe,"Verkehrsflächen, Flure",14,0.9,gemini,0.9,"Der Raumeintrag 'Leiter/Treppe' ist eine Verkehrsfläche, wobei 'Treppenhäuser' eine spezifischere Kategorie ist. Da es sich um einen einzelnen Eintrag handelt, wird 'Verkehrsflächen, Flure' gewählt.",True
+Leistungsermittlung Raumdaten,99,Treppenhaus,Treppenhäuser,30,1.0,gemini,1.0,Die Bezeichnung 'Treppenhaus' ist eindeutig einem Treppenhaus zuzuordnen.,True
+Leistungsermittlung Raumdaten,100,Treppenhaus,Treppenhäuser,30,1.0,gemini,1.0,Die Bezeichnung 'Treppenhaus' ist eindeutig einem Treppenhaus zuzuordnen.,True
+Leistungsermittlung Raumdaten,101,WC,WCs,17,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,102,Treppenhaus,Treppenhäuser,30,1.0,gemini,1.0,Die Bezeichnung 'Treppenhaus' ist eindeutig einem Treppenhaus zuzuordnen.,True
+Leistungsermittlung Raumdaten,103,Flur EG,"Verkehrsflächen, Flure",14,1.0,gemini,1.0,Der Raumnamen 'Flur EG' ist ein direkter Treffer für Verkehrsflächen und Flure.,True
+Leistungsermittlung Raumdaten,104,Labor Ost,Laborräume physikalisch,6,1.0,gemini,1.0,Der Raumnamen 'Labor Ost' ist ein direkter Treffer für physikalische Laborräume.,True
+Leistungsermittlung Raumdaten,105,Labor West,Laborräume physikalisch,6,1.0,gemini,1.0,Der Raumnamen 'Labor West' ist ein direkter Treffer für physikalische Laborräume.,True
+Leistungsermittlung Raumdaten,106,Labor Ost,Laborräume physikalisch,6,1.0,gemini,1.0,Der Raumnamen 'Labor Ost' ist ein direkter Treffer für physikalische Laborräume.,True
+Leistungsermittlung Raumdaten,107,Labor Ost,Laborräume physikalisch,6,1.0,gemini,1.0,Der Raumnamen 'Labor Ost' ist ein direkter Treffer für physikalische Laborräume.,True
+Leistungsermittlung Raumdaten,108,Labor Ost,Laborräume physikalisch,6,1.0,gemini,1.0,Der Raumnamen 'Labor Ost' ist ein direkter Treffer für physikalische Laborräume.,True
+Leistungsermittlung Raumdaten,109,Labor Süd,Laborräume physikalisch,6,1.0,gemini,1.0,Der Raumnamen 'Labor Süd' ist ein direkter Treffer für physikalische Laborräume.,True
+Leistungsermittlung Raumdaten,110,Sec. Bereich,Laborräume physikalisch,6,1.0,gemini,1.0,Der Raumnamen 'Sec. Bereich' ist ein Synonym für physikalische Laborräume und ist im Katalog vorhanden.,True
+Leistungsermittlung Raumdaten,111,Labor Nord,Laborräume chemisch,7,1.0,gemini,1.0,Der Raumnamen 'Labor Nord' ist ein direkter Treffer für chemische Laborräume.,True
+Leistungsermittlung Raumdaten,112,Labor Nord,Laborräume chemisch,7,1.0,gemini,1.0,Der Raumnamen 'Labor Nord' ist ein direkter Treffer für chemische Laborräume.,True
+Leistungsermittlung Raumdaten,113,Labor Nord,Laborräume chemisch,7,1.0,gemini,1.0,Der Raumnamen 'Labor Nord' ist ein direkter Treffer für chemische Laborräume.,True
+Leistungsermittlung Raumdaten,114,Außenlager Druckbehälter,Lager,22,1.0,gemini,1.0,"Der Raumeintrag 'Außenlager Druckbehälter' ist ein Lager, die Spezifizierung 'Außen' ist durch die Katalogkategorie 'Lager' abgedeckt.",True
+Leistungsermittlung Raumdaten,115,Labor Nord,Laborräume chemisch,7,1.0,gemini,1.0,Der Raumnamen 'Labor Nord' ist ein direkter Treffer für chemische Laborräume.,True
+Leistungsermittlung Raumdaten,116,Sec. Bereich,Laborräume physikalisch,6,1.0,gemini,1.0,Der Raumnamen 'Sec. Bereich' ist ein Synonym für physikalische Laborräume und ist im Katalog vorhanden.,True
+Leistungsermittlung Raumdaten,117,Doppelbüro,Einzel-/Zweierbüros,2,1.0,gemini,1.0,Der Raumnamen 'Doppelbüro' ist ein direkter Treffer für Einzel-/Zweierbüros.,True
+Leistungsermittlung Raumdaten,118,Einzelbüro,Einzel-/Zweierbüros,2,1.0,gemini,1.0,Der Raumnamen 'Einzelbüro' ist ein direkter Treffer für Einzel-/Zweierbüros.,True
+Leistungsermittlung Raumdaten,119,Doppelbüro,Einzel-/Zweierbüros,2,1.0,gemini,1.0,Der Raumnamen 'Doppelbüro' ist ein direkter Treffer für Einzel-/Zweierbüros.,True
+Leistungsermittlung Raumdaten,120,Doppelbüro,Einzel-/Zweierbüros,2,1.0,gemini,1.0,Der Raumnamen 'Doppelbüro' ist ein direkter Treffer für Einzel-/Zweierbüros.,True
+Leistungsermittlung Raumdaten,121,Doppelbüro,Einzel-/Zweierbüros,2,1.0,gemini,1.0,Der Raumnamen 'Doppelbüro' ist ein direkter Treffer für Einzel-/Zweierbüros.,True
+Leistungsermittlung Raumdaten,122,Doppelbüro,Einzel-/Zweierbüros,2,1.0,gemini,1.0,Der Raumnamen 'Doppelbüro' ist ein direkter Treffer für Einzel-/Zweierbüros.,True
+Leistungsermittlung Raumdaten,123,Mehrpersonenbüro (4 Personen),Großraumbüros,1,1.0,gemini,1.0,Der Raumeintrag 'Mehrpersonenbüro (4 Personen)' passt direkt zur Raumkategorie 'Großraumbüros'.,True
+Leistungsermittlung Raumdaten,124,Mehrpersonenbüro (4 Personen),Großraumbüros,1,1.0,gemini,1.0,Der Raumeintrag 'Mehrpersonenbüro (4 Personen)' passt direkt zur Raumkategorie 'Großraumbüros'.,True
+Leistungsermittlung Raumdaten,125,Mehrpersonenbüro (4 Personen),Großraumbüros,1,1.0,gemini,1.0,Der Raumeintrag 'Mehrpersonenbüro (4 Personen)' passt direkt zur Raumkategorie 'Großraumbüros'.,True
+Leistungsermittlung Raumdaten,126,Mehrpersonenbüro (4 Personen),Großraumbüros,1,1.0,gemini,1.0,Der Raumeintrag 'Mehrpersonenbüro (4 Personen)' passt direkt zur Raumkategorie 'Großraumbüros'.,True
+Leistungsermittlung Raumdaten,127,Annahme- und Ausgaberaum Post,Lager,22,1.0,gemini,1.0,"Der Raumeintrag 'Annahme- und Ausgaberaum Post' ist eine Funktion, die oft mit Lager- oder Logistikbereichen verbunden ist. 'Lager' ist die passendste Kategorie.",True
+Leistungsermittlung Raumdaten,128,Packraum,Lager,22,0.9,gemini,0.9,"Der Raumeintrag 'Packraum' ist eine Funktion, die eng mit Lagerhaltung verbunden ist und daher unter 'Lager' eingeordnet wird.",True
+Leistungsermittlung Raumdaten,129,Flur Gemeinschaftsraum,"Verkehrsflächen, Flure",14,1.0,gemini,1.0,"Der Raumeintrag 'Flur Gemeinschaftsraum' passt direkt zur Raumkategorie 'Verkehrsflächen, Flure'.",True
+Leistungsermittlung Raumdaten,130,Lager Büromittel,Lager,22,1.0,gemini,1.0,Der Raumeintrag 'Lager Büromittel' passt direkt zur Raumkategorie 'Lager'.,True
+Leistungsermittlung Raumdaten,131,Trafobox 2,Technikräume,24,1.0,gemini,1.0,Der Raumeintrag 'Trafobox 2' ist ein technischer Raum und wird der Kategorie 'Technikräume' zugeordnet.,True
+Leistungsermittlung Raumdaten,132,Trafobox 3,Technikräume,24,1.0,gemini,1.0,Der Raumeintrag 'Trafobox 3' ist ein technischer Raum und wird der Kategorie 'Technikräume' zugeordnet.,True
+Leistungsermittlung Raumdaten,133,Trafobox 4,Technikräume,24,1.0,gemini,1.0,Der Raumeintrag 'Trafobox 4' ist ein technischer Raum und wird der Kategorie 'Technikräume' zugeordnet.,True
+Leistungsermittlung Raumdaten,134,RLT,Schächte,31,1.0,gemini,1.0,Die Abkürzung 'RLT' (Raumlufttechnik) bezieht sich auf installationsbezogene Schächte.,True
+Leistungsermittlung Raumdaten,135,ELT,Technikräume,24,1.0,gemini,1.0,"Die Abkürzung 'ELT' (Elektrotechnik) deutet auf einen Technikraum hin, der elektrische Anlagen beherbergt.",True
+Leistungsermittlung Raumdaten,136,EDV-1,Serverräume,26,1.0,gemini,1.0,Der Raumnamen 'EDV-1' ist ein Synonym für Serverräume und ist im Katalog vorhanden.,True
+Leistungsermittlung Raumdaten,137,VE- und Reinswasser-Anlage,Technikräume,24,1.0,gemini,1.0,Der Raumeintrag 'VE- und Reinswasser-Anlage' ist eine technische Anlage und wird der Kategorie 'Technikräume' zugeordnet.,True
+Leistungsermittlung Raumdaten,138,RLT(Labor)-Schacht,Schächte,31,1.0,gemini,1.0,Der Raumnamen 'RLT(Labor)-Schacht' ist ein direkter Treffer für Schächte.,True
+Leistungsermittlung Raumdaten,139,Gr. Steigschacht + ELT,Schächte,31,1.0,gemini,1.0,"Die Bezeichnung 'Gr. Steigschacht + ELT' beschreibt einen größeren Installationsschacht, der auch Elektrotechnik beinhaltet.",True
+Leistungsermittlung Raumdaten,140,HZG/KLT/SAN-Schacht,Schächte,31,1.0,gemini,1.0,"Die Bezeichnung 'HZG/KLT/SAN-Schacht' beschreibt einen Installationsschacht für Heizung, Kaltluft und Sanitär.",True
+Leistungsermittlung Raumdaten,141,NSHV ASV,Technikräume,24,1.0,gemini,1.0,Der Raumeintrag 'NSHV ASV' ist eine technische Anlage und wird der Kategorie 'Technikräume' zugeordnet.,True
+Leistungsermittlung Raumdaten,142,EDV-2,Serverräume,26,1.0,gemini,1.0,Der Raumnamen 'EDV-2' ist ein Synonym für Serverräume und ist im Katalog vorhanden.,True
+Leistungsermittlung Raumdaten,143,Wc H.,WCs,17,1.0,gemini,1.0,Der Raumnamen 'Wc H.' ist ein direkter Treffer für WCs.,True
+Leistungsermittlung Raumdaten,144,Wc D.,WCs,17,1.0,gemini,1.0,Der Raumnamen 'Wc D.' ist ein direkter Treffer für WCs.,True
+Leistungsermittlung Raumdaten,145,Medientechnik,Technikräume,24,1.0,gemini,1.0,Der Raumeintrag 'Medientechnik' ist ein technischer Raum und wird der Kategorie 'Technikräume' zugeordnet.,True
+Leistungsermittlung Raumdaten,146,Putzraum,Putzräume,21,1.0,gemini,1.0,Die Bezeichnung 'Putzraum' ist eindeutig einem Putzraum zuzuordnen.,True
+Leistungsermittlung Raumdaten,147,IT-Raum,Technikräume,24,1.0,gemini,1.0,Der Raumnamen 'IT-Raum' wurde direkt dem Katalogeintrag 'Technikräume' zugeordnet.,True
+Leistungsermittlung Raumdaten,148,Wc B.,WCs Beh.,18,1.0,gemini,1.0,Der Raumnamen 'Wc B.' ist ein direkter Treffer für behindertengerechte WCs.,True
+Leistungsermittlung Raumdaten,149,Empfangsbereich / Wartefläche 1.OG,Aufenthaltsräume/Cafeteria,4,1.0,gemini,1.0,Der Raumnamen 'Empfangsbereich / Wartefläche 1.OG' wurde direkt dem Katalogeintrag 'Aufenthaltsräume/Cafeteria' zugeordnet.,True
+Leistungsermittlung Raumdaten,150,Sub-Fab,Subfab Reinraum,9,1.0,gemini,1.0,Der Raumnamen 'Sub-Fab' wurde direkt dem Katalogeintrag 'Subfab Reinraum' zugeordnet.,True
+Leistungsermittlung Raumdaten,151,Aufenthaltsraum mit Teeküche,Aufenthaltsräume/Cafeteria,4,1.0,gemini,1.0,Der Raumnamen 'Aufenthaltsraum mit Teeküche' wurde direkt dem Katalogeintrag 'Aufenthaltsräume/Cafeteria' zugeordnet.,True
+Leistungsermittlung Raumdaten,152,Mehrpersonenbüro (6 Personen),Großraumbüros,1,1.0,gemini,1.0,Der Raumnamen 'Mehrpersonenbüro (6 Personen)' wurde direkt dem Katalogeintrag 'Großraumbüros' zugeordnet.,True
+Leistungsermittlung Raumdaten,153,Mehrpersonenbüro (8 Personen),Großraumbüros,1,1.0,gemini,1.0,Der Raumnamen 'Mehrpersonenbüro (8 Personen)' wurde direkt dem Katalogeintrag 'Großraumbüros' zugeordnet.,True
+Leistungsermittlung Raumdaten,154,Büro Betriebsrat,Einzel-/Zweierbüros,2,1.0,gemini,1.0,Der Raumnamen 'Büro Betriebsrat' wurde direkt dem Katalogeintrag 'Einzel-/Zweierbüros' zugeordnet.,True
+Leistungsermittlung Raumdaten,155,Drucker/Kopierer,Drucker-/Kopierräume,29,1.0,gemini,1.0,Der Raumeintrag 'Drucker/Kopierer' passt direkt zur Raumkategorie 'Drucker-/Kopierräume'.,True
+Leistungsermittlung Raumdaten,156,Drucker/Kopierer,Drucker-/Kopierräume,29,1.0,gemini,1.0,Der Raumeintrag 'Drucker/Kopierer' passt direkt zur Raumkategorie 'Drucker-/Kopierräume'.,True
+Leistungsermittlung Raumdaten,157,Flur Seminarraum,"Verkehrsflächen, Flure",14,1.0,gemini,1.0,"Der Raumnamen 'Flur Seminarraum' wurde direkt dem Katalogeintrag 'Verkehrsflächen, Flure' zugeordnet.",True
+Leistungsermittlung Raumdaten,158,Flur 2 1.OG,"Verkehrsflächen, Flure",14,1.0,gemini,1.0,"Der Raumnamen 'Flur 2 1.OG' wurde direkt dem Katalogeintrag 'Verkehrsflächen, Flure' zugeordnet.",True
+Leistungsermittlung Raumdaten,159,Besprechungsräume,Seminar-/Besprechungsräume,3,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,160,Schaltraum für betriebstechnische Anlagen,Technikräume,24,1.0,gemini,1.0,Der Raumnamen 'Schaltraum für betriebstechnische Anlagen' wurde direkt dem Katalogeintrag 'Technikräume' zugeordnet.,True
+Leistungsermittlung Raumdaten,161,Büro,Großraumbüros,1,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,162,Einzelbüro,Einzel-/Zweierbüros,2,1.0,gemini,1.0,Der Raumnamen 'Einzelbüro' ist ein direkter Treffer für Einzel-/Zweierbüros.,True
+Leistungsermittlung Raumdaten,163,Einzelbüro,Einzel-/Zweierbüros,2,1.0,gemini,1.0,Der Raumnamen 'Einzelbüro' ist ein direkter Treffer für Einzel-/Zweierbüros.,True
+Leistungsermittlung Raumdaten,164,Doppelbüro,Einzel-/Zweierbüros,2,1.0,gemini,1.0,Der Raumnamen 'Doppelbüro' ist ein direkter Treffer für Einzel-/Zweierbüros.,True
+Leistungsermittlung Raumdaten,165,Doppelbüro,Einzel-/Zweierbüros,2,1.0,gemini,1.0,Der Raumnamen 'Doppelbüro' ist ein direkter Treffer für Einzel-/Zweierbüros.,True
+Leistungsermittlung Raumdaten,166,Doppelbüro,Einzel-/Zweierbüros,2,1.0,gemini,1.0,Der Raumnamen 'Doppelbüro' ist ein direkter Treffer für Einzel-/Zweierbüros.,True
+Leistungsermittlung Raumdaten,167,Doppelbüro,Einzel-/Zweierbüros,2,1.0,gemini,1.0,Der Raumnamen 'Doppelbüro' ist ein direkter Treffer für Einzel-/Zweierbüros.,True
+Leistungsermittlung Raumdaten,168,Doppelbüro,Einzel-/Zweierbüros,2,1.0,gemini,1.0,Der Raumnamen 'Doppelbüro' ist ein direkter Treffer für Einzel-/Zweierbüros.,True
+Leistungsermittlung Raumdaten,169,Doppelbüro,Einzel-/Zweierbüros,2,1.0,gemini,1.0,Der Raumnamen 'Doppelbüro' ist ein direkter Treffer für Einzel-/Zweierbüros.,True
+Leistungsermittlung Raumdaten,170,Doppelbüro,Einzel-/Zweierbüros,2,1.0,gemini,1.0,Der Raumnamen 'Doppelbüro' ist ein direkter Treffer für Einzel-/Zweierbüros.,True
+Leistungsermittlung Raumdaten,171,Doppelbüro,Einzel-/Zweierbüros,2,1.0,gemini,1.0,Der Raumnamen 'Doppelbüro' ist ein direkter Treffer für Einzel-/Zweierbüros.,True
+Leistungsermittlung Raumdaten,172,Doppelbüro,Einzel-/Zweierbüros,2,1.0,gemini,1.0,Der Raumnamen 'Doppelbüro' ist ein direkter Treffer für Einzel-/Zweierbüros.,True
+Leistungsermittlung Raumdaten,173,Doppelbüro,Einzel-/Zweierbüros,2,1.0,gemini,1.0,Der Raumnamen 'Doppelbüro' ist ein direkter Treffer für Einzel-/Zweierbüros.,True
+Leistungsermittlung Raumdaten,174,Doppelbüro,Einzel-/Zweierbüros,2,1.0,gemini,1.0,Der Raumnamen 'Doppelbüro' ist ein direkter Treffer für Einzel-/Zweierbüros.,True
+Leistungsermittlung Raumdaten,175,Doppelbüro,Einzel-/Zweierbüros,2,1.0,gemini,1.0,Der Raumnamen 'Doppelbüro' ist ein direkter Treffer für Einzel-/Zweierbüros.,True
+Leistungsermittlung Raumdaten,176,Doppelbüro,Einzel-/Zweierbüros,2,1.0,gemini,1.0,Der Raumnamen 'Doppelbüro' ist ein direkter Treffer für Einzel-/Zweierbüros.,True
+Leistungsermittlung Raumdaten,177,Doppelbüro,Einzel-/Zweierbüros,2,1.0,gemini,1.0,Der Raumnamen 'Doppelbüro' ist ein direkter Treffer für Einzel-/Zweierbüros.,True
+Leistungsermittlung Raumdaten,178,Lager Reinkleidung,Lager Labor/Reinraum,12,1.0,gemini,1.0,Der Raumnamen 'Lager Reinkleidung' wurde direkt dem Katalogeintrag 'Lager Labor/Reinraum' zugeordnet.,True
+Leistungsermittlung Raumdaten,179,Lager nicht brennbare Stoffe,Lager Labor/Reinraum,12,1.0,gemini,1.0,Der Raumnamen 'Lager nicht brennbare Stoffe' wurde direkt dem Katalogeintrag 'Lager Labor/Reinraum' zugeordnet.,True
+Leistungsermittlung Raumdaten,180,Lager Ex-Schutz: brennbare Stoffe,Lager Labor/Reinraum,12,1.0,gemini,1.0,Der Raumnamen 'Lager Ex-Schutz: brennbare Stoffe' wurde direkt dem Katalogeintrag 'Lager Labor/Reinraum' zugeordnet.,True
+Leistungsermittlung Raumdaten,181,Lager Ex-Schutz: brennbare Stoffe,Lager Labor/Reinraum,12,1.0,gemini,1.0,Der Raumnamen 'Lager Ex-Schutz: brennbare Stoffe' wurde direkt dem Katalogeintrag 'Lager Labor/Reinraum' zugeordnet.,True
+Leistungsermittlung Raumdaten,182,WC,WCs,17,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,183,Aufzug,Aufzüge,32,1.0,gemini,1.0,Die Bezeichnung 'Aufzug' ist eindeutig einem Aufzug zuzuordnen.,True
+Leistungsermittlung Raumdaten,184,Lager Reinstgase & Gaswarnanlage,Lager,22,0.9,gemini,0.9,"Der Raumnamen 'Lager Reinstgase & Gaswarnanlage' wurde dem Katalogeintrag 'Lager' zugeordnet, da keine spezifischere Kategorie vorhanden ist.",True
+Leistungsermittlung Raumdaten,185,Treppenhaus,Treppenhäuser,30,1.0,gemini,1.0,Die Bezeichnung 'Treppenhaus' ist eindeutig einem Treppenhaus zuzuordnen.,True
+Leistungsermittlung Raumdaten,186,Treppenhaus,Treppenhäuser,30,1.0,gemini,1.0,Die Bezeichnung 'Treppenhaus' ist eindeutig einem Treppenhaus zuzuordnen.,True
+Leistungsermittlung Raumdaten,187,Treppenhaus,Treppenhäuser,30,1.0,gemini,1.0,Die Bezeichnung 'Treppenhaus' ist eindeutig einem Treppenhaus zuzuordnen.,True
+Leistungsermittlung Raumdaten,188,Flur,"Verkehrsflächen, Flure",14,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,189,Flur,"Verkehrsflächen, Flure",14,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,190,Seminarraum ohne festes Gestühl,Seminar-/Besprechungsräume,3,1.0,gemini,1.0,Der Raumnamen 'Seminarraum ohne festes Gestühl' wurde direkt dem Katalogeintrag 'Seminar-/Besprechungsräume' zugeordnet.,True
+Leistungsermittlung Raumdaten,191,ELT,Technikräume,24,1.0,gemini,1.0,"Die Abkürzung 'ELT' (Elektrotechnik) deutet auf einen Technikraum hin, der elektrische Anlagen beherbergt.",True
+Leistungsermittlung Raumdaten,192,RLT(Labor)-Schacht,Schächte,31,1.0,gemini,1.0,Der Raumnamen 'RLT(Labor)-Schacht' ist ein direkter Treffer für Schächte.,True
+Leistungsermittlung Raumdaten,193,HZG/KLT/SAN-Schacht,Schächte,31,1.0,gemini,1.0,"Die Bezeichnung 'HZG/KLT/SAN-Schacht' beschreibt einen Installationsschacht für Heizung, Kaltluft und Sanitär.",True
+Leistungsermittlung Raumdaten,194,Gr. Steigschacht + ELT,Schächte,31,1.0,gemini,1.0,"Die Bezeichnung 'Gr. Steigschacht + ELT' beschreibt einen größeren Installationsschacht, der auch Elektrotechnik beinhaltet.",True
+Leistungsermittlung Raumdaten,195,Umkleide,Umkleiden,20,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,196,RLT,Schächte,31,1.0,gemini,1.0,Die Abkürzung 'RLT' (Raumlufttechnik) bezieht sich auf installationsbezogene Schächte.,True
+Leistungsermittlung Raumdaten,197,Wc D.,WCs,17,1.0,gemini,1.0,Der Raumnamen 'Wc D.' ist ein direkter Treffer für WCs.,True
+Leistungsermittlung Raumdaten,198,Wc H.,WCs,17,1.0,gemini,1.0,Der Raumnamen 'Wc H.' ist ein direkter Treffer für WCs.,True
+Leistungsermittlung Raumdaten,199,ELT,Technikräume,24,1.0,gemini,1.0,"Die Abkürzung 'ELT' (Elektrotechnik) deutet auf einen Technikraum hin, der elektrische Anlagen beherbergt.",True
+Leistungsermittlung Raumdaten,200,Putzraum,Putzräume,21,1.0,gemini,1.0,Die Bezeichnung 'Putzraum' ist eindeutig einem Putzraum zuzuordnen.,True
+Leistungsermittlung Raumdaten,201,Wc B.,WCs Beh.,18,1.0,gemini,1.0,Der Raumnamen 'Wc B.' ist ein direkter Treffer für behindertengerechte WCs.,True
+Leistungsermittlung Raumdaten,202,Reinraum,Reinraumbereiche,8,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,203,Flur Drucker/Kopierer,"Verkehrsflächen, Flure",14,1.0,gemini,1.0,"Der Raumnamen 'Flur Drucker/Kopierer' wurde direkt dem Katalogeintrag 'Verkehrsflächen, Flure' zugeordnet.",True
+Leistungsermittlung Raumdaten,204,Aufenthaltsraum mit Teeküche,Aufenthaltsräume/Cafeteria,4,1.0,gemini,1.0,Der Raumnamen 'Aufenthaltsraum mit Teeküche' wurde direkt dem Katalogeintrag 'Aufenthaltsräume/Cafeteria' zugeordnet.,True
+Leistungsermittlung Raumdaten,205,Aufenthaltsraum mit Teeküche,Aufenthaltsräume/Cafeteria,4,1.0,gemini,1.0,Der Raumnamen 'Aufenthaltsraum mit Teeküche' wurde direkt dem Katalogeintrag 'Aufenthaltsräume/Cafeteria' zugeordnet.,True
+Leistungsermittlung Raumdaten,206,Mehrpersonenbüro (6 Personen),Großraumbüros,1,1.0,gemini,1.0,Der Raumnamen 'Mehrpersonenbüro (6 Personen)' wurde direkt dem Katalogeintrag 'Großraumbüros' zugeordnet.,True
+Leistungsermittlung Raumdaten,207,Mehrpersonenbüro (6 Personen),Großraumbüros,1,1.0,gemini,1.0,Der Raumnamen 'Mehrpersonenbüro (6 Personen)' wurde direkt dem Katalogeintrag 'Großraumbüros' zugeordnet.,True
+Leistungsermittlung Raumdaten,208,Mehrpersonenbüro (8 Personen),Großraumbüros,1,1.0,gemini,1.0,Der Raumnamen 'Mehrpersonenbüro (8 Personen)' wurde direkt dem Katalogeintrag 'Großraumbüros' zugeordnet.,True
+Leistungsermittlung Raumdaten,209,Drucker/Kopierer,Drucker-/Kopierräume,29,1.0,gemini,1.0,Der Raumeintrag 'Drucker/Kopierer' passt direkt zur Raumkategorie 'Drucker-/Kopierräume'.,True
+Leistungsermittlung Raumdaten,210,Drucker/Kopierer,Drucker-/Kopierräume,29,1.0,gemini,1.0,Der Raumeintrag 'Drucker/Kopierer' passt direkt zur Raumkategorie 'Drucker-/Kopierräume'.,True
+Leistungsermittlung Raumdaten,211,Treppenhaus,Treppenhäuser,30,1.0,gemini,1.0,Die Bezeichnung 'Treppenhaus' ist eindeutig einem Treppenhaus zuzuordnen.,True
+Leistungsermittlung Raumdaten,212,Aufzug,Aufzüge,32,1.0,gemini,1.0,Die Bezeichnung 'Aufzug' ist eindeutig einem Aufzug zuzuordnen.,True
+Leistungsermittlung Raumdaten,213,Treppenhaus,Treppenhäuser,30,1.0,gemini,1.0,Die Bezeichnung 'Treppenhaus' ist eindeutig einem Treppenhaus zuzuordnen.,True
+Leistungsermittlung Raumdaten,214,Treppenhaus,Treppenhäuser,30,1.0,gemini,1.0,Die Bezeichnung 'Treppenhaus' ist eindeutig einem Treppenhaus zuzuordnen.,True
+Leistungsermittlung Raumdaten,215,WC,WCs,17,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,216,Flur,"Verkehrsflächen, Flure",14,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,217,Flur,"Verkehrsflächen, Flure",14,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,218,Empfangsbereich / Wartefläche 2.OG,Aufenthaltsräume/Cafeteria,4,1.0,gemini,1.0,Der Raumnamen 'Empfangsbereich / Wartefläche 2.OG' wurde direkt dem Katalogeintrag 'Aufenthaltsräume/Cafeteria' zugeordnet.,True
+Leistungsermittlung Raumdaten,219,Besprechungsräume,Seminar-/Besprechungsräume,3,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,220,Besprechungsräume,Seminar-/Besprechungsräume,3,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,221,Besprechungsräume,Seminar-/Besprechungsräume,3,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,222,Einzelbüro,Einzel-/Zweierbüros,2,1.0,gemini,1.0,Der Raumnamen 'Einzelbüro' ist ein direkter Treffer für Einzel-/Zweierbüros.,True
+Leistungsermittlung Raumdaten,223,Einzelbüro,Einzel-/Zweierbüros,2,1.0,gemini,1.0,Der Raumnamen 'Einzelbüro' ist ein direkter Treffer für Einzel-/Zweierbüros.,True
+Leistungsermittlung Raumdaten,224,Doppelbüro,Einzel-/Zweierbüros,2,1.0,gemini,1.0,Der Raumnamen 'Doppelbüro' ist ein direkter Treffer für Einzel-/Zweierbüros.,True
+Leistungsermittlung Raumdaten,225,Doppelbüro,Einzel-/Zweierbüros,2,1.0,gemini,1.0,Der Raumnamen 'Doppelbüro' ist ein direkter Treffer für Einzel-/Zweierbüros.,True
+Leistungsermittlung Raumdaten,226,Doppelbüro,Einzel-/Zweierbüros,2,1.0,gemini,1.0,Der Raumnamen 'Doppelbüro' ist ein direkter Treffer für Einzel-/Zweierbüros.,True
+Leistungsermittlung Raumdaten,227,Doppelbüro,Einzel-/Zweierbüros,2,1.0,gemini,1.0,Der Raumnamen 'Doppelbüro' ist ein direkter Treffer für Einzel-/Zweierbüros.,True
+Leistungsermittlung Raumdaten,228,Doppelbüro,Einzel-/Zweierbüros,2,1.0,gemini,1.0,Der Raumnamen 'Doppelbüro' ist ein direkter Treffer für Einzel-/Zweierbüros.,True
+Leistungsermittlung Raumdaten,229,Doppelbüro,Einzel-/Zweierbüros,2,1.0,gemini,1.0,Der Raumnamen 'Doppelbüro' ist ein direkter Treffer für Einzel-/Zweierbüros.,True
+Leistungsermittlung Raumdaten,230,Doppelbüro,Einzel-/Zweierbüros,2,1.0,gemini,1.0,Der Raumnamen 'Doppelbüro' ist ein direkter Treffer für Einzel-/Zweierbüros.,True
+Leistungsermittlung Raumdaten,231,Doppelbüro,Einzel-/Zweierbüros,2,1.0,gemini,1.0,Der Raumnamen 'Doppelbüro' ist ein direkter Treffer für Einzel-/Zweierbüros.,True
+Leistungsermittlung Raumdaten,232,Doppelbüro,Einzel-/Zweierbüros,2,1.0,gemini,1.0,Der Raumnamen 'Doppelbüro' ist ein direkter Treffer für Einzel-/Zweierbüros.,True
+Leistungsermittlung Raumdaten,233,Doppelbüro,Einzel-/Zweierbüros,2,1.0,gemini,1.0,Der Raumnamen 'Doppelbüro' ist ein direkter Treffer für Einzel-/Zweierbüros.,True
+Leistungsermittlung Raumdaten,234,Doppelbüro,Einzel-/Zweierbüros,2,1.0,gemini,1.0,Der Raumnamen 'Doppelbüro' ist ein direkter Treffer für Einzel-/Zweierbüros.,True
+Leistungsermittlung Raumdaten,235,Doppelbüro,Einzel-/Zweierbüros,2,1.0,gemini,1.0,Der Raumnamen 'Doppelbüro' ist ein direkter Treffer für Einzel-/Zweierbüros.,True
+Leistungsermittlung Raumdaten,236,Büro Studenten / Hilfwissenschaftler,Großraumbüros,1,1.0,gemini,1.0,Der Raumnamen 'Büro Studenten / Hilfwissenschaftler' wurde direkt dem Katalogeintrag 'Großraumbüros' zugeordnet.,True
+Leistungsermittlung Raumdaten,237,Büro Studenten / Hilfwissenschaftler,Großraumbüros,1,1.0,gemini,1.0,Der Raumnamen 'Büro Studenten / Hilfwissenschaftler' wurde direkt dem Katalogeintrag 'Großraumbüros' zugeordnet.,True
+Leistungsermittlung Raumdaten,238,Büro Studenten / Hilfwissenschaftler,Großraumbüros,1,1.0,gemini,1.0,Der Raumnamen 'Büro Studenten / Hilfwissenschaftler' wurde direkt dem Katalogeintrag 'Großraumbüros' zugeordnet.,True
+Leistungsermittlung Raumdaten,239,Büro Studenten / Hilfwissenschaftler,Großraumbüros,1,1.0,gemini,1.0,Der Raumnamen 'Büro Studenten / Hilfwissenschaftler' wurde direkt dem Katalogeintrag 'Großraumbüros' zugeordnet.,True
+Leistungsermittlung Raumdaten,240,Büro Studenten / Hilfwissenschaftler,Großraumbüros,1,1.0,gemini,1.0,Der Raumnamen 'Büro Studenten / Hilfwissenschaftler' wurde direkt dem Katalogeintrag 'Großraumbüros' zugeordnet.,True
+Leistungsermittlung Raumdaten,241,Demozentrum Ausstellungs-/ Musterraum,Aufenthaltsräume/Cafeteria,4,1.0,gemini,1.0,Der Raumnamen 'Demozentrum Ausstellungs-/ Musterraum' wurde direkt dem Katalogeintrag 'Aufenthaltsräume/Cafeteria' zugeordnet.,True
+Leistungsermittlung Raumdaten,242,RLT,Schächte,31,1.0,gemini,1.0,Die Abkürzung 'RLT' (Raumlufttechnik) bezieht sich auf installationsbezogene Schächte.,True
+Leistungsermittlung Raumdaten,243,HZG/KLT/SAN-Schacht,Schächte,31,1.0,gemini,1.0,"Die Bezeichnung 'HZG/KLT/SAN-Schacht' beschreibt einen Installationsschacht für Heizung, Kaltluft und Sanitär.",True
+Leistungsermittlung Raumdaten,244,RLT(Labor)-Schacht,Schächte,31,1.0,gemini,1.0,Der Raumnamen 'RLT(Labor)-Schacht' ist ein direkter Treffer für Schächte.,True
+Leistungsermittlung Raumdaten,245,Gr. Steigschacht + ELT,Schächte,31,1.0,gemini,1.0,"Die Bezeichnung 'Gr. Steigschacht + ELT' beschreibt einen größeren Installationsschacht, der auch Elektrotechnik beinhaltet.",True
+Leistungsermittlung Raumdaten,246,ELT,Technikräume,24,1.0,gemini,1.0,"Die Abkürzung 'ELT' (Elektrotechnik) deutet auf einen Technikraum hin, der elektrische Anlagen beherbergt.",True
+Leistungsermittlung Raumdaten,247,WC,WCs,17,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,248,Aufzugüberfahrt?,Aufzüge,32,1.0,gemini,1.0,Der Raumnamen 'Aufzugüberfahrt?' wurde direkt dem Katalogeintrag 'Aufzüge' zugeordnet.,True
+Leistungsermittlung Raumdaten,249,Treppenhaus,Treppenhäuser,30,1.0,gemini,1.0,Die Bezeichnung 'Treppenhaus' ist eindeutig einem Treppenhaus zuzuordnen.,True
+Leistungsermittlung Raumdaten,250,Treppenhaus,Treppenhäuser,30,1.0,gemini,1.0,Die Bezeichnung 'Treppenhaus' ist eindeutig einem Treppenhaus zuzuordnen.,True
+Leistungsermittlung Raumdaten,251,Flur 3.OG,"Verkehrsflächen, Flure",14,1.0,gemini,1.0,"Der Raumnamen 'Flur 3.OG' wurde direkt dem Katalogeintrag 'Verkehrsflächen, Flure' zugeordnet.",True
+Leistungsermittlung Raumdaten,252,Plenum,Plenum Reinraum,10,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,253,Werkstatt allg.,Werkstatt Labor/Reinraum,11,1.0,gemini,1.0,Der Raumnamen 'Werkstatt allg.' wurde direkt dem Katalogeintrag 'Werkstatt Labor/Reinraum' zugeordnet.,True
+Leistungsermittlung Raumdaten,254,Werkstatt Holz / Kunststoff (Technik),Werkstatt Labor/Reinraum,11,1.0,gemini,1.0,Der Raumnamen 'Werkstatt Holz / Kunststoff (Technik)' wurde direkt dem Katalogeintrag 'Werkstatt Labor/Reinraum' zugeordnet.,True
+Leistungsermittlung Raumdaten,255,Flur 3.OG,"Verkehrsflächen, Flure",14,1.0,gemini,1.0,"Der Raumnamen 'Flur 3.OG' wurde direkt dem Katalogeintrag 'Verkehrsflächen, Flure' zugeordnet.",True
+Leistungsermittlung Raumdaten,256,Hausmeisterwerkstatt,Werkstatt Labor/Reinraum,11,1.0,gemini,1.0,Der Raumnamen 'Hausmeisterwerkstatt' wurde direkt dem Katalogeintrag 'Werkstatt Labor/Reinraum' zugeordnet.,True
+Leistungsermittlung Raumdaten,257,Erste-Hilfe-Raum,Erste-Hilfe-/Sanitätsraum,13,1.0,gemini,1.0,Der Raumnamen 'Erste-Hilfe-Raum' ist ein direkter Treffer für Erste-Hilfe-/Sanitätsräume.,True
+Leistungsermittlung Raumdaten,258,RZ 2,Serverräume,26,1.0,gemini,1.0,Der Raumnamen 'RZ 2' wurde direkt dem Katalogeintrag 'Serverräume' zugeordnet.,True
+Leistungsermittlung Raumdaten,259,Schacht,Schächte,31,1.0,gemini,1.0,Der Raumeintrag 'Schacht' stimmt exakt mit dem Katalogeintrag 'Schächte' überein.,True
+Leistungsermittlung Raumdaten,260,RLT Reinraum,Technikräume,24,0.9,gemini,0.9,"Der Raumeintrag 'RLT Reinraum' enthält den Begriff 'Reinraum', der auf einen technischen Raum schließen lässt, der im Katalog unter 'Technikräume' geführt wird. Der spezifische Typ 'RLT' (Raumlufttechnik) unterstützt diese Zuordnung.",True
+Leistungsermittlung Raumdaten,261,Heiz -Kälte Zentrale,Technikräume,24,1.0,gemini,1.0,Der Raumeintrag 'Heiz -Kälte Zentrale' ist ein typischer Technikraum und wird im Katalog unter 'Technikräume' aufgeführt.,True
+Leistungsermittlung Raumdaten,262,IT-Raum,Technikräume,24,1.0,gemini,1.0,Der Raumnamen 'IT-Raum' wurde direkt dem Katalogeintrag 'Technikräume' zugeordnet.,True
+Leistungsermittlung Raumdaten,263,Druckluft Zentrale,Technikräume,24,1.0,gemini,1.0,Der Raumeintrag 'Druckluft Zentrale' ist ein typischer Technikraum und wird im Katalog unter 'Technikräume' aufgeführt.,True
+Leistungsermittlung Raumdaten,264,RLT Labor Büro,Technikräume,24,1.0,gemini,1.0,"Der Raumeintrag 'RLT Labor Büro' enthält den Begriff 'RLT' (Raumlufttechnik) und 'Labor', was auf einen technischen Raum mit spezifischer Funktion schließen lässt. Der Katalog führt 'Technikräume'.",True
+Leistungsermittlung Raumdaten,265,ZBA,Einzel-/Zweierbüros,2,0.85,gemini,0.85,"Der Raumeintrag 'ZBA' (Zentraler Bereich) kann unterschiedliche Funktionen haben, aber in Bezug auf Büronutzung passt 'Einzel-/Zweierbüros' am ehesten, da es sich um spezifische Arbeitsbereiche handelt. Die Zuordnung ist nicht eindeutig.",True
+Leistungsermittlung Raumdaten,266,USV,Technikräume,24,1.0,gemini,1.0,Der Raumeintrag 'USV' (Unterbrechungsfreie Stromversorgung) ist ein technischer Raum und wird im Katalog unter 'Technikräume' aufgeführt.,True
+Leistungsermittlung Raumdaten,267,GLT,Technikräume,24,1.0,gemini,1.0,Der Raumeintrag 'GLT' (Gebäudeleittechnik) ist ein technischer Raum und wird im Katalog unter 'Technikräume' aufgeführt.,True
+Leistungsermittlung Raumdaten,268,ELT,Technikräume,24,1.0,gemini,1.0,"Die Abkürzung 'ELT' (Elektrotechnik) deutet auf einen Technikraum hin, der elektrische Anlagen beherbergt.",True
+Leistungsermittlung Raumdaten,269,RLT,Schächte,31,1.0,gemini,1.0,Die Abkürzung 'RLT' (Raumlufttechnik) bezieht sich auf installationsbezogene Schächte.,True
+Leistungsermittlung Raumdaten,270,BOS,Technikräume,24,1.0,gemini,1.0,"Der Raumeintrag 'BOS' (Behörden und Organisationen mit Sicherheitsaufgaben) kann auf technische Kommunikations- oder Leitstellenräume hinweisen, die dem Katalog 'Technikräume' zugeordnet werden.",True
+Leistungsermittlung Raumdaten,271,BMA,Technikräume,24,1.0,gemini,1.0,Der Raumeintrag 'BMA' (Brandmeldeanlage) ist ein technischer Raum für Sicherheitstechnik und wird im Katalog unter 'Technikräume' aufgeführt.,True
+Leistungsermittlung Raumdaten,272,ELA-2,Technikräume,24,1.0,gemini,1.0,Der Raumeintrag 'ELA-2' (Elektroakustische Anlage) ist ein technischer Raum und wird im Katalog unter 'Technikräume' aufgeführt.,True
+Leistungsermittlung Raumdaten,273,ZBV-2,Lager,22,1.0,gemini,1.0,"Der Raumeintrag 'ZBV-2' (Zentraler Büroverwaltung?) deutet auf eine Lagerfunktion hin, insbesondere wenn es sich um Büromaterial oder Ähnliches handelt. Der Katalog hat 'Lager'.",True
+Leistungsermittlung Raumdaten,274,HZG/KLT/SAN-Schacht,Schächte,31,1.0,gemini,1.0,"Die Bezeichnung 'HZG/KLT/SAN-Schacht' beschreibt einen Installationsschacht für Heizung, Kaltluft und Sanitär.",True
+Leistungsermittlung Raumdaten,275,Gr. Steigschacht + ELT,Schächte,31,1.0,gemini,1.0,"Die Bezeichnung 'Gr. Steigschacht + ELT' beschreibt einen größeren Installationsschacht, der auch Elektrotechnik beinhaltet.",True
+Leistungsermittlung Raumdaten,276,TRH Dach,Treppenhäuser,30,1.0,gemini,1.0,Der Raumeintrag 'TRH Dach' (Treppenhaus Dach) ist eine exakte Übereinstimmung mit dem Katalogeintrag 'Treppenhäuser'.,True
+Leistungsermittlung Raumdaten,277,WC,WCs,17,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,278,Flur,"Verkehrsflächen, Flure",14,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,279,Treppenhaus,Treppenhäuser,30,1.0,gemini,1.0,Die Bezeichnung 'Treppenhaus' ist eindeutig einem Treppenhaus zuzuordnen.,True
+Leistungsermittlung Raumdaten,280,RLT,Schächte,31,1.0,gemini,1.0,Die Abkürzung 'RLT' (Raumlufttechnik) bezieht sich auf installationsbezogene Schächte.,True
+Leistungsermittlung Raumdaten,281,Treppenhaus,Treppenhäuser,30,1.0,gemini,1.0,Die Bezeichnung 'Treppenhaus' ist eindeutig einem Treppenhaus zuzuordnen.,True
+Leistungsermittlung Raumdaten,282,Lager IT / Warenlieferung,Lager,22,1.0,gemini,1.0,Die Bezeichnung 'Lager IT / Warenlieferung' beschreibt eine Lagerfunktion für IT und Waren.,True
+Leistungsermittlung Raumdaten,283,Lager Geräte,Lager,22,1.0,gemini,1.0,Der Raumeintrag 'Lager Geräte' ist ein typischer Lagerraum und wird im Katalog unter 'Lager' aufgeführt.,True
+Leistungsermittlung Raumdaten,284,Lager Geräte,Lager,22,1.0,gemini,1.0,Der Raumeintrag 'Lager Geräte' ist ein typischer Lagerraum und wird im Katalog unter 'Lager' aufgeführt.,True
+Leistungsermittlung Raumdaten,285,Lager Geräte,Lager,22,1.0,gemini,1.0,Der Raumeintrag 'Lager Geräte' ist ein typischer Lagerraum und wird im Katalog unter 'Lager' aufgeführt.,True
+Leistungsermittlung Raumdaten,286,Lager Technik / Technische Anlagen,Lager,22,1.0,gemini,1.0,Der Raumeintrag 'Lager Technik / Technische Anlagen' ist ein typischer Lagerraum und wird im Katalog unter 'Lager' aufgeführt.,True
+Leistungsermittlung Raumdaten,287,Lager Technik / Technische Anlagen,Lager,22,1.0,gemini,1.0,Der Raumeintrag 'Lager Technik / Technische Anlagen' ist ein typischer Lagerraum und wird im Katalog unter 'Lager' aufgeführt.,True

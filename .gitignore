@@ -210,6 +210,9 @@ __marimo__/
 data/
 .env.local
 README.md
+context/
+agent_context/
+cache/
 
 
 # Reports directory
@@ -217,3 +220,4 @@ reports/
 
 # Virtual environment
 venv/
+src/costestimator/bki_data_enriched_regex.json

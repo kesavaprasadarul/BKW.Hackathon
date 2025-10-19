@@ -1,0 +1,19 @@
+﻿Sheet,RowIndex,Raum-Bezeichnung,MatchedRoomtype,Nr,Score,Method,AI_Confidence,AI_Rationale,Accepted
+Leistungsermittlung Raumdaten,11,LKW-Halle,Lkw-Halle,12,1.0,fts,,fts,True
+Leistungsermittlung Raumdaten,12,Büro,Büros und Räume ähnlicher Nutzung,1,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,13,WC-H,WC's,5,1.0,gemini,1.0,Input 'WC-H' matches 'WC Herren' in the catalog.,True
+Leistungsermittlung Raumdaten,14,WC-D,WC's,5,1.0,gemini,1.0,Input 'WC-D' matches 'WC Damen' in the catalog.,True
+Leistungsermittlung Raumdaten,15,Flur,"Verkehrsflächen, Flure",4,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,16,Vorr.,"Verkehrsflächen, Flure",4,1.0,gemini,1.0,"Input 'Vorr.' matches 'Vorr.' in the catalog, which is categorized as a traffic area.",True
+Leistungsermittlung Raumdaten,17,Verkauf,"Besprechungs-, Verkaufsräume",2,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,18,Werkstatt,Werkstätten,11,1.0,gemini,1.0,Input 'Werkstatt' matches 'Werkstatt' in the catalog.,True
+Leistungsermittlung Raumdaten,19,Anlieferung/Lager,Lager,9,1.0,gemini,1.0,Input 'Anlieferung/Lager' matches 'Anlieferung/Lager' in the catalog.,True
+Leistungsermittlung Raumdaten,20,Karkassenlager,Reifenlager,13,1.0,gemini,1.0,Input 'Karkassenlager' matches 'Karkassenlager' in the catalog.,True
+Leistungsermittlung Raumdaten,21,HA.,Aufenthaltsräume,3,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,22,WC-BEH.,Beh. WC's,6,0.9,fts,,fts,True
+Leistungsermittlung Raumdaten,23,Sozialraum,Aufenthaltsräume,3,1.0,gemini,1.0,Input 'Sozialraum' matches 'Sozialraum' in the catalog.,True
+Leistungsermittlung Raumdaten,24,Umkleide,Umkleiden,8,0.98,fts,,fts,True
+Leistungsermittlung Raumdaten,25,DU. 1,Duschen,7,1.0,gemini,1.0,Input 'DU. 1' matches 'DU. 1' in the catalog.,True
+Leistungsermittlung Raumdaten,26,DU. 2,Duschen,7,1.0,gemini,1.0,Input 'DU. 2' matches 'DU. 2' in the catalog.,True
+Leistungsermittlung Raumdaten,27,Reifenlager,Reifenlager,13,1.0,fts,,fts,True
+Leistungsermittlung Raumdaten,28,Haustechnik,Hausanschlussraum,14,1.0,gemini,1.0,Input 'Haustechnik' matches 'Haustechnik' in the catalog.,True

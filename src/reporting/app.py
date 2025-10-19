@@ -1,7 +1,8 @@
 """Main Application"""
-from ai import AIService
+from src.ai import AIService
 from designer import Designer
-from config import FORMATS
+from src.config import FORMATS
+from extractor import extract_project_data
 from pathlib import Path
 
 
@@ -9,22 +10,17 @@ def main():
     ai = AIService()
     designer = Designer()
     
-    # Read project data from example_data.txt
-    data_file = Path(__file__).parent.parent / "example_data.txt"
-    
-    if not data_file.exists():
-        print("Fehler: example_data.txt nicht gefunden!")
-        return
-    
     print("Erläuterungsbericht Generator\n" + "="*50)
-    print(f"Lade Projektdaten aus: {data_file.name}")
     
-    try:
-        project_data = data_file.read_text(encoding='utf-8')
-        print(f"✓ {len(project_data.split())} Wörter geladen")
-    except Exception as e:
-        print(f"Fehler beim Lesen der Datei: {e}")
+    # Extract data from context directory
+    context_dir = Path(__file__).parent.parent / "context"
+    project_data = extract_project_data(context_dir)
+    
+    if not project_data:
+        print("Fehler: Keine Daten aus Context-Verzeichnis extrahiert!")
         return
+    
+    print(f"{len(project_data.split())} Wörter extrahiert")
     
     # Generate report in chunks
     print("\n" + "="*50)

@@ -1,0 +1,157 @@
+﻿Sheet,RowIndex,Raum-Bezeichnung,MatchedRoomtype,Nr,Score,Method,AI_Confidence,AI_Rationale,Accepted
+Leistungsermittlung Raumdaten,11,Flex-Work Area,Flex-/ Co-Work/,1,1.0,llm_only,1.0,Der Raumtyp 'Flex-Work Area' passt direkt zur Kategorie 'Flex-/ Co-Work/'.,True
+Leistungsermittlung Raumdaten,12,Allg. & Gruppenleitung,Einzel-/Zweierbüros,2,1.0,llm_only,1.0,Der Raumtyp 'Allg. & Gruppenleitung' ist ein spezifisches Einzel-/Zweierbüro.,True
+Leistungsermittlung Raumdaten,13,Azubi,Einzel-/Zweierbüros,2,1.0,llm_only,1.0,Der Raumtyp 'Azubi' ist dem Bereich der Einzel-/Zweierbüros zuzuordnen.,True
+Leistungsermittlung Raumdaten,14,Post / Kopieren,Einzel-/Zweierbüros,2,0.9,llm_only,0.9,"Die Funktion 'Post / Kopieren' ist zwar manchmal ein eigener Raum, wird aber historisch oft in oder nahe kleineren Büros (Sekretariat, Allg. Leitung) verortet, passt aber besser zu Einzel-/Zweierbüros oder Flexbereichen. Hier wird die Zuordnung zu den Bürobereichen priorisiert, da 'Post' in der Historie oft dort erscheint.",True
+Leistungsermittlung Raumdaten,15,Technikum,Technikum,3,1.0,llm_only,1.0,Der Raumtyp 'Technikum' passt direkt zur Kategorie 'Technikum'.,True
+Leistungsermittlung Raumdaten,16,Smartfarming,Smart Farming,4,1.0,llm_only,1.0,Der Raumtyp 'Smartfarming' passt direkt zur Kategorie 'Smart Farming'.,True
+Leistungsermittlung Raumdaten,17,I4.4 & Robotik,Robotik,5,1.0,llm_only,1.0,Der Raumtyp 'I4.4 & Robotik' passt direkt zur Kategorie 'Robotik'.,True
+Leistungsermittlung Raumdaten,18,Flur,"Verkehrsflächen, Flure",6,1.0,llm_only,1.0,Der Raumtyp 'Flur' ist die allgemeine Bezeichnung für Verkehrsflächen.,True
+Leistungsermittlung Raumdaten,19,Flur,"Verkehrsflächen, Flure",6,1.0,llm_only,1.0,Der Raumtyp 'Flur' ist die allgemeine Bezeichnung für Verkehrsflächen.,True
+Leistungsermittlung Raumdaten,20,WC Herren,WCs,8,1.0,llm_only,1.0,Der Raumtyp 'WC Herren' passt direkt zur Kategorie 'WCs'.,True
+Leistungsermittlung Raumdaten,21,WC B,WCs,8,1.0,llm_only,1.0,"Der Raumtyp 'WC B' (vermutlich Beh.) ist unter 'WCs' oder 'WCs Beh.' möglich. Aufgrund der direkten Übereinstimmung mit Einträgen in der Historie ('WC B.') wird hier 'WCs' gewählt, wenn keine explizite Behinderten-WC-Kategorie im Katalog ist, die besser passt. Im Katalog ist 'WCs Beh.' (Nr. 8 im historischen Katalog) vorhanden, aber hier wird die Kategorie 8 (WCs) gewählt.",True
+Leistungsermittlung Raumdaten,22,WC Frauen,WCs,8,1.0,llm_only,1.0,Der Raumtyp 'WC Frauen' passt direkt zur Kategorie 'WCs'.,True
+Leistungsermittlung Raumdaten,23,WC Herren,WCs,8,1.0,llm_only,1.0,Der Raumtyp 'WC Herren' passt direkt zur Kategorie 'WCs'.,True
+Leistungsermittlung Raumdaten,24,Putzraum,Putzmittel/ Lager,10,1.0,llm_only,1.0,Der Raumtyp 'Putzraum' passt direkt zur Kategorie 'Putzmittel/ Lager'.,True
+Leistungsermittlung Raumdaten,25,Serverraum,Reserve,x,0.6,llm_only_low_conf,0.6,"Der Raumtyp 'Serverraum' ist in den gegebenen Hauptkategorien nicht explizit als eigene Kategorie aufgeführt. Historisch wurden Serverräume oft unter 'Technikräume' oder 'ELT-Zentrale' subsumiert. Da die Katalogstruktur dies nicht vorsieht, wird 'Reserve' gewählt, obwohl 'ELT-Zentrale' (KG 480) eine fachliche Nähe hätte.",False
+Leistungsermittlung Raumdaten,26,ELT,ELT-Schacht,14,1.0,llm_only,1.0,"Der Raumtyp 'ELT' wird als Elektro-Technikraum interpretiert, passt aber am besten zur Kategorie 'ELT-Schacht' im Katalog, da andere Technikräume spezifischer sind.",True
+Leistungsermittlung Raumdaten,27,Treppe/Flur,Treppenhäuser/Magistrale,17,1.0,llm_only,1.0,"Die Kombination 'Treppe/Flur' wird der Kategorie 'Treppenhäuser/Magistrale' zugeordnet, da Treppenhäuser das primäre Element sind.",True
+Leistungsermittlung Raumdaten,28,Installationsschacht,Schächte,18,1.0,llm_only,1.0,Der Raumtyp 'Installationsschacht' passt direkt zur Kategorie 'Schächte'.,True
+Leistungsermittlung Raumdaten,29,Installationsschacht,Schächte,18,1.0,llm_only,1.0,Der Raumtyp 'Installationsschacht' passt direkt zur Kategorie 'Schächte'.,True
+Leistungsermittlung Raumdaten,30,Aufzug,Aufzüge,19,1.0,llm_only,1.0,Der Raumtyp 'Aufzug' passt direkt zur Kategorie 'Aufzüge'.,True
+Leistungsermittlung Raumdaten,31,Co-Working,Flex-/ Co-Work/,1,1.0,llm_only,1.0,Der Raumtyp 'Co-Working' passt direkt zur Kategorie 'Flex-/ Co-Work/'.,True
+Leistungsermittlung Raumdaten,32,Co-Working Space,Flex-/ Co-Work/,1,1.0,llm_only,1.0,Der Raumtyp 'Co-Working Space' passt direkt zur Kategorie 'Flex-/ Co-Work/'.,True
+Leistungsermittlung Raumdaten,33,Postlager/Teeküche/Kopieren,Flex-/ Co-Work/,1,0.9,llm_only,0.9,"Der Raumtyp 'Postlager/Teeküche/Kopieren' beinhaltet Komponenten, die oft in Flex-Bereichen integriert sind (z.B. Teeküchen/Kopierbereiche). Die primäre Zuordnung liegt bei 'Flex-/ Co-Work/'.",True
+Leistungsermittlung Raumdaten,34,Allg. & Gruppenleitung,Einzel-/Zweierbüros,2,1.0,llm_only,1.0,Der Raumtyp 'Allg. & Gruppenleitung' ist ein spezifisches Einzel-/Zweierbüro.,True
+Leistungsermittlung Raumdaten,35,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,1.0,llm_only,1.0,Der Raumtyp 'Wiss. Mitarbeiter' ist einem Einzel-/Zweierbüro zuzuordnen.,True
+Leistungsermittlung Raumdaten,36,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,1.0,llm_only,1.0,Der Raumtyp 'Wiss. Mitarbeiter' ist einem Einzel-/Zweierbüro zuzuordnen.,True
+Leistungsermittlung Raumdaten,37,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,1.0,llm_only,1.0,Der Raumtyp 'Wiss. Mitarbeiter' ist einem Einzel-/Zweierbüro zuzuordnen.,True
+Leistungsermittlung Raumdaten,38,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,1.0,llm_only,1.0,Der Raumtyp 'Wiss. Mitarbeiter' ist einem Einzel-/Zweierbüro zuzuordnen.,True
+Leistungsermittlung Raumdaten,39,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,1.0,llm_only,1.0,Der Raumtyp 'Wiss. Mitarbeiter' ist einem Einzel-/Zweierbüro zuzuordnen.,True
+Leistungsermittlung Raumdaten,40,Flur,"Verkehrsflächen, Flure",6,1.0,llm_only,1.0,Der Raumtyp 'Flur' ist die allgemeine Bezeichnung für Verkehrsflächen.,True
+Leistungsermittlung Raumdaten,41,Flur,"Verkehrsflächen, Flure",6,1.0,llm_only,1.0,Der Raumtyp 'Flur' ist die allgemeine Bezeichnung für Verkehrsflächen.,True
+Leistungsermittlung Raumdaten,42,WC Herren,WCs,8,1.0,llm_only,1.0,Der Raumtyp 'WC Herren' passt direkt zur Kategorie 'WCs'.,True
+Leistungsermittlung Raumdaten,43,WC Damen,WCs,8,1.0,llm_only,1.0,Der Raumtyp 'WC Damen' passt direkt zur Kategorie 'WCs'.,True
+Leistungsermittlung Raumdaten,44,WC Herren,WCs,8,1.0,llm_only,1.0,Der Raumtyp 'WC Herren' passt direkt zur Kategorie 'WCs'.,True
+Leistungsermittlung Raumdaten,45,Putzraum,Putzmittel/ Lager,10,1.0,llm_only,1.0,Der Raumtyp 'Putzraum' passt direkt zur Kategorie 'Putzmittel/ Lager'.,True
+Leistungsermittlung Raumdaten,46,Lager,Lager innenliegend,11,0.9,llm_only,0.9,"Der Raumtyp 'Lager' (allgemein) wird der Kategorie 'Lager innenliegend' zugeordnet, da keine spezifische Außenlager- oder Techniklager-Kategorie existiert, die besser passt.",True
+Leistungsermittlung Raumdaten,47,Serverraum,Reserve,x,0.6,llm_only_low_conf,0.6,"Der Raumtyp 'Serverraum' ist in den gegebenen Hauptkategorien nicht explizit als eigene Kategorie aufgeführt. Historisch wurden Serverräume oft unter 'Technikräume' oder 'ELT-Zentrale' subsumiert. Da die Katalogstruktur dies nicht vorsieht, wird 'Reserve' gewählt, obwohl 'ELT-Zentrale' (KG 480) eine fachliche Nähe hätte.",False
+Leistungsermittlung Raumdaten,48,ELT,ELT-Schacht,14,1.0,llm_only,1.0,"Der Raumtyp 'ELT' wird als Elektro-Technikraum interpretiert, passt aber am besten zur Kategorie 'ELT-Schacht' im Katalog, da andere Technikräume spezifischer sind.",True
+Leistungsermittlung Raumdaten,49,Treppe/Flur,Treppenhäuser/Magistrale,17,1.0,llm_only,1.0,"Die Kombination 'Treppe/Flur' wird der Kategorie 'Treppenhäuser/Magistrale' zugeordnet, da Treppenhäuser das primäre Element sind.",True
+Leistungsermittlung Raumdaten,50,Installationsschacht,Schächte,18,1.0,llm_only,1.0,Der Raumtyp 'Installationsschacht' passt direkt zur Kategorie 'Schächte'.,True
+Leistungsermittlung Raumdaten,51,Installationsschacht,Schächte,18,1.0,llm_only,1.0,Der Raumtyp 'Installationsschacht' passt direkt zur Kategorie 'Schächte'.,True
+Leistungsermittlung Raumdaten,52,Aufzug,Aufzüge,19,1.0,llm_only,1.0,Der Raumtyp 'Aufzug' passt direkt zur Kategorie 'Aufzüge'.,True
+Leistungsermittlung Raumdaten,53,Flexwork,Flex-/ Co-Work/,1,1.0,llm_only,1.0,Der Raumtyp 'Flexwork' passt direkt zur Kategorie 'Flex-/ Co-Work/'.,True
+Leistungsermittlung Raumdaten,54,Allg. & Gruppenleitung,Einzel-/Zweierbüros,2,1.0,llm_only,1.0,Der Raumtyp 'Allg. & Gruppenleitung' ist ein spezifisches Einzel-/Zweierbüro.,True
+Leistungsermittlung Raumdaten,55,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,1.0,llm_only,1.0,Der Raumtyp 'Wiss. Mitarbeiter' ist einem Einzel-/Zweierbüro zuzuordnen.,True
+Leistungsermittlung Raumdaten,56,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,1.0,llm_only,1.0,Der Raumtyp 'Wiss. Mitarbeiter' ist einem Einzel-/Zweierbüro zuzuordnen.,True
+Leistungsermittlung Raumdaten,57,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,1.0,llm_only,1.0,Der Raumtyp 'Wiss. Mitarbeiter' ist einem Einzel-/Zweierbüro zuzuordnen.,True
+Leistungsermittlung Raumdaten,58,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,1.0,llm_only,1.0,Der Raumtyp 'Wiss. Mitarbeiter' ist einem Einzel-/Zweierbüro zuzuordnen.,True
+Leistungsermittlung Raumdaten,59,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,1.0,llm_only,1.0,Der Raumtyp 'Wiss. Mitarbeiter' ist einem Einzel-/Zweierbüro zuzuordnen.,True
+Leistungsermittlung Raumdaten,60,Doktorand,Einzel-/Zweierbüros,2,1.0,llm_only,1.0,Der Raumtyp 'Doktorand' ist einem Einzel-/Zweierbüro zuzuordnen.,True
+Leistungsermittlung Raumdaten,61,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,1.0,llm_only,1.0,Der Raumtyp 'Wiss. Mitarbeiter' ist einem Einzel-/Zweierbüro zuzuordnen.,True
+Leistungsermittlung Raumdaten,62,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,1.0,llm_only,1.0,Der Raumtyp 'Wiss. Mitarbeiter' ist einem Einzel-/Zweierbüro zuzuordnen.,True
+Leistungsermittlung Raumdaten,63,Flur,"Verkehrsflächen, Flure",6,1.0,llm_only,1.0,Der Raumtyp 'Flur' ist die allgemeine Bezeichnung für Verkehrsflächen.,True
+Leistungsermittlung Raumdaten,64,Flur,"Verkehrsflächen, Flure",6,1.0,llm_only,1.0,Der Raumtyp 'Flur' ist die allgemeine Bezeichnung für Verkehrsflächen.,True
+Leistungsermittlung Raumdaten,65,WC Damen,WCs,8,1.0,llm_only,1.0,Der Raumtyp 'WC Damen' passt direkt zur Kategorie 'WCs'.,True
+Leistungsermittlung Raumdaten,66,WC Herren,WCs,8,1.0,llm_only,1.0,Der Raumtyp 'WC Herren' passt direkt zur Kategorie 'WCs'.,True
+Leistungsermittlung Raumdaten,67,WC Herren,WCs,8,1.0,llm_only,1.0,Der Raumtyp 'WC Herren' passt direkt zur Kategorie 'WCs'.,True
+Leistungsermittlung Raumdaten,68,Putzraum,Putzmittel/ Lager,10,1.0,llm_only,1.0,Der Raumtyp 'Putzraum' passt direkt zur Kategorie 'Putzmittel/ Lager'.,True
+Leistungsermittlung Raumdaten,69,Lager,Lager innenliegend,11,0.9,llm_only,0.9,"Der Raumtyp 'Lager' (allgemein) wird der Kategorie 'Lager innenliegend' zugeordnet, da keine spezifische Außenlager- oder Techniklager-Kategorie existiert, die besser passt.",True
+Leistungsermittlung Raumdaten,70,Serverraum,Reserve,x,0.6,llm_only_low_conf,0.6,"Der Raumtyp 'Serverraum' ist in den gegebenen Hauptkategorien nicht explizit als eigene Kategorie aufgeführt. Historisch wurden Serverräume oft unter 'Technikräume' oder 'ELT-Zentrale' subsumiert. Da die Katalogstruktur dies nicht vorsieht, wird 'Reserve' gewählt, obwohl 'ELT-Zentrale' (KG 480) eine fachliche Nähe hätte.",False
+Leistungsermittlung Raumdaten,71,ELT,ELT-Schacht,14,1.0,llm_only,1.0,"Der Raumtyp 'ELT' wird als Elektro-Technikraum interpretiert, passt aber am besten zur Kategorie 'ELT-Schacht' im Katalog, da andere Technikräume spezifischer sind.",True
+Leistungsermittlung Raumdaten,72,Treppe/Flur,Treppenhäuser/Magistrale,17,1.0,llm_only,1.0,"Die Kombination 'Treppe/Flur' wird der Kategorie 'Treppenhäuser/Magistrale' zugeordnet, da Treppenhäuser das primäre Element sind.",True
+Leistungsermittlung Raumdaten,73,Installationsschacht,Schächte,18,1.0,llm_only,1.0,Der Raumtyp 'Installationsschacht' passt direkt zur Kategorie 'Schächte'.,True
+Leistungsermittlung Raumdaten,74,Installationsschacht,Schächte,18,1.0,llm_only,1.0,Der Raumtyp 'Installationsschacht' passt direkt zur Kategorie 'Schächte'.,True
+Leistungsermittlung Raumdaten,75,Aufzug,Aufzüge,19,1.0,llm_only,1.0,Der Raumtyp 'Aufzug' passt direkt zur Kategorie 'Aufzüge'.,True
+Leistungsermittlung Raumdaten,76,Seminar,Serminarraum,20,1.0,llm_only,1.0,Der Begriff 'Seminar' passt exakt zur Kategorie 'Serminarraum'.,True
+Leistungsermittlung Raumdaten,77,Entwicklungslabor,Flex-/ Co-Work/,1,0.95,llm_only,0.95,'Entwicklungslabor' wird historisch dem Bereich 'Flex-/ Co-Work/' zugeordnet (siehe 'Entwicklungslabor' in der Historie).,True
+Leistungsermittlung Raumdaten,78,Flex-Work,Flex-/ Co-Work/,1,1.0,llm_only,1.0,'Flex-Work' entspricht direkt der Kategorie 'Flex-/ Co-Work/'.,True
+Leistungsermittlung Raumdaten,79,Co-Working,Flex-/ Co-Work/,1,1.0,llm_only,1.0,Der Raumtyp 'Co-Working' passt direkt zur Kategorie 'Flex-/ Co-Work/'.,True
+Leistungsermittlung Raumdaten,80,Allg. & Gruppenleitung,Einzel-/Zweierbüros,2,1.0,llm_only,1.0,Der Raumtyp 'Allg. & Gruppenleitung' ist ein spezifisches Einzel-/Zweierbüro.,True
+Leistungsermittlung Raumdaten,81,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,1.0,llm_only,1.0,Der Raumtyp 'Wiss. Mitarbeiter' ist einem Einzel-/Zweierbüro zuzuordnen.,True
+Leistungsermittlung Raumdaten,82,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,1.0,llm_only,1.0,Der Raumtyp 'Wiss. Mitarbeiter' ist einem Einzel-/Zweierbüro zuzuordnen.,True
+Leistungsermittlung Raumdaten,83,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,1.0,llm_only,1.0,Der Raumtyp 'Wiss. Mitarbeiter' ist einem Einzel-/Zweierbüro zuzuordnen.,True
+Leistungsermittlung Raumdaten,84,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,1.0,llm_only,1.0,Der Raumtyp 'Wiss. Mitarbeiter' ist einem Einzel-/Zweierbüro zuzuordnen.,True
+Leistungsermittlung Raumdaten,85,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,1.0,llm_only,1.0,Der Raumtyp 'Wiss. Mitarbeiter' ist einem Einzel-/Zweierbüro zuzuordnen.,True
+Leistungsermittlung Raumdaten,86,Doktorand,Einzel-/Zweierbüros,2,1.0,llm_only,1.0,Der Raumtyp 'Doktorand' ist einem Einzel-/Zweierbüro zuzuordnen.,True
+Leistungsermittlung Raumdaten,87,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,1.0,llm_only,1.0,Der Raumtyp 'Wiss. Mitarbeiter' ist einem Einzel-/Zweierbüro zuzuordnen.,True
+Leistungsermittlung Raumdaten,88,Sekretariat,Einzel-/Zweierbüros,2,1.0,llm_only,1.0,'Sekretariat' ist ein typischer Raumnamen innerhalb der Kategorie 'Einzel-/Zweierbüros'.,True
+Leistungsermittlung Raumdaten,89,Flur,"Verkehrsflächen, Flure",6,1.0,llm_only,1.0,Der Raumtyp 'Flur' ist die allgemeine Bezeichnung für Verkehrsflächen.,True
+Leistungsermittlung Raumdaten,90,Flur,"Verkehrsflächen, Flure",6,1.0,llm_only,1.0,Der Raumtyp 'Flur' ist die allgemeine Bezeichnung für Verkehrsflächen.,True
+Leistungsermittlung Raumdaten,91,WC Frauen,WCs,8,1.0,llm_only,1.0,Der Raumtyp 'WC Frauen' passt direkt zur Kategorie 'WCs'.,True
+Leistungsermittlung Raumdaten,92,WC Herren,WCs,8,1.0,llm_only,1.0,Der Raumtyp 'WC Herren' passt direkt zur Kategorie 'WCs'.,True
+Leistungsermittlung Raumdaten,93,WC Herren,WCs,8,1.0,llm_only,1.0,Der Raumtyp 'WC Herren' passt direkt zur Kategorie 'WCs'.,True
+Leistungsermittlung Raumdaten,94,Putzraum,Putzmittel/ Lager,10,1.0,llm_only,1.0,Der Raumtyp 'Putzraum' passt direkt zur Kategorie 'Putzmittel/ Lager'.,True
+Leistungsermittlung Raumdaten,95,Serverraum,Reserve,x,0.6,llm_only_low_conf,0.6,"Der Raumtyp 'Serverraum' ist in den gegebenen Hauptkategorien nicht explizit als eigene Kategorie aufgeführt. Historisch wurden Serverräume oft unter 'Technikräume' oder 'ELT-Zentrale' subsumiert. Da die Katalogstruktur dies nicht vorsieht, wird 'Reserve' gewählt, obwohl 'ELT-Zentrale' (KG 480) eine fachliche Nähe hätte.",False
+Leistungsermittlung Raumdaten,96,ELT,ELT-Schacht,14,1.0,llm_only,1.0,"Der Raumtyp 'ELT' wird als Elektro-Technikraum interpretiert, passt aber am besten zur Kategorie 'ELT-Schacht' im Katalog, da andere Technikräume spezifischer sind.",True
+Leistungsermittlung Raumdaten,97,Treppe/Flur,Treppenhäuser/Magistrale,17,1.0,llm_only,1.0,"Die Kombination 'Treppe/Flur' wird der Kategorie 'Treppenhäuser/Magistrale' zugeordnet, da Treppenhäuser das primäre Element sind.",True
+Leistungsermittlung Raumdaten,98,Installationsschacht,Schächte,18,1.0,llm_only,1.0,Der Raumtyp 'Installationsschacht' passt direkt zur Kategorie 'Schächte'.,True
+Leistungsermittlung Raumdaten,99,Installationsschacht,Schächte,18,1.0,llm_only,1.0,Der Raumtyp 'Installationsschacht' passt direkt zur Kategorie 'Schächte'.,True
+Leistungsermittlung Raumdaten,100,Aufzug,Aufzüge,19,1.0,llm_only,1.0,Der Raumtyp 'Aufzug' passt direkt zur Kategorie 'Aufzüge'.,True
+Leistungsermittlung Raumdaten,101,Diele,Diele,21,1.0,llm_only,1.0,'Diele' entspricht exakt der Kategorie 'Diele'.,True
+Leistungsermittlung Raumdaten,102,Social-Area/Flex-Work/Co-Work,Flex-/ Co-Work/,1,1.0,llm_only,1.0,'Social-Area/Flex-Work/Co-Work' ist eine klare Umschreibung für 'Flex-/ Co-Work/'.,True
+Leistungsermittlung Raumdaten,103,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,1.0,llm_only,1.0,Der Raumtyp 'Wiss. Mitarbeiter' ist einem Einzel-/Zweierbüro zuzuordnen.,True
+Leistungsermittlung Raumdaten,104,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,1.0,llm_only,1.0,Der Raumtyp 'Wiss. Mitarbeiter' ist einem Einzel-/Zweierbüro zuzuordnen.,True
+Leistungsermittlung Raumdaten,105,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,1.0,llm_only,1.0,Der Raumtyp 'Wiss. Mitarbeiter' ist einem Einzel-/Zweierbüro zuzuordnen.,True
+Leistungsermittlung Raumdaten,106,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,1.0,llm_only,1.0,Der Raumtyp 'Wiss. Mitarbeiter' ist einem Einzel-/Zweierbüro zuzuordnen.,True
+Leistungsermittlung Raumdaten,107,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,1.0,llm_only,1.0,Der Raumtyp 'Wiss. Mitarbeiter' ist einem Einzel-/Zweierbüro zuzuordnen.,True
+Leistungsermittlung Raumdaten,108,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,1.0,llm_only,1.0,Der Raumtyp 'Wiss. Mitarbeiter' ist einem Einzel-/Zweierbüro zuzuordnen.,True
+Leistungsermittlung Raumdaten,109,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,1.0,llm_only,1.0,Der Raumtyp 'Wiss. Mitarbeiter' ist einem Einzel-/Zweierbüro zuzuordnen.,True
+Leistungsermittlung Raumdaten,110,Allg. & Gruppenleitung,Einzel-/Zweierbüros,2,1.0,llm_only,1.0,Der Raumtyp 'Allg. & Gruppenleitung' ist ein spezifisches Einzel-/Zweierbüro.,True
+Leistungsermittlung Raumdaten,111,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,1.0,llm_only,1.0,Der Raumtyp 'Wiss. Mitarbeiter' ist einem Einzel-/Zweierbüro zuzuordnen.,True
+Leistungsermittlung Raumdaten,112,Techniker,Einzel-/Zweierbüros,2,1.0,llm_only,1.0,"'Techniker' ist eine Nutzer- oder Funktionsbezeichnung, die historisch Büros in der Kategorie 'Einzel-/Zweierbüros' zugeordnet wird.",True
+Leistungsermittlung Raumdaten,113,Flur,"Verkehrsflächen, Flure",6,1.0,llm_only,1.0,Der Raumtyp 'Flur' ist die allgemeine Bezeichnung für Verkehrsflächen.,True
+Leistungsermittlung Raumdaten,114,Flur,"Verkehrsflächen, Flure",6,1.0,llm_only,1.0,Der Raumtyp 'Flur' ist die allgemeine Bezeichnung für Verkehrsflächen.,True
+Leistungsermittlung Raumdaten,115,WC Frauen,WCs,8,1.0,llm_only,1.0,Der Raumtyp 'WC Frauen' passt direkt zur Kategorie 'WCs'.,True
+Leistungsermittlung Raumdaten,116,WC Herren,WCs,8,1.0,llm_only,1.0,Der Raumtyp 'WC Herren' passt direkt zur Kategorie 'WCs'.,True
+Leistungsermittlung Raumdaten,117,WC Herren,WCs,8,1.0,llm_only,1.0,Der Raumtyp 'WC Herren' passt direkt zur Kategorie 'WCs'.,True
+Leistungsermittlung Raumdaten,118,Putzmittel / Lager,Putzmittel/ Lager,10,1.0,llm_only,1.0,'Putzmittel / Lager' entspricht exakt der Kategorie 'Putzmittel/ Lager'.,True
+Leistungsermittlung Raumdaten,119,Putzraum,Putzmittel/ Lager,10,1.0,llm_only,1.0,Der Raumtyp 'Putzraum' passt direkt zur Kategorie 'Putzmittel/ Lager'.,True
+Leistungsermittlung Raumdaten,120,Serverraum,Reserve,x,0.6,llm_only_low_conf,0.6,"Der Raumtyp 'Serverraum' ist in den gegebenen Hauptkategorien nicht explizit als eigene Kategorie aufgeführt. Historisch wurden Serverräume oft unter 'Technikräume' oder 'ELT-Zentrale' subsumiert. Da die Katalogstruktur dies nicht vorsieht, wird 'Reserve' gewählt, obwohl 'ELT-Zentrale' (KG 480) eine fachliche Nähe hätte.",False
+Leistungsermittlung Raumdaten,121,ELT,ELT-Schacht,14,1.0,llm_only,1.0,"Der Raumtyp 'ELT' wird als Elektro-Technikraum interpretiert, passt aber am besten zur Kategorie 'ELT-Schacht' im Katalog, da andere Technikräume spezifischer sind.",True
+Leistungsermittlung Raumdaten,122,Treppe/Flur,Treppenhäuser/Magistrale,17,1.0,llm_only,1.0,"Die Kombination 'Treppe/Flur' wird der Kategorie 'Treppenhäuser/Magistrale' zugeordnet, da Treppenhäuser das primäre Element sind.",True
+Leistungsermittlung Raumdaten,123,Installationsschacht,Schächte,18,1.0,llm_only,1.0,Der Raumtyp 'Installationsschacht' passt direkt zur Kategorie 'Schächte'.,True
+Leistungsermittlung Raumdaten,124,Installationsschacht,Schächte,18,1.0,llm_only,1.0,Der Raumtyp 'Installationsschacht' passt direkt zur Kategorie 'Schächte'.,True
+Leistungsermittlung Raumdaten,125,Aufzug,Aufzüge,19,1.0,llm_only,1.0,Der Raumtyp 'Aufzug' passt direkt zur Kategorie 'Aufzüge'.,True
+Leistungsermittlung Raumdaten,126,Post/Teeküche/Kopierer,Flex-/ Co-Work/,1,0.9,llm_only,0.9,"'Post/Teeküche/Kopierer' enthält Elemente, die häufig in Flex-Work-Bereichen integriert sind ('Postlager/Teeküche/Kopieren' in der Historie), obwohl es auch eine Zuordnung zu 'Teeküchen' oder 'Drucker-/Kopierräume' gäbe. Hier wird die Mischfunktion bevorzugt.",True
+Leistungsermittlung Raumdaten,127,Co-Working,Flex-/ Co-Work/,1,1.0,llm_only,1.0,Der Raumtyp 'Co-Working' passt direkt zur Kategorie 'Flex-/ Co-Work/'.,True
+Leistungsermittlung Raumdaten,128,Allg. & Gruppenleitung,Einzel-/Zweierbüros,2,1.0,llm_only,1.0,Der Raumtyp 'Allg. & Gruppenleitung' ist ein spezifisches Einzel-/Zweierbüro.,True
+Leistungsermittlung Raumdaten,129,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,1.0,llm_only,1.0,Der Raumtyp 'Wiss. Mitarbeiter' ist einem Einzel-/Zweierbüro zuzuordnen.,True
+Leistungsermittlung Raumdaten,130,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,1.0,llm_only,1.0,Der Raumtyp 'Wiss. Mitarbeiter' ist einem Einzel-/Zweierbüro zuzuordnen.,True
+Leistungsermittlung Raumdaten,131,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,1.0,llm_only,1.0,Der Raumtyp 'Wiss. Mitarbeiter' ist einem Einzel-/Zweierbüro zuzuordnen.,True
+Leistungsermittlung Raumdaten,132,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,1.0,llm_only,1.0,Der Raumtyp 'Wiss. Mitarbeiter' ist einem Einzel-/Zweierbüro zuzuordnen.,True
+Leistungsermittlung Raumdaten,133,Wiss. Mitarbeiter,Einzel-/Zweierbüros,2,1.0,llm_only,1.0,Der Raumtyp 'Wiss. Mitarbeiter' ist einem Einzel-/Zweierbüro zuzuordnen.,True
+Leistungsermittlung Raumdaten,134,Techniker,Einzel-/Zweierbüros,2,1.0,llm_only,1.0,"'Techniker' ist eine Nutzer- oder Funktionsbezeichnung, die historisch Büros in der Kategorie 'Einzel-/Zweierbüros' zugeordnet wird.",True
+Leistungsermittlung Raumdaten,135,Flur,"Verkehrsflächen, Flure",6,1.0,llm_only,1.0,Der Raumtyp 'Flur' ist die allgemeine Bezeichnung für Verkehrsflächen.,True
+Leistungsermittlung Raumdaten,136,Flur,"Verkehrsflächen, Flure",6,1.0,llm_only,1.0,Der Raumtyp 'Flur' ist die allgemeine Bezeichnung für Verkehrsflächen.,True
+Leistungsermittlung Raumdaten,137,WC Frauen,WCs,8,1.0,llm_only,1.0,Der Raumtyp 'WC Frauen' passt direkt zur Kategorie 'WCs'.,True
+Leistungsermittlung Raumdaten,138,WC Herren,WCs,8,1.0,llm_only,1.0,Der Raumtyp 'WC Herren' passt direkt zur Kategorie 'WCs'.,True
+Leistungsermittlung Raumdaten,139,WC Herren,WCs,8,1.0,llm_only,1.0,Der Raumtyp 'WC Herren' passt direkt zur Kategorie 'WCs'.,True
+Leistungsermittlung Raumdaten,140,Putzraum,Putzmittel/ Lager,10,1.0,llm_only,1.0,Der Raumtyp 'Putzraum' passt direkt zur Kategorie 'Putzmittel/ Lager'.,True
+Leistungsermittlung Raumdaten,141,Putzmittel / Lager,Putzmittel/ Lager,10,1.0,llm_only,1.0,'Putzmittel / Lager' entspricht exakt der Kategorie 'Putzmittel/ Lager'.,True
+Leistungsermittlung Raumdaten,142,Lager,Lager innenliegend,11,0.9,llm_only,0.9,"Der Raumtyp 'Lager' (allgemein) wird der Kategorie 'Lager innenliegend' zugeordnet, da keine spezifische Außenlager- oder Techniklager-Kategorie existiert, die besser passt.",True
+Leistungsermittlung Raumdaten,143,Serverraum,Reserve,x,0.6,llm_only_low_conf,0.6,"Der Raumtyp 'Serverraum' ist in den gegebenen Hauptkategorien nicht explizit als eigene Kategorie aufgeführt. Historisch wurden Serverräume oft unter 'Technikräume' oder 'ELT-Zentrale' subsumiert. Da die Katalogstruktur dies nicht vorsieht, wird 'Reserve' gewählt, obwohl 'ELT-Zentrale' (KG 480) eine fachliche Nähe hätte.",False
+Leistungsermittlung Raumdaten,144,Treppe/Flur,Treppenhäuser/Magistrale,17,1.0,llm_only,1.0,"Die Kombination 'Treppe/Flur' wird der Kategorie 'Treppenhäuser/Magistrale' zugeordnet, da Treppenhäuser das primäre Element sind.",True
+Leistungsermittlung Raumdaten,145,Installationsschacht,Schächte,18,1.0,llm_only,1.0,Der Raumtyp 'Installationsschacht' passt direkt zur Kategorie 'Schächte'.,True
+Leistungsermittlung Raumdaten,146,Installationsschacht,Schächte,18,1.0,llm_only,1.0,Der Raumtyp 'Installationsschacht' passt direkt zur Kategorie 'Schächte'.,True
+Leistungsermittlung Raumdaten,147,Aufzug,Aufzüge,19,1.0,llm_only,1.0,Der Raumtyp 'Aufzug' passt direkt zur Kategorie 'Aufzüge'.,True
+Leistungsermittlung Raumdaten,148,Seminarraum,Serminarraum,20,1.0,llm_only,1.0,'Seminarraum' ist die Bezeichnung der Kategorie 'Serminarraum'.,True
+Leistungsermittlung Raumdaten,149,Seminarraum,Serminarraum,20,1.0,llm_only,1.0,'Seminarraum' ist die Bezeichnung der Kategorie 'Serminarraum'.,True
+Leistungsermittlung Raumdaten,150,Seminarraum,Serminarraum,20,1.0,llm_only,1.0,'Seminarraum' ist die Bezeichnung der Kategorie 'Serminarraum'.,True
+Leistungsermittlung Raumdaten,151,Flur,"Verkehrsflächen, Flure",6,1.0,llm_only,1.0,Der Raumtyp 'Flur' ist die allgemeine Bezeichnung für Verkehrsflächen.,True
+Leistungsermittlung Raumdaten,152,Flur,"Verkehrsflächen, Flure",6,1.0,llm_only,1.0,Der Raumtyp 'Flur' ist die allgemeine Bezeichnung für Verkehrsflächen.,True
+Leistungsermittlung Raumdaten,153,Datenraum Allgemein,ELT-Zentrale,9,1.0,llm_only,1.0,'Datenraum Allgemein' wird als Teil der elektrischen oder informationstechnischen Zentraleinrichtungen (ELT-Zentrale) betrachtet.,True
+Leistungsermittlung Raumdaten,154,NSHV Raum AV Netz,ELT-Zentrale,9,1.0,llm_only,1.0,'NSHV Raum AV Netz' ist eine technische Zentraleinheit und wird der 'ELT-Zentrale' zugeordnet.,True
+Leistungsermittlung Raumdaten,155,BOS Funk / BMZ,ELT-Zentrale,9,1.0,llm_only,1.0,"'BOS Funk / BMZ' sind sicherheitsrelevante technische Einrichtungen, die typischerweise in der 'ELT-Zentrale' untergebracht sind.",True
+Leistungsermittlung Raumdaten,156,Batterieraum,Batterieräume,15,1.0,llm_only,1.0,'Batterieraum' passt exakt zur Kategorie 'Batterieräume'.,True
+Leistungsermittlung Raumdaten,157,USV Raum,ELT-Zentrale,9,1.0,llm_only,1.0,'USV Raum' wird aufgrund der engen Verknüpfung zur Stromversorgung der IT der 'ELT-Zentrale' zugeordnet.,True
+Leistungsermittlung Raumdaten,158,Lager,Lager innenliegend,11,0.9,llm_only,0.9,"Der Raumtyp 'Lager' (allgemein) wird der Kategorie 'Lager innenliegend' zugeordnet, da keine spezifische Außenlager- oder Techniklager-Kategorie existiert, die besser passt.",True
+Leistungsermittlung Raumdaten,159,Lager,Lager innenliegend,11,0.9,llm_only,0.9,"Der Raumtyp 'Lager' (allgemein) wird der Kategorie 'Lager innenliegend' zugeordnet, da keine spezifische Außenlager- oder Techniklager-Kategorie existiert, die besser passt.",True
+Leistungsermittlung Raumdaten,160,Lager,Lager innenliegend,11,0.9,llm_only,0.9,"Der Raumtyp 'Lager' (allgemein) wird der Kategorie 'Lager innenliegend' zugeordnet, da keine spezifische Außenlager- oder Techniklager-Kategorie existiert, die besser passt.",True
+Leistungsermittlung Raumdaten,161,RLHK Zentrale,TGA-Zentrale,12,1.0,llm_only,1.0,"'RLHK Zentrale' (Regelungs-, Heizungs-, Klima-) ist eine zentrale TGA-Funktion und wird der 'TGA-Zentrale' zugeordnet.",True
+Leistungsermittlung Raumdaten,162,SAN Zentrale,TGA-Zentrale,12,1.0,llm_only,1.0,'SAN Zentrale' (Sanitärzentrale) ist eine zentrale TGA-Funktion und wird der 'TGA-Zentrale' zugeordnet.,True
+Leistungsermittlung Raumdaten,163,Treppe,Treppenhäuser/Magistrale,17,1.0,llm_only,1.0,'Treppe' ist ein Kernbestandteil der Kategorie 'Treppenhäuser/Magistrale'.,True
+Leistungsermittlung Raumdaten,164,Einbringöffnung,Schächte,18,1.0,llm_only,1.0,"'Einbringöffnung' ist eine spezielle Bauwerksöffnung, die funktional zu den 'Schächten' (für Installationen) gezählt wird.",True
+Leistungsermittlung Raumdaten,165,Fortluft,Schächte,18,1.0,llm_only,1.0,'Fortluft' (als Teil eines Abluftschachts oder einer Schachtführung) wird der Kategorie 'Schächte' zugeordnet.,True
+Leistungsermittlung Raumdaten,166,Aufzug,Aufzüge,19,1.0,llm_only,1.0,Der Raumtyp 'Aufzug' passt direkt zur Kategorie 'Aufzüge'.,True
