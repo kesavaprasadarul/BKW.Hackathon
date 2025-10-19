@@ -1,25 +1,6 @@
 import pandas as pd
-import unicodedata
-import re
 from pathlib import Path
-from typing import Optional, Tuple, Dict
-
-
-def _strip_combining(s: str) -> str:
-    return "".join(ch for ch in s if unicodedata.category(ch) != "Mn")
-
-
-def _norm_text(s: str) -> str:
-    """Robust text normalization: fold case, remove combining marks,
-    transliterate German umlauts/ß, collapse whitespace."""
-    if pd.isna(s):
-        return ""
-    s = str(s).strip().lower()
-    s = unicodedata.normalize("NFKD", s)
-    s = _strip_combining(s)
-    s = s.replace("ä", "ae").replace("ö", "oe").replace("ü", "ue").replace("ß", "ss")
-    s = re.sub(r"\s+", " ", s)
-    return s
+from typing import Optional
 
 
 def _to_int_or_none(x) -> Optional[int]:
@@ -35,171 +16,87 @@ def _to_int_or_none(x) -> Optional[int]:
             return int(f)
     except Exception:
         pass
-    ds = re.sub(r"\D", "", s)
-    if ds.isdigit():
-        return int(ds)
-    return None
+    ds = "".join(ch for ch in s if ch.isdigit())
+    return int(ds) if ds.isdigit() else None
 
 
-def _canon_id_str(x) -> Optional[str]:
-    """Canonical ID as string: integer form without leading zeros (None if not int-like)."""
+def _canon_id_str(x) -> str:
     i = _to_int_or_none(x)
-    return str(i) if i is not None else None
+    return str(i) if i is not None else ""
 
 
-def _build_gt_maps(
-    gt_df: pd.DataFrame,
-) -> Tuple[Dict[str, str], Dict[int, str], Dict[str, int]]:
-    """Return:
-      - gt_by_id_str: map '26' -> 'technikraume'
-      - gt_by_id_int: map 26  -> 'technikraume'
-      - gt_by_name   : map 'technikraume' -> 26
-    using canonical normalization on both IDs and names.
-    """
-    tmp = gt_df.copy()
-    tmp["ID_str"] = tmp["ID"].astype(str).str.strip()
-    tmp["ID_int"] = tmp["ID_str"].map(_to_int_or_none)
-    tmp["name_n"] = tmp["Roomtype"].map(_norm_text)
-
-    gt_by_id_str: Dict[str, str] = {}
-    gt_by_id_int: Dict[int, str] = {}
-    gt_by_name: Dict[str, int] = {}
-    for _, r in tmp.iterrows():
-        name = r["name_n"]
-        id_str = r["ID_str"]
-        id_int = r["ID_int"]
-        if id_str:
-            canon = id_str.lstrip("0") or "0"
-            gt_by_id_str[canon] = name
-        if id_int is not None:
-            gt_by_id_int[id_int] = name
-        if name and (id_int is not None):
-            gt_by_name[name] = id_int
-    return gt_by_id_str, gt_by_id_int, gt_by_name
-
-
-def evaluate(gt_csv: Path, report_csv: Path, mapping_csv: Path):
+def evaluate(gt_csv: Path, preds_csv: Path):
     gt = pd.read_csv(gt_csv, dtype=str).fillna("")
-    gt_by_id_str, gt_by_id_int, gt_by_name = _build_gt_maps(gt)
+    pr = pd.read_csv(preds_csv, dtype=str).fillna("")
 
-    mp = pd.read_csv(mapping_csv, dtype=str).fillna("")
-    mp["Nr_str"] = mp["Nr"].astype(str).str.strip()
-    mp["Nr_can"] = mp["Nr_str"].map(lambda s: (_canon_id_str(s) or ""))
-    mp["room_n"] = mp["Roomtype"].map(_norm_text)
+    if "ID" not in gt.columns:
+        raise ValueError("gt.csv must have column 'ID'")
+    if "Nr" not in pr.columns:
+        raise ValueError("preds.csv must have column 'Nr'")
 
-    map_by_id_can: Dict[str, str] = {}
-    map_by_name: Dict[str, str] = {}
-    for _, r in mp.iterrows():
-        if r["Nr_can"]:
-            map_by_id_can[r["Nr_can"]] = r["room_n"]
-        if r["room_n"]:
-            map_by_name[r["room_n"]] = r["Nr_can"]
-
-    gt_ids_can = set(k.lstrip("0") or "0" for k in gt_by_id_str.keys())
-    map_ids_can = set(map_by_id_can.keys())
-    id_diff = gt_ids_can ^ map_ids_can
-    name_diff = set(gt_by_name.keys()) ^ set(map_by_name.keys())
-    if id_diff or name_diff:
-        print("GT and mapping differ for this project.")
-        if id_diff:
-            print("  ID symmetric diff (showing up to 10):", sorted(list(id_diff))[:10])
-        if name_diff:
-            print("  NAME symmetric diff (up to 10):", sorted(list(name_diff))[:10])
-
-    rep = pd.read_csv(report_csv, dtype=str).fillna("")
-    rep["Nr_str"] = rep["Nr"].astype(str).str.strip()
-    rep["Nr_int"] = rep["Nr_str"].map(_to_int_or_none)
-    rep["Nr_can"] = rep["Nr_str"].map(_canon_id_str)
-    rep["pred_room_n"] = rep["MatchedRoomtype"].map(_norm_text)
-
-    if "GT_ID" in rep.columns:
-        rep["GT_ID_display"] = rep["GT_ID"].astype(str).str.strip()
-    else:
-        rep["GT_ID_display"] = rep["pred_room_n"].map(
-            lambda n: (
-                ""
-                if n == ""
-                else (
-                    (
-                        ""
-                        if gt_by_name.get(n) is None and map_by_name.get(n) is None
-                        else str(gt_by_name.get(n, map_by_name.get(n)))
-                    )
-                )
-            )
+    # Keep row order, trim to common length if needed
+    n = min(len(gt), len(pr))
+    if len(gt) != len(pr):
+        print(
+            f"⚠️ Length mismatch: gt={len(gt)} rows, preds={len(pr)} rows. Comparing first {n} rows in order."
         )
 
-    def id_in_gt(row) -> bool:
-        i = row["Nr_int"]
-        s = row["Nr_can"]
-        return (i in gt_by_id_int) or (s in gt_by_id_str if s is not None else False)
+    gt_can = gt.loc[: n - 1, "ID"].map(_canon_id_str)
+    pr_can = pr.loc[: n - 1, "Nr"].map(_canon_id_str)
 
-    def expected_name_from_id(row) -> Optional[str]:
-        i = row["Nr_int"]
-        s = row["Nr_can"]
-        if i in gt_by_id_int:
-            return gt_by_id_int[i]
-        if s in gt_by_id_str:
-            return gt_by_id_str[s]
-        return None
+    same = gt_can == pr_can
+    acc = float(same.mean()) if n else 0.0
 
-    rep["Nr_valid"] = rep.apply(id_in_gt, axis=1)
-    rep["Text_valid"] = rep["pred_room_n"].map(lambda n: n in gt_by_name)
+    print("=== Evaluation Summary (order-only, ID vs Nr) ===")
+    print(f"{'rows_compared':>16}: {n}")
+    print(f"{'match_rate':>16}: {acc:.4f}")
 
-    rep["Expected_name_from_ID"] = rep.apply(expected_name_from_id, axis=1)
-    rep["Expected_ID_from_name"] = rep["pred_room_n"].map(lambda n: gt_by_name.get(n))
-
-    rep["Consistent"] = (
-        rep["Nr_valid"]
-        & rep["Text_valid"]
-        & (rep["Expected_name_from_ID"] == rep["pred_room_n"])
-        & (
-            rep["Expected_ID_from_name"].fillna(-1).astype(int)
-            == rep["Nr_int"].fillna(-2).astype(int)
-        )
+    # Build a detailed table for return/debug
+    out = pd.DataFrame(
+        {
+            "Row": range(n),
+            "GT_ID_raw": gt.loc[: n - 1, "ID"].to_list(),
+            "PRED_Nr_raw": pr.loc[: n - 1, "Nr"].to_list(),
+            "GT_ID": gt_can.to_list(),
+            "PRED_Nr": pr_can.to_list(),
+            "Match": same.to_list(),
+        }
     )
 
-    total = len(rep)
-    strict_acc = float(rep["Consistent"].mean()) if total else 0.0
-    id_only_acc = float(rep["Nr_valid"].mean()) if total else 0.0
-    text_only_acc = float(rep["Text_valid"].mean()) if total else 0.0
+    # If these exist in preds, include for context
+    for col in ["Raum-Bezeichnung", "MatchedRoomtype"]:
+        if col in pr.columns:
+            out[col] = pr.loc[: n - 1, col].to_list()
 
-    print("=== Evaluation Summary (per report row) ===")
-    print(f"{'rows':>16}: {total}")
-    print(f"{'strict_accuracy':>16}: {strict_acc:.4f}  (ID↔Name must agree)")
-    print(f"{'id_valid_rate':>16}: {id_only_acc:.4f}")
-    print(f"{'text_valid_rate':>16}: {text_only_acc:.4f}")
+    mism = out[~out["Match"]].copy()
 
-    expected_from_mapping = rep["Nr_can"].map(lambda s: map_by_id_can.get(s or "", ""))
-    mism = rep[~rep["Consistent"]].copy()
-    mism["Expected_room_from_mapping"] = expected_from_mapping
-    cols = [
-        "RowIndex",
-        "Raum-Bezeichnung",
-        "MatchedRoomtype",
-        "Nr",
-        "GT_ID_display",
-        "Expected_room_from_mapping",
-    ]
     print("\n=== Sample mismatches (up to 20) ===")
-    print(mism[cols].head(20).to_string(index=False))
+    show_cols = [
+        c
+        for c in ["Row", "GT_ID", "PRED_Nr", "Raum-Bezeichnung", "MatchedRoomtype"]
+        if c in out.columns
+    ]
+    if mism.empty:
+        print("(none)")
+    else:
+        print(mism[show_cols].head(20).to_string(index=False))
 
+    # Simple confusion-style counts of (gt_id, pred_id)
     conf = (
-        rep.assign(gt_norm=rep["Expected_name_from_ID"], pred_norm=rep["pred_room_n"])
-        .value_counts(["gt_norm", "pred_norm"])
+        out.assign(gt_id=out["GT_ID"], pred_id=out["PRED_Nr"])
+        .value_counts(["gt_id", "pred_id"])
         .reset_index(name="count")
         .sort_values("count", ascending=False)
     )
-    return rep, conf
+
+    return out, conf
 
 
 if __name__ == "__main__":
     project_number = "5"
-
     gt_path = Path(f"data/evals/gt/gt_{project_number}.csv")
-    report_path = Path(f"data/evals/preds/preds_{project_number}.csv")
-    mapping_path = Path(f"data/evals/mappings/mapping_{project_number}.csv")
+    preds_path = Path(f"data/evals/preds/preds_{project_number}.csv")
 
-    detailed, confusion = evaluate(gt_path, report_path, mapping_path)
-    print("\nTop (gt_norm, pred_norm) pairs")
+    detailed, confusion = evaluate(gt_path, preds_path)
+    print("\nTop (GT_ID, PRED_Nr) pairs")
     print(confusion.head(15).to_string(index=False))
