@@ -1,7 +1,7 @@
 'use client';
 
 import { DraftingCompass } from 'lucide-react';
-import { UploadArea } from '@/components/UploadArea';
+import { HomeUploadArea } from '@/components/HomeUploadArea';
 import { useAnalysis } from '@/contexts/AnalysisContext';
 
 export function HomeView() {
@@ -38,7 +38,7 @@ export function HomeView() {
         </p>
 
         {/* Upload Area */}
-        <UploadArea onFileSelect={handleFileSelect} />
+        <HomeUploadArea onFileSelect={handleFileSelect} />
 
         {/* How it works */}
         <div className="mt-8 pt-6 border-t border-gray-200">
@@ -54,7 +54,7 @@ export function HomeView() {
                 Datei hochladen
               </h3>
               <p className="text-xs text-text-secondary">
-                Laden Sie Ihre Excel-Leistungsermittlung hoch
+                Laden Sie Ihre Excel-Planungstabellen hoch
               </p>
             </div>
             <div>
@@ -65,7 +65,7 @@ export function HomeView() {
                 KI-Analyse
               </h3>
               <p className="text-xs text-text-secondary">
-                Unsere KI optimiert Raumtypen und prognostiziert den Energieverbrauch
+                Unsere KI bestimmt automatisch die Raumtypen und prognostiziert den Energieverbrauch
               </p>
             </div>
             <div>

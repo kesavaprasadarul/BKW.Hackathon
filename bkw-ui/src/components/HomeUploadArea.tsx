@@ -3,17 +3,17 @@
 import { X, Flame, Wind } from 'lucide-react';
 import { useState, useRef, DragEvent, ChangeEvent } from 'react';
 
-interface UploadAreaProps {
+interface HomeUploadAreaProps {
   onFileSelect: (file1: File, file2: File) => void;
   acceptedFormats?: string[];
   maxSizeMB?: number;
 }
 
-export function UploadArea({
+export function HomeUploadArea({
   onFileSelect,
   acceptedFormats = ['.xlsx', '.xls'],
   maxSizeMB = 10,
-}: UploadAreaProps) {
+}: HomeUploadAreaProps) {
   const [isDragging1, setIsDragging1] = useState(false);
   const [isDragging2, setIsDragging2] = useState(false);
   const [selectedFile1, setSelectedFile1] = useState<File | null>(null);
@@ -160,7 +160,6 @@ export function UploadArea({
     }
   };
 
-
   return (
     <div className="max-w-5xl mx-auto">
       <input
@@ -182,7 +181,7 @@ export function UploadArea({
         {/* File 1 Upload Area - Heating/Cooling */}
         <div>
           <h3 className="text-sm font-semibold text-text-primary mb-2 flex items-center gap-2">
-            Kälte und Heizung (KLT/HZG)
+             Raumtypen
           </h3>
           {!selectedFile1 ? (
             <div
@@ -203,7 +202,7 @@ export function UploadArea({
             >
               <Flame className="w-8 h-8 mx-auto text-primary-blue mb-2" />
               <p className="text-sm font-medium text-text-primary mb-1">
-                KLT/HZG hochladen
+                Raumtypen hochladen
               </p>
               <p className="text-xs text-text-secondary">
                 Ziehen Sie Ihre Datei hierher
@@ -246,7 +245,7 @@ export function UploadArea({
         {/* File 2 Upload Area - Ventilation */}
         <div>
           <h3 className="text-sm font-semibold text-text-primary mb-2 flex items-center gap-2">
-            Raumlüftung (RLT)
+            Leistungsermittlung (Technisches Raumbuch)
           </h3>
           {!selectedFile2 ? (
             <div
@@ -267,7 +266,7 @@ export function UploadArea({
             >
               <Wind className="w-8 h-8 mx-auto text-primary-blue mb-2" />
               <p className="text-sm font-medium text-text-primary mb-1">
-                RLT hochladen
+                Leistungsermittlung hochladen
               </p>
               <p className="text-xs text-text-secondary">
                 Ziehen Sie Ihre Datei hierher
@@ -306,7 +305,6 @@ export function UploadArea({
             </div>
           )}
         </div>
-
       </div>
     </div>
   );
