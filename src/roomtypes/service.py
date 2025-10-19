@@ -79,6 +79,9 @@ def process(
     ]
     cache = load_cache(cfg.cache_path)
 
+    def use_fts() -> bool:
+        return (cfg.matching_mode or "hybrid").lower() == "hybrid"
+
     report_rows: List[dict] = []
 
     wb = load_wb(target_xlsx)
@@ -106,70 +109,72 @@ def process(
             key_for_row[r] = qkey
 
             hit = cache.get(qkey)
-            if (
-                hit
-                and float(hit.get("confidence", 0.0)) >= cfg.ai_threshold
-                and hit.get("nr")
-            ):
-                val = convert_to_int(hit["nr"])
-                ws.cell(row=r, column=nr_col).value = val
-                report_rows.append(
-                    {
-                        "Sheet": ws.title,
-                        "RowIndex": r,
-                        "Raum-Bezeichnung": q,
-                        "MatchedRoomtype": hit.get("roomtype", ""),
-                        "Nr": hit.get("nr", ""),
-                        "Score": round(float(hit.get("confidence", 0.0)), 4),
-                        "Method": "cache",
-                        "AI_Confidence": round(float(hit.get("confidence", 0.0)), 4),
-                        "AI_Rationale": hit.get("rationale", ""),
-                        "Accepted": True,
-                    }
-                )
-                continue
+            if hit:
+                conf = float(hit.get("confidence", 0.0))
+                is_fts_hit = (hit.get("rationale") or "").strip().lower() == "fts"
+                cache_hit_allowed = conf >= cfg.ai_threshold and hit.get("nr")
+                if cache_hit_allowed and (use_fts() or not is_fts_hit):
+                    val = convert_to_int(hit["nr"])
+                    ws.cell(row=r, column=nr_col).value = val
+                    report_rows.append(
+                        {
+                            "Sheet": ws.title,
+                            "RowIndex": r,
+                            "Raum-Bezeichnung": q,
+                            "MatchedRoomtype": hit.get("roomtype", ""),
+                            "Nr": hit.get("nr", ""),
+                            "Score": round(conf, 4),
+                            "Method": "cache",
+                            "AI_Confidence": round(conf, 4),
+                            "AI_Rationale": hit.get("rationale", ""),
+                            "Accepted": True,
+                        }
+                    )
+                    continue
 
-            nr, rt, score, _, _ = best_match_fulltext(q, mapping, cfg.top_k)
-            if score >= cfg.fts_threshold and nr:
-                val = convert_to_int(nr)
-                ws.cell(row=r, column=nr_col).value = val
-                report_rows.append(
-                    {
-                        "Sheet": ws.title,
-                        "RowIndex": r,
-                        "Raum-Bezeichnung": q,
-                        "MatchedRoomtype": rt,
-                        "Nr": nr,
-                        "Score": round(float(score), 4),
-                        "Method": "fts",
-                        "AI_Confidence": None,
-                        "AI_Rationale": "fts",
-                        "Accepted": True,
+            if use_fts():
+                nr, rt, score, _, _ = best_match_fulltext(q, mapping, cfg.top_k)
+                if score >= cfg.fts_threshold and nr:
+                    val = convert_to_int(nr)
+                    ws.cell(row=r, column=nr_col).value = val
+                    report_rows.append(
+                        {
+                            "Sheet": ws.title,
+                            "RowIndex": r,
+                            "Raum-Bezeichnung": q,
+                            "MatchedRoomtype": rt,
+                            "Nr": nr,
+                            "Score": round(float(score), 4),
+                            "Method": "fts",
+                            "AI_Confidence": None,
+                            "AI_Rationale": "fts",
+                            "Accepted": True,
+                        }
+                    )
+                    fts_cache_updates[qkey] = {
+                        "nr": nr,
+                        "roomtype": rt,
+                        "confidence": float(score),
+                        "rationale": "fts",
                     }
-                )
-                fts_cache_updates[qkey] = {
-                    "nr": nr,
-                    "roomtype": rt,
-                    "confidence": float(score),
-                    "rationale": "fts",
+                    continue
+
+            unresolved_row_idxs.append(r)
+            unresolved_queries.append(q)
+            report_rows.append(
+                {
+                    "Sheet": ws.title,
+                    "RowIndex": r,
+                    "Raum-Bezeichnung": q,
+                    "MatchedRoomtype": "",
+                    "Nr": "",
+                    "Score": 0.0,
+                    "Method": "pending",
+                    "AI_Confidence": None,
+                    "AI_Rationale": "",
+                    "Accepted": False,
                 }
-            else:
-                unresolved_row_idxs.append(r)
-                unresolved_queries.append(q)
-                report_rows.append(
-                    {
-                        "Sheet": ws.title,
-                        "RowIndex": r,
-                        "Raum-Bezeichnung": q,
-                        "MatchedRoomtype": "",
-                        "Nr": "",
-                        "Score": 0.0,
-                        "Method": "pending",
-                        "AI_Confidence": None,
-                        "AI_Rationale": "",
-                        "Accepted": False,
-                    }
-                )
+            )
 
         if unresolved_queries:
             ai_results = ai.choose_roomtypes(
@@ -213,12 +218,24 @@ def process(
                                 "Nr": nr_val if accepted else (nr_val or ""),
                                 "Score": round(conf, 4),
                                 "Method": (
-                                    "gemini"
-                                    if accepted
+                                    (
+                                        "gemini"
+                                        if accepted
+                                        else (
+                                            "gemini_low_conf"
+                                            if nr_val
+                                            else "gemini_no_answer"
+                                        )
+                                    )
+                                    if use_fts()
                                     else (
-                                        "gemini_low_conf"
-                                        if nr_val
-                                        else "gemini_no_answer"
+                                        "llm_only"
+                                        if accepted
+                                        else (
+                                            "llm_only_low_conf"
+                                            if nr_val
+                                            else "llm_only_no_answer"
+                                        )
                                     )
                                 ),
                                 "AI_Confidence": round(conf, 4),

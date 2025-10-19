@@ -14,3 +14,4 @@ class Cfg:
     top_k: int = 25
     batch_size: int = 25
     cache_path: Path = Path("cache/roomtype_gemini_cache.json")
+    matching_mode: str = "hybrid"  # hybrid, llm_only
