@@ -1,13 +1,14 @@
 'use client';
 
-import { DraftingCompass, Download, Building, Target, Upload } from 'lucide-react';
+import { DraftingCompass, Download, Building, Target, Upload, FileText, Table } from 'lucide-react';
 import { IntermediateUploadArea } from '@/components/IntermediateUploadArea';
 import { MetricCard } from '@/components/MetricCard';
 import { FadeIn } from '@/components/FadeIn';
 import { useAnalysis } from '@/contexts/AnalysisContext';
 
 export function IntermediateStepView() {
-  const { setUploadedFiles, setCurrentStep } = useAnalysis();
+  const { setUploadedFiles, setCurrentStep, state } = useAnalysis();
+  const { roomTypeData } = state;
 
   const handleFileSelect = (file1: File, file2: File) => {
     setUploadedFiles(file1, file2);
@@ -17,28 +18,37 @@ export function IntermediateStepView() {
     }, 500);
   };
 
-  const handleExport = () => {
-    // Create a mock intermediate file for download
-    const data = {
-      roomsMatched: 89,
-      averageCertainty: 94.2,
-      timestamp: new Date().toISOString(),
-      analysisResults: {
-        totalRooms: 52,
-        matchedRooms: 46,
-        confidence: 94.2
+  const downloadFile = async (filePath: string, filename: string) => {
+    try {
+      const response = await fetch(`http://localhost:8000/download?file=${encodeURIComponent(filePath)}`);
+      if (response.ok) {
+        const blob = await response.blob();
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+      } else {
+        console.error('Failed to download file:', response.statusText);
       }
-    };
-    
-    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = `intermediate-analysis-${new Date().toISOString().split('T')[0]}.json`;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error('Error downloading file:', error);
+    }
+  };
+
+  const handleDownloadReport = () => {
+    if (roomTypeData?.report_csv) {
+      downloadFile(roomTypeData.report_csv, 'room-type-report.csv');
+    }
+  };
+
+  const handleDownloadOutput = () => {
+    if (roomTypeData?.output_xlsx) {
+      downloadFile(roomTypeData.output_xlsx, 'classified-rooms.xlsx');
+    }
   };
 
   const handleImport = () => {
@@ -78,32 +88,41 @@ export function IntermediateStepView() {
           <FadeIn delay={200} duration={400}>
             <MetricCard
               icon={Building}
-              title="Räume zugeordnet"
-              value="89%"
-              delta="46 von 52 Räumen"
+              title="Räume verarbeitet"
+              value={roomTypeData?.rows?.toString() || "0"}
+              delta="Klassifizierte Räume"
               deltaType="positive"
             />
           </FadeIn>
           <FadeIn delay={350} duration={400}>
             <MetricCard
               icon={Target}
-              title="Durchschnittliche Genauigkeit"
-              value="94.2%"
-              delta="KI-Konfidenz"
+              title="Verarbeitung abgeschlossen"
+              value="100%"
+              delta={roomTypeData?.message || "Erfolgreich"}
               deltaType="positive"
             />
           </FadeIn>
         </div>
 
-        {/* Export Button */}
+        {/* Download Buttons */}
         <FadeIn delay={500} duration={400}>
-          <div className="flex justify-center mb-6">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
             <button
-              onClick={handleExport}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-primary-blue text-white rounded-lg hover:bg-primary-blue/90 transition-colors"
+              onClick={handleDownloadReport}
+              disabled={!roomTypeData?.report_csv}
+              className="inline-flex items-center gap-2 px-4 py-2 bg-primary-blue text-white rounded-lg hover:bg-primary-blue/90 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed"
             >
-              <Download className="w-4 h-4" />
-              Zwischenergebnisse exportieren
+              <FileText className="w-4 h-4" />
+              Report CSV herunterladen
+            </button>
+            <button
+              onClick={handleDownloadOutput}
+              disabled={!roomTypeData?.output_xlsx}
+              className="inline-flex items-center gap-2 px-4 py-2 bg-success-green text-white rounded-lg hover:bg-success-green/90 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed"
+            >
+              <Table className="w-4 h-4" />
+              Klassifizierte Excel-Datei herunterladen
             </button>
           </div>
         </FadeIn>

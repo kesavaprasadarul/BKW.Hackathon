@@ -24,7 +24,6 @@ export function HomeView() {
       setCurrentStep('intermediate');
     } catch (error) {
       console.error('Error classifying room types:', error);
-      // Handle error - you might want to show an error message to the user
       setCurrentStep('home');
     } finally {
       setProcessing(false);
